@@ -26,6 +26,7 @@
 		$email = sS($_POST['email']);
 		$pass = sS($_POST['pass']);
 		$question = sS($_POST['question']);
+		$question2 = sS($_POST['question2']);
 		if($email == '' || $pass == '' || $question == ''){
 			$error = $lang['NotAll'];
 		}
@@ -36,7 +37,7 @@
 			}
 			else{
 				$hpass = hash('ripemd128', "$salt1$pass$salt2");
-				qM("INSERT INTO `members`(`email`,`pass`, `question1`) VALUES ('$email', '$hpass', '$question')");
+				qM("INSERT INTO `members`(`email`,`pass`, `question1`, `question2`) VALUES ('$email', '$hpass', '$question', '$question2')");
 				qM("INSERT INTO `profile`(`email`) VALUES ('$email')");
 				die($lang['AccCreated']);
 			}
@@ -57,6 +58,10 @@
 			
 			<label class="fieldname" for="question"><?php echo $lang['Question']?></label>
 			<input type="text" name="question" id="question" value="" maxlength="30">
+			<br>
+			
+			<label class="fieldname" for="question"2><?php echo $lang['Question2']?></label>
+			<input type="text" name="question2" id="question2" value="" maxlength="30">
 			<br>
 			
 			<label class="fieldname">&nbsp;</label>

@@ -12,6 +12,7 @@
 	$lang['Email'] = 'Email address';
 	$lang['Pass'] = 'Password';
 	$lang['Question'] = 'Do you even lift bro?'; //nesto normalnije
+	$lang['Question2'] = 'Max bench:';
 	$lang['NotAll'] = 'Not all fields were entered';
 	$lang['AccCreated'] = '<h4>Account created</h4>Please log in';
 	$lang['Wrong'] = 'Email address is not valid.';
