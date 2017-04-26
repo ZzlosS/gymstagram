@@ -24,13 +24,10 @@
 				`last_name` VARCHAR(5) DEFAULT "",
 				`information` VARCHAR(4096) DEFAULT "",
 				`date_update` DATETIME,
-				`pic_path` VARCHAR(50),
+				`pic_path` VARCHAR(50) DEFAULT "",
 				PRIMARY KEY(`id`)');
 		
-		//aT('`profile`','`date_update`','DATETIME');
-		//aT('`profile`','`pic_path`','VARCHAR(50)');
-	
-		//aT('`members`', '`question1`', 'VARCHAR(30)');
+		
 		
 		if(!is_dir("images")){
 			mkdir("images", 0777);

@@ -7,7 +7,7 @@ $result = qM("SELECT * FROM `profile` WHERE `email`='$email'");
 if($result->num_rows){
 	$row = $result->fetch_array(MYSQL_ASSOC);
 	$name = $row['name'];
-	$lname = $row['lastname'];
+	$lname = $row['last_name'];
 	$info = $row['information'];
 }
 
@@ -24,13 +24,18 @@ if(isset($_POST['name']) && isset($_POST['lname'])){
 	$name = preg_replace("/[^a-zA-Z]+/", "", $name);
 	$lname = sS($_POST['lname']);
 	$lname = preg_replace("/[^a-zA-Z]+/", "", $lname);
-	qM("UPDATE `profile` SET `name`='$name', `lastname`='$lname' WHERE `email`='$email'");
+	qM("UPDATE `profile` SET `name`='$name', `last_name`='$lname' WHERE `email`='$email'");
 	echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
+}
+
+if(!is_dir("images/$id")){
+	mkdir("images/$id", 0777);
 }
 
 if(!is_dir("images/$id/profile")){
 	mkdir("images/$id/profile", 0777);
 } //resize image da dodam
+
 if(isset($_FILES['image']['name'])){
 	$saveto = "images/$id/profile/".$id.".jpg";
 	$date = date("Y-m-d H:i:s");

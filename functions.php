@@ -4,11 +4,14 @@
 	$dbpass = 'gym';
 	$dbuser = 'gym';
 	$appname = "Gym";
+
+	$dbuserR = 'robinsnest';
+	$dbpassR = 'rnpassword';
 	
 	$salt1 = "qm&h*";
 	$salt2 = "pg!@";
 	
-	$connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+	$connection = new mysqli($dbhost, $dbuserR, $dbpassR, $dbname);
 	if($connection->connect_error){
 		die($connection->connect_error);
 	}
