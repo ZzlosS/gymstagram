@@ -48,6 +48,8 @@
 			<?php echo $error3 ?>
 			<br>
 			
+			<a href="passchange.php"><?php echo $lang['FPass']?></a><br>
+			
 			<label class="fieldname">&nbsp;</label>
 			<input type="submit" value="<?php echo $lang['Login']?>">
 		</form>

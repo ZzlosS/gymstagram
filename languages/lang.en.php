@@ -26,6 +26,7 @@
 	$lang['EditP'] = 'Enter or edit your details';
 	$lang['FName'] = 'First name';
 	$lang['LName'] = 'Last name';
+	$lang['GName'] = 'Gym name';
 	$lang['Image'] = 'Image';
 	$lang['SP'] = 'Save Profile';
 	$lang['CP'] = 'Change Profile';
@@ -36,5 +37,6 @@
 	$lang['Profile'] = 'Profile';
 	$lang['Logout'] = 'Log out';
 	$lang['PInformation'] = 'Profile information';
+	$lang['FPass'] = 'Forgot your password?';
 			
 ?>

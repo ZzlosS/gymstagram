@@ -9,6 +9,7 @@ if($result->num_rows){
 	$name = $row['name'];
 	$lname = $row['last_name'];
 	$info = $row['information'];
+	$gname = $row['gym_name'];
 }
 
 if(isset($_POST['info'])){
@@ -20,12 +21,14 @@ if(isset($_POST['info'])){
 }
 
 if(isset($_POST['name']) && isset($_POST['lname'])){
+	$gname = sS($_POST['gname']);
+	$gname = preg_replace('/\s+/', '_', $gname);
 	$name = sS($_POST['name']);
 	$name = preg_replace("/[^a-zA-Z]+/", "", $name);
 	$lname = sS($_POST['lname']);
 	$lname = preg_replace("/[^a-zA-Z]+/", "", $lname);
-	qM("UPDATE `profile` SET `name`='$name', `last_name`='$lname' WHERE `email`='$email'");
-	echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
+	qM("UPDATE `profile` SET `name`='$name', `last_name`='$lname', `gym_name`='$gname' WHERE `email`='$email'");
+	//echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
 }
 
 if(!is_dir("images/$id")){

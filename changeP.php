@@ -10,6 +10,9 @@
 			<form method="post" action="profile.php" enctype="multipart/form-data">
 				<h3><?php echo $lang['EditP']?></h3>
 				
+				<label><?php echo $lang['GName']?>:</label>
+		        <input type="text" id="gname" name = "gname" value="<?php echo $gname ?>"><br>
+				
 				<label><?php echo $lang['FName']?>:</label>
 		        <input type="text" id="name" name = "name" value="<?php echo $name ?>"><br>
 		        

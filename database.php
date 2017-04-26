@@ -21,6 +21,7 @@
 		cT('`profile`', 
 				'`id` INT UNSIGNED AUTO_INCREMENT,
 				`email` VARCHAR(50) NOT NULL,
+				`gym_name` VARCHAR(20) DEFAULT"",
 				`name` VARCHAR(50) DEFAULT "",
 				`last_name` VARCHAR(50) DEFAULT "",
 				`information` VARCHAR(4096) DEFAULT "",
@@ -28,6 +29,7 @@
 				`pic_path` VARCHAR(50) DEFAULT "",
 				PRIMARY KEY(`id`)');
 		
+		//aT('`profile`', 'gym_name', 'VARCHAR(20) DEFAULT ""');
 		
 		if(!is_dir("images")){
 			mkdir("images", 0777);
