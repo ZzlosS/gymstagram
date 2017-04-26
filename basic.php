@@ -54,7 +54,7 @@
 	<ul class="menu">
   		<li> <a href="members.php?id=<?php echo $id?>"><?php echo $lang['Home'];?></a> </li>
   		<li> <a href="members.php"><?php echo $lang['Members'];?></a> </li>
-  		<li> <a href="galery.php"><?php echo $lang['Galery'];?></a> </li>
+  		<li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
   		<li> <a href="friends.php"><?php echo $lang['Friends'];?></a> </li>
   		<li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
   		<li> <a href="profile.php"><?php echo $lang['Profile'];?></a> </li>

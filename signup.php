@@ -27,7 +27,7 @@
 		$pass = sS($_POST['pass']);
 		$question = sS($_POST['question']);
 		$question2 = sS($_POST['question2']);
-		if($email == '' || $pass == '' || $question == ''){
+		if($email == '' || $pass == '' || $question == '' || $question2 == ''){
 			$error = $lang['NotAll'];
 		}
 		else{
@@ -60,7 +60,7 @@
 			<input type="text" name="question" id="question" value="" maxlength="30">
 			<br>
 			
-			<label class="fieldname" for="question"2><?php echo $lang['Question2']?></label>
+			<label class="fieldname" for="question2"><?php echo $lang['Question2']?></label>
 			<input type="text" name="question2" id="question2" value="" maxlength="30">
 			<br>
 			

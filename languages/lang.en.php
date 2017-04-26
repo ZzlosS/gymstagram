@@ -30,7 +30,7 @@
 	$lang['SP'] = 'Save Profile';
 	$lang['CP'] = 'Change Profile';
 	$lang['Members'] = 'Members';
-	$lang['Galery'] = 'Galery';
+	$lang['Gallery'] = 'Gallery';
 	$lang['Friends'] = 'Friends';
 	$lang['Messages'] = 'Messages';
 	$lang['Profile'] = 'Profile';
