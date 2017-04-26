@@ -3,7 +3,7 @@
 	$dbname = 'gym';
 	$dbpass = 'gym';
 	$dbuser = 'gym';
-	$appname = "Gym";
+	$appname = "Gymstagram";
 
 	$dbuserR = 'robinsnest';
 	$dbpassR = 'rnpassword';

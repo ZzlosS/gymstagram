@@ -12,6 +12,7 @@
 		
 		cT('`members`', 
 				'`id` INT UNSIGNED AUTO_INCREMENT,
+				`gym_name` VARCHAR(20) DEFAULT "",
 				`email` VARCHAR(50) NOT NULL,
 				`pass` VARCHAR(50) NOT NULL,
 				`question1` VARCHAR(30) NOT NULL,
@@ -20,8 +21,8 @@
 		
 		cT('`profile`', 
 				'`id` INT UNSIGNED AUTO_INCREMENT,
+				`gym_name` VARCHAR(20) DEFAULT "",
 				`email` VARCHAR(50) NOT NULL,
-				`gym_name` VARCHAR(20) DEFAULT"",
 				`name` VARCHAR(50) DEFAULT "",
 				`last_name` VARCHAR(50) DEFAULT "",
 				`information` VARCHAR(4096) DEFAULT "",

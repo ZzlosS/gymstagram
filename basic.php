@@ -14,13 +14,8 @@
 		$result = qM("SELECT * FROM `profile` WHERE `email`='$email'");
 		if($result->num_rows){
 			$row = $result->fetch_array(MYSQL_ASSOC);
-			$fname = $row['name'];
-			if($fname == ''){
-				$userstr = " ($email)";
-			}
-			else{
-			$userstr = " ($fname)";
-			}
+			$gname = $row['gym_name'];
+			$userstr = " (@$gname)";
 		}
 	}
 	else{

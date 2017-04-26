@@ -3,13 +3,33 @@
 	$email = $pass = $error1 = $error2 = $error3 = '';
 	if(isset($_POST['email'])){
 		$email = sS($_POST['email']);
+		$gname = sS($_POST['email']);
 		$pass = sS($_POST['pass']);
-		if($email == '' || $pass == ''){
+		if($gname == '' || $email == '' || $pass == ''){
 			$error1 = $lang['NotAll'];
 		}
 		else{
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-				$error2 = $lang['Wrong'];
+			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){//ako je lose uneta sifra onda je gym_name uneto
+				$result2 = qM("SELECT * FROM `members` WHERE `gym_name`='$gname'");
+				$row2 = $result2->fetch_assoc();
+				$email = $row2['email'];
+				$hpass = hash('ripemd128', "$salt1$pass$salt2");
+				$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
+				if($result->num_rows == 0){
+					$error2 = $lang['GNotInUse'];
+				}
+				else{
+					$row = $result->fetch_assoc();
+					if($row['pass'] != $hpass){
+						$error3 = $lang['PassInvalid'];
+					}
+					else{
+						$id = $row['id'];
+						$_SESSION['id'] = $id;
+						$_SESSION['email'] = $email;
+						die($lang['LoggedIn']);
+					}
+				}
 			}
 			else{
 				$hpass = hash('ripemd128', "$salt1$pass$salt2");
