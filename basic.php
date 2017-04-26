@@ -43,8 +43,8 @@
 	<span class="info">&#8658; <?php echo $lang['NotLogged'];?></span>
 <?php } else{?>
 	<div id="languages">
-		<a href="index.php?lang=en"><img src="languages/en.png" /></a>
-		<a href="index.php?lang=sr"><img src="languages/sr.png" /></a>
+		<a href="profile.php?lang=en"><img src="languages/en.png" /></a>
+		<a href="profile.php?lang=sr"><img src="languages/sr.png" /></a>
 	</div>
 	<ul class="menu">
   		<li> <a href="members.php?id=<?php echo $id?>"><?php echo $lang['Home'];?></a> </li>
@@ -53,7 +53,7 @@
   		<li> <a href="friends.php"><?php echo $lang['Friends'];?></a> </li>
   		<li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
   		<li> <a href="profile.php"><?php echo $lang['Profile'];?></a> </li>
-  		<li> <a href="logout.php"><?php echo $lang['Logout'];?></a> </li>
+  		<li> <a href="logout.php?page=index.php"><?php echo $lang['Logout'];?></a> </li>
 	</ul><br>
 
 

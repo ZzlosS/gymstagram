@@ -20,9 +20,9 @@
 	$lang['NotInUse'] = 'There is no account with that email address';
 	$lang['GNotInUse'] = 'There is no account with that gym name';
 	$lang['PassInvalid'] = 'Password is not correct';
-	$lang['LoggedIn'] = 'You are now logged in. Please <a href="profile.php?view=$id">click here</a> to continue.<br>';
-	$lang['loggedOut'] = '<div class="main">You have been logged out. Please <a href="index.php">click here</a> to refresh the screen.';
-	$lang['CantLogOut'] = '<div class="main">You cannont log out because you are not logged in.';
+	//$lang['LoggedIn'] = 'You are now logged in. Please <a href="profile.php?view=$id">click here</a> to continue.<br>';
+	//$lang['loggedOut'] = '<div class="main">You have been logged out. Please <a href="index.php">click here</a> to refresh the screen.';
+	//$lang['CantLogOut'] = '<div class="main">You cannont log out because you are not logged in.';
 	$lang['YP'] = '<h3>Your Profile</h3>';
 	$lang['YPP'] = 'Your profile picture';
 	$lang['EditP'] = 'Enter or edit your details';

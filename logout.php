@@ -1,11 +1,13 @@
 <?php
 require_once 'basic.php';
-
+$page = $_GET['page'];
 if(isset($_SESSION['email'])){
 	dS();
-	echo $lang['loggedOut'];
+	
+	header('Location:' . $page);
+/*	echo $lang['loggedOut'];
 }
 else{
-	echo $lang['CantLogOut'];
+	echo $lang['CantLogOut'];*/
 }
 echo "<br></div></body></html>";

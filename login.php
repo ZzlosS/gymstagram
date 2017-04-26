@@ -22,12 +22,14 @@
 					$row = $result->fetch_assoc();
 					if($row['pass'] != $hpass){
 						$error3 = $lang['PassInvalid'];
+						$email = $gname;//da ne ispise email adresu u polju
 					}
 					else{
 						$id = $row['id'];
 						$_SESSION['id'] = $id;
 						$_SESSION['email'] = $email;
-						die($lang['LoggedIn']);
+						//die($lang['LoggedIn']);
+						header('Location: profile.php');
 					}
 				}
 			}
@@ -46,7 +48,8 @@
 						$id = $row['id'];
 						$_SESSION['id'] = $id;
 						$_SESSION['email'] = $email;
-						die($lang['LoggedIn']);
+						//die($lang['LoggedIn']);
+						header('Location: profile.php');
 					}
 				}
 			}
