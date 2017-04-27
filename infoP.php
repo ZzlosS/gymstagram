@@ -33,7 +33,7 @@ if(isset($_POST['name']) && isset($_POST['lname'])){
 	$lname = sS($_POST['lname']);
 	$lname = preg_replace("/[^a-zA-Z]+/", "", $lname);
 	qM("UPDATE `profile` SET `name`='$name', `last_name`='$lname', `gym_name`='$gname' WHERE `email`='$email'");
-	//echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
+	echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
 }
 
 if(!is_dir("images/$id")){
@@ -68,7 +68,7 @@ if(isset($_FILES['image']['name'])){
 		list($w, $h) = getimagesize($saveto);
 		$max = 100;
 		$tw = $w;
-		$th = $h;
+		$th = $h;//da probam da dodam da se slika centrira u 100x100
 		if($w > $h && $w > $max){
 			$tw = $max;
 			$th = $h * $max / $w;
@@ -81,7 +81,7 @@ if(isset($_FILES['image']['name'])){
 			$tw = $th = $max;
 		}
 		$tmp = imagecreatetruecolor($tw, $th);
-		imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h);
+		imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h); //ovde
 		imageconvolution($tmp, array(array(-1, -1, -1),
 				array(-1, 16, 1),
 				array(-1, -1, -1)), 8, 0);
