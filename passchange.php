@@ -2,7 +2,15 @@
 require_once 'checklanguage.php';
 require_once 'functions.php';
 require_once 'basic.php';
-$error = $action = $dis = $npass = $rnpass = $done = $changed = '';
+
+if($loggedIn){
+	$loc = "changeP.php";
+}
+else{
+	$loc = "login.php";
+}
+		
+$error = $email = $question = $question2 = $npass = $rnpass = $done = $changed = '';
 if(isset($_POST['email'])){
 	$email = sS($_POST['email']);
 	$question = sS($_POST['question']);
@@ -52,20 +60,20 @@ if(isset($_POST['email'])){
 
 <html>
 	<body>
-		<form method="post" action="<?php echo $action?>">
+		<form method="post" action="">
 			
 			<h3><?php echo $lang['PC1']?></h3>
 			<label class="fieldname" for="email"><?php echo $lang['Email']?></label>
-			<input type="text" name="email" id="email" value="" maxlength="40">
+			<input type="text" name="email" id="email" value="<?php echo $email?>" maxlength="40">
 			<span id="ginfo"><?php echo $error ?></span>
 			<br>
 
 			<label class="fieldname" for="question"><?php echo $lang['Question']?></label>
-			<input type="text" name="question" id="question" value="" maxlength="30">
+			<input type="text" name="question" id="question" value="<?php echo $question?>" maxlength="30">
 			<br>
 			
 			<label class="fieldname" for="question2"><?php echo $lang['Question2']?></label>
-			<input type="text" name="question2" id="question2" value="" maxlength="30" >
+			<input type="text" name="question2" id="question2" value="<?php echo $question2?>" maxlength="30" >
 
 			<h3><?php echo $lang['PC2']?></h3>
 			<label class="fieldname" for="npass"><?php echo $lang['NPass']?>:</label>
@@ -75,7 +83,7 @@ if(isset($_POST['email'])){
 			<input type="password" name="rnpass" id="rnpass" value="" maxlength="30"><br>
 			
 			<input type="submit" value="<?php echo $lang['Confirm']?>">
-	<!--	<input type="button" value="<?php echo $lanh['BT']?>" onclick="window.location='login.php';" /><br><br>		-->
+			<input type="button" value="<?php echo $lang['BT']?>" onclick="window.location='<?php echo $loc?>';" /><br><br>
 			
 			<?php echo $changed ?>
 		</form>

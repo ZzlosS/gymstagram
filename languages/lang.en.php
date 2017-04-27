@@ -11,6 +11,7 @@
 	$lang['GUserTaken'] = ' This gym name is already in use';
 	$lang['UserAvailable'] = ' This username is available';
 	$lang['Email'] = 'Email address';
+	$lang['E'] = 'Email'; //+
 	$lang['Pass'] = 'Password';
 	$lang['NPass'] = 'New password';
 	$lang['RNPass'] = 'Retype new password';
@@ -37,6 +38,7 @@
 	$lang['Image'] = 'Image';
 	$lang['SP'] = 'Save Profile';
 	$lang['CP'] = 'Change Profile';
+	$lang['Cpass'] = 'Change password'; //+
 	$lang['Members'] = 'Members';
 	$lang['Gallery'] = 'Gallery';
 	$lang['Friends'] = 'Friends';
@@ -54,6 +56,6 @@
 	$lang['here'] = 'here';
 	$lang['PC1'] = 'Put the email and answer the security questions';
 	$lang['PC2'] = 'Reset your password';
-	$lanh['BT'] = 'Back to log in page';
+	$lang['BT'] = 'Go back';//+
 			
 ?>

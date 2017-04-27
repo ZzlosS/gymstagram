@@ -23,7 +23,10 @@
 				<input type="file" name="image" id="image"><br>
 				
 				<textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
-		        <input type="submit" value="<?php echo $lang['SP']?>">
+		        <input type="submit" value="<?php echo $lang['SP']?>"><br>
+		        
+		        <input type="button" value="<?php echo $lang['Cpass']?>" onclick="window.location='passchange.php';" />
+		     	
 			</form>
 		</div>
 	</body>
