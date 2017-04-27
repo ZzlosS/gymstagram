@@ -61,7 +61,7 @@
 			<?php echo $error1 ?>
 			<br>
 			
-			<label class="fieldname" for="email"><?php echo $lang['Email']?></label>
+			<label class="fieldname" for="email"><?php echo $lang['E']."/".$lang['GName']?></label>
 			<input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40">
 			<?php echo $error2 ?>
 			<br>
