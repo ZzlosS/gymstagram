@@ -64,7 +64,7 @@
 			<br>
 			
 			<label class="fieldname" for="pass"><?php echo $lang['Pass']?></label>
-			<input type="password" name="pass" id="pass" value="" maxlength="16">
+			<input type="password" name="pass" id="pass" value="" maxlength="30">
 		
 			
 			<h3><?php echo $lang['SQ']?>:</h3>
@@ -76,7 +76,6 @@
 			<input type="text" name="question2" id="question2" value="" maxlength="30">
 			<br>
 			
-			<label class="fieldname">&nbsp;</label>
 			<input type="submit" value="<?php echo $lang['Signup']?>">
 		</form>
 	</body>

@@ -67,13 +67,12 @@
 			<br>
 			
 			<label class="fieldname" for="pass"><?php echo $lang['Pass']?></label>
-			<input type="password" name="pass" id="pass" value="<?php echo $pass ?>" maxlength="16">
+			<input type="password" name="pass" id="pass" value="<?php echo $pass ?>" maxlength="30">
 			<?php echo $error3 ?>
 			<br>
 			
 			<a href="passchange.php"><?php echo $lang['FPass']?></a><br>
 			
-			<label class="fieldname">&nbsp;</label>
 			<input type="submit" value="<?php echo $lang['Login']?>">
 		</form>
 	</body>

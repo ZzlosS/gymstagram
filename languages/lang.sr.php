@@ -12,9 +12,14 @@
 	$lang['UserAvailable'] = ' Korisnicko ime je dostupno';
 	$lang['Email'] = 'Email adresa';
 	$lang['Pass'] = 'Sifra';
+	$lang['NPass'] = 'Nova sifra';
+	$lang['RNPass'] = 'Ponovo ukucaj novu sifru';
 	$lang['Question'] = 'Dizes li uopste?'; //nesto normalnije
 	$lang['Question2'] = 'Max bench:';
 	$lang['NotAll'] = 'Nisu popunjena sva polja';
+	$lang['NotAllC'] = 'Nisu tacna sva uneta polja';  //????
+	$lang['NotAllS'] = 'Nova i ponovo ukucana nova sifra moraju biti iste';  //????
+	$lang['OldNew'] = 'Stara i nova sifra ne mogu biti iste';
 	$lang['AccCreated'] = '<h4>Nalog je napravljen</h4>Molimo vas da se ulogujete';
 	$lang['Wrong'] = 'Uneta email adresa nije validna';
 	$lang['NotInUse'] = 'Ne postoji nalog sa tom email adresom';
@@ -40,8 +45,16 @@
 	$lang['Logout'] = 'Odjavi se';
 	$lang['PInformation'] = 'Informacije o profilu';
 	$lang['FPass'] = 'Zaboravio si sifru?';
-	$lang['SQ'] = 'Sigurnosna pitanja';
+	$lang['SQ'] = 'Odgovori na sigurnosna pitanja';
 	$lang['Registration'] = 'Popuni podatke za registraciju';
+	$lang['Confirm'] = 'Potvrdi';
+	//$lang['NYCC'] = 'Now you can change your password'; //+
+	//$lang['FTFA'] = 'Once you fill the form above you can change your password'; //+
+	$lang['PassChanged'] = 'Sifra je uspesno promenjena'; //'da bi se prijavio klikni ';
+	$lang['here'] = 'ovde';
+	$lang['PC1'] = 'Unesi email i odgovori na sigurnosna pitanja'; //+
+	$lang['PC2'] = 'Promeni sifru';
+	$lanh['BT'] = 'Vrati se na stranicu za prijavljivanje';
 	
 	
 ?>

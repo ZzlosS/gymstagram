@@ -40,7 +40,7 @@
 		<li><a href="signup.php"><?php echo $lang['Signup'];?></a></li>
 	</ul>
 	<br>
-	<span class="info">&#8658; <?php echo $lang['NotLogged'];?></span>
+	<!-- <span class="info">&#8658; <?php echo $lang['NotLogged'];?></span>  -->
 <?php } else{?>
 	<div id="languages">
 		<a href="profile.php?lang=en"><img src="languages/en.png" /></a>
