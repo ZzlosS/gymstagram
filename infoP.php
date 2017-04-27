@@ -11,6 +11,11 @@ if($result->num_rows){
 	$info = $row['information'];
 	$gname = $row['gym_name'];
 }
+$result2 = qM("SELECT * FROM `members` WHERE `email`='$email'");
+if($result2->num_rows){
+	$row2 = $result2->fetch_assoc();
+	$id = $row2['id'];
+}
 
 if(isset($_POST['info'])){
 	$info = sS($_POST['info']);
@@ -37,7 +42,7 @@ if(!is_dir("images/$id")){
 
 if(!is_dir("images/$id/profile")){
 	mkdir("images/$id/profile", 0777);
-} //resize image da dodam
+}
 
 if(isset($_FILES['image']['name'])){
 	$saveto = "images/$id/profile/".$id.".jpg";
@@ -65,8 +70,8 @@ if(isset($_FILES['image']['name'])){
 		$tw = $w;
 		$th = $h;
 		if($w > $h && $w > $max){
-			$w = $max;
-			$th = $max / $w * $h;
+			$tw = $max;
+			$th = $h * $max / $w;
 		}
 		elseif($h > $w && $h > $max){
 			$th = $max;

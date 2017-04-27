@@ -52,7 +52,7 @@
 			$row = $result->fetch_assoc();
 			$id = $row['id'];
 			if(file_exists("images/$id/profile/$id.jpg")){
-				echo "<br><img src='images/$id/profile/$id.jpg' style='float:left;'>";
+				echo "<br><img src='images/$id/profile/$id.jpg' style='float:left;'><br><br><br><br>";
 			}
 			echo "<br>";
 		}
