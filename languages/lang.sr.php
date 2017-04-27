@@ -11,10 +11,11 @@
 	$lang['GUserTaken'] = ' Ovo gym ime je vec u upotrebi';
 	$lang['UserAvailable'] = ' Korisnicko ime je dostupno';
 	$lang['Email'] = 'Email adresa';
+	$lang['E'] = 'Email';
 	$lang['Pass'] = 'Sifra';
 	$lang['NPass'] = 'Nova sifra';
 	$lang['RNPass'] = 'Ponovo ukucaj novu sifru';
-	$lang['Question'] = 'Dizes li uopste?'; //nesto normalnije
+	$lang['Question'] = 'Dizes li uopste?';
 	$lang['Question2'] = 'Max bench:';
 	$lang['NotAll'] = 'Nisu popunjena sva polja';
 	$lang['NotAllC'] = 'Nisu tacna sva uneta polja';  //????
@@ -37,6 +38,7 @@
 	$lang['Image'] = 'Slika';
 	$lang['SP'] = 'Sacuvaj profil';
 	$lang['CP'] = 'Izmeni profil';
+	$lang['Cpass'] = 'Promeni sifru';
 	$lang['Members'] = 'Clanovi';
 	$lang['Gallery'] = 'Galerija';
 	$lang['Friends'] = 'Prijatelji';
@@ -52,9 +54,10 @@
 	//$lang['FTFA'] = 'Once you fill the form above you can change your password'; //+
 	$lang['PassChanged'] = 'Sifra je uspesno promenjena'; //'da bi se prijavio klikni ';
 	$lang['here'] = 'ovde';
-	$lang['PC1'] = 'Unesi email i odgovori na sigurnosna pitanja'; //+
+	$lang['PC1'] = 'Unesi email i odgovori na sigurnosna pitanja';
 	$lang['PC2'] = 'Promeni sifru';
 	$lanh['BT'] = 'Vrati se na stranicu za prijavljivanje';
+	$lang['BT'] = 'Vrati se nazad';//+
 	
 	
 ?>

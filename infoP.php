@@ -2,7 +2,6 @@
 //Profile information
 echo $lang['YP'];
 
-
 $result = qM("SELECT * FROM `profile` WHERE `email`='$email'");
 if($result->num_rows){
 	$row = $result->fetch_array(MYSQL_ASSOC);
@@ -11,6 +10,7 @@ if($result->num_rows){
 	$info = $row['information'];
 	$gname = $row['gym_name'];
 }
+
 $result2 = qM("SELECT * FROM `members` WHERE `email`='$email'");
 if($result2->num_rows){
 	$row2 = $result2->fetch_assoc();
@@ -68,23 +68,35 @@ if(isset($_FILES['image']['name'])){
 		list($w, $h) = getimagesize($saveto);
 		$max = 100;
 		$tw = $w;
-		$th = $h;//da probam da dodam da se slika centrira u 100x100
+		$th = $h;
+		$x1 = $x2 = 0;
 		if($w > $h && $w > $max){
 			$tw = $max;
 			$th = $h * $max / $w;
+			$x1 = $max/2 - $tw/2;
+			$x2 = $max/2 - $th/2;
 		}
 		elseif($h > $w && $h > $max){
 			$th = $max;
 			$tw = $max / $h * $w;
+			$x1 = $max/2 - $tw/2;
+			$x2 = $max/2 - $th/2;
 		}
 		elseif($w > $max){
 			$tw = $th = $max;
+			$x1 = $max/2 - $tw/2;
+			$x2 = $max/2 - $th/2;
 		}
-		$tmp = imagecreatetruecolor($tw, $th);
-		imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h); //ovde
+		$x1 = $max/2 - $tw/2;
+		$x2 = $max/2 - $th/2; //zbog w = h
+		$tmp = imagecreatetruecolor($max, $max); //$tw, $th
+		$white = imagecolorallocate($tmp, 255, 255, 255);//boji u belo
+		imagefill($tmp, 0, 0, $white);//boji u belo
+		imagecopyresampled($tmp, $src, $x1, $x2, 0, 0, $tw, $th, $w, $h);
 		imageconvolution($tmp, array(array(-1, -1, -1),
 				array(-1, 16, 1),
 				array(-1, -1, -1)), 8, 0);
+	
 		imagejpeg($tmp, $saveto);
 		imagedestroy($tmp);
 		imagedestroy($src);
@@ -92,6 +104,4 @@ if(isset($_FILES['image']['name'])){
 }
 echo $lang['YPP'];
 sP($email);
-echo "<br>";
-
 ?>
