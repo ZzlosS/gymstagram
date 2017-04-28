@@ -42,6 +42,7 @@
 	$lang['Members'] = 'Clanovi';
 	$lang['Gallery'] = 'Galerija';
 	$lang['Friends'] = 'Prijatelji';
+	$lang['friends'] = 'prijatelji';
 	$lang['Messages'] = 'Poruke';
 	$lang['Profile'] = 'Profil';
 	$lang['Logout'] = 'Odjavi se';
@@ -57,7 +58,18 @@
 	$lang['PC1'] = 'Unesi email i odgovori na sigurnosna pitanja';
 	$lang['PC2'] = 'Promeni sifru';
 	$lanh['BT'] = 'Vrati se na stranicu za prijavljivanje';
-	$lang['BT'] = 'Vrati se nazad';//+
-	
+	$lang['BT'] = 'Vrati se nazad';
+	//+
+	$lang['has'] = 'has';
+	$lang['fr'] = 'zahtev za prijateljstvo'; 
+	$lang['sent'] = 'sent '; 
+	$lang['to'] = ' to';
+	$lang['ForeverAlone'] = '<br> Jos uvek nemas prijatelje.<br><br>';
+	$lang['Your'] = 'Your';
+	$lang['yf'] = '&harr; je tvoj prijatelj ';
+	$lang['yousent'] = '&larr; you have sent friend request ';
+	$lang['sentyou'] = '&rarr; has sent you friend request ';
+	$lang['add'] = 'Prihvati';
+	$lang['Revoke'] = 'Opozovi';
 	
 ?>

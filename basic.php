@@ -47,7 +47,7 @@
 		<a href="profile.php?lang=sr"><img src="languages/sr.png" /></a>
 	</div>
 	<ul class="menu">
-  		<li> <a href="members.php?id=<?php echo $id?>"><?php echo $lang['Home'];?></a> </li>
+  		<li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
   		<li> <a href="members.php"><?php echo $lang['Members'];?></a> </li>
   		<li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
   		<li> <a href="friends.php"><?php echo $lang['Friends'];?></a> </li>

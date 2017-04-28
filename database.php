@@ -30,6 +30,16 @@
 				`pic_path` VARCHAR(50) DEFAULT "",
 				PRIMARY KEY(`id`)');
 		
+		cT('`gym_buddies`',
+				'`id` INT UNSIGNED AUTO_INCREMENT,
+				`user_id` INT UNSIGNED NOT NULL,
+				`friend_id` INT UNSIGNED NOT NULL,
+				PRIMARY KEY(`id`),
+				FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION,
+				FOREIGN KEY(`friend_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
+		
+		aT('`profile`', 'notifications', 'INT UNSIGNED NOT NULL');
+		
 		//aT('`profile`', 'gym_name', 'VARCHAR(20) DEFAULT ""');
 		
 		if(!is_dir("images")){

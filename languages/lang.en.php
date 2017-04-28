@@ -11,7 +11,7 @@
 	$lang['GUserTaken'] = ' This gym name is already in use';
 	$lang['UserAvailable'] = ' This username is available';
 	$lang['Email'] = 'Email address';
-	$lang['E'] = 'Email'; //+
+	$lang['E'] = 'Email';
 	$lang['Pass'] = 'Password';
 	$lang['NPass'] = 'New password';
 	$lang['RNPass'] = 'Retype new password';
@@ -42,6 +42,7 @@
 	$lang['Members'] = 'Members';
 	$lang['Gallery'] = 'Gallery';
 	$lang['Friends'] = 'Friends';
+	$lang['friends'] = 'friends';
 	$lang['Messages'] = 'Messages';
 	$lang['Profile'] = 'Profile';
 	$lang['Logout'] = 'Log out';
@@ -57,5 +58,17 @@
 	$lang['PC1'] = 'Put the email and answer the security questions';
 	$lang['PC2'] = 'Reset your password';
 	$lang['BT'] = 'Go back';
+	$lang['has'] = 'has'; //+
+	$lang['fr'] = 'friend requests';
+ 	$lang['sent'] = 'sent ';
+ 	$lang['to'] = ' to';
+ 	$lang['ForeverAlone'] = '<br> You dont have any gym buddies yet.<br><br>';
+ 	$lang['Your'] = 'Your';
+ 	$lang['yf'] = '&harr; is your friend ';
+ 	$lang['yousent'] = '&larr; you have sent friend request ';
+ 	$lang['sentyou'] = '&rarr; has sent you friend request ';
+ 	$lang['add'] = 'accept friend request';
+ 	$lang['Revoke'] = 'Revoke'; 
+ 	
 			
 ?>
