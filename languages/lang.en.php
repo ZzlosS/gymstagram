@@ -67,8 +67,10 @@
  	$lang['yf'] = '&harr; is your friend ';
  	$lang['yousent'] = '&larr; you have sent friend request ';
  	$lang['sentyou'] = '&rarr; has sent you friend request ';
- 	$lang['add'] = 'accept friend request';
- 	$lang['Revoke'] = 'Revoke'; 
- 	
+ 	$lang['add'] = 'Accept';
+ 	$lang['send'] = 'Send friend request';
+ 	$lang['Revoke'] = 'Revoke';
+ 	$lang['nadd'] = 'Decline';
+ 	$lang['delete'] = 'Delete';
 			
 ?>

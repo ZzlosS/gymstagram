@@ -38,7 +38,7 @@
 				FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION,
 				FOREIGN KEY(`friend_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
 		
-		aT('`profile`', 'notifications', 'INT UNSIGNED NOT NULL');
+		aT('`profile`', 'notifications', 'INT UNSIGNED DEFAULT 0');
 		
 		//aT('`profile`', 'gym_name', 'VARCHAR(20) DEFAULT ""');
 		

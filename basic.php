@@ -15,7 +15,13 @@
 		if($result->num_rows){
 			$row = $result->fetch_array(MYSQL_ASSOC);
 			$gname = $row['gym_name'];
+			$notifications = $row['notifications'];
+			if($notifications != 0){
+				$userstr = " (@$gname)[$notifications]";
+			}
+			else{
 			$userstr = " (@$gname)";
+			}
 		}
 	}
 	else{
