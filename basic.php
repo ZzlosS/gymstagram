@@ -7,6 +7,7 @@
 	
 	require_once 'functions.php';
 	$userstr = ' (' .$lang['Guest'] .')';
+	$not = "";
 	if(isset($_SESSION['email'])){
 		$id = $_SESSION['id'];
 		$email = $_SESSION['email'];
@@ -17,22 +18,20 @@
 			$gname = $row['gym_name'];
 			$notifications = $row['notifications'];
 			if($notifications != 0){
-				$userstr = " (@$gname)[$notifications]";
+				$not = "[$notifications]";
 			}
-			else{
 			$userstr = " (@$gname)";
-			}
 		}
 	}
 	else{
 		$loggedIn = FALSE;
 	}
 	
-	echo "<title>$appname$userstr</title>".
+	echo "<title>$appname$userstr$not</title>".
 			//"<link type='text/css' rel='stylesheet' href='styles.css'></link>".
 			"</head><body><center><canvas id='logo' width='624' height='96'>".
 			"$appname</canvas></center>".
-			"<div class='$appname'>".$lang['Welcome'].$appname.$userstr."</div>";
+			"<div class='$appname'>".$lang['Welcome'].$appname.$userstr."<span style='color:red'>".$not."</span></div>";
 			//"<script src='javascript.js'></script>";
 	if(!$loggedIn){
 ?>

@@ -28,6 +28,7 @@
 				`information` VARCHAR(4096) DEFAULT "",
 				`date_update` DATETIME,
 				`pic_path` VARCHAR(50) DEFAULT "",
+				`notifications` INT UNSIGNED DEFAULT 0,
 				PRIMARY KEY(`id`)');
 		
 		cT('`gym_buddies`',
@@ -38,9 +39,12 @@
 				FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION,
 				FOREIGN KEY(`friend_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
 		
-		aT('`profile`', 'notifications', 'INT UNSIGNED DEFAULT 0');
+		cT('`gallery`', 
+				'`id` INT UNSIGNED AUTO_INCREMENT,
+				`user_id` INT UNSIGNED NOT NULL,
+				`album_name` VARCHAR(20),
+				PRIMARY KEY(`id`)');
 		
-		//aT('`profile`', 'gym_name', 'VARCHAR(20) DEFAULT ""');
 		
 		if(!is_dir("images")){
 			mkdir("images", 0777);

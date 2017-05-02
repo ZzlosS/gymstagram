@@ -24,7 +24,7 @@
 	}
 	
 	function cT($name, $querry){ //createTable
-		qm("CREATE TABLE IF NOT EXISTS $name($querry)");
+		qM("CREATE TABLE IF NOT EXISTS $name($querry)");
 		echo "Table `$name` created or already exists.<br>";
 	}
 	
