@@ -1,6 +1,5 @@
 <?php
 //Profile information
-echo $lang['YP'];
 
 $result = qM("SELECT * FROM `profile` WHERE `email`='$email'");
 if($result->num_rows){
@@ -19,19 +18,22 @@ if($result2->num_rows){
 
 $result3 = qM("SELECT * FROM `gallery` WHERE `user_id`=$id");
 if(!$result3->num_rows){
-	qM("INSERT INTO `gallery`(`user_id`, `album_name`) VALUES ($id, 'default')");
+	$name = $id."_default";
+	qM("INSERT INTO `gallery`(`user_id`, `album_name`) VALUES ($id, '$name')");
 	$result4 = qM("SELECT * FROM `gallery` WHERE `user_id`=$id");
 	if($result4->num_rows){
 		$row3 = $result4->fetch_assoc();
 		$album_id = $row3['id'];
 		$user_id = $row3['user_id'];
 		$album_name = $row3['album_name'];
-		qM("CREATE TABLE IF NOT EXISTS `$id$album_name`(
+		qM("CREATE TABLE IF NOT EXISTS `$name`( 
 				`id` INT UNSIGNED AUTO_INCREMENT,
-				`album_id` INT DEFAULT $album_id,
+				`user_id` INT DEFAULT $id,
 				`date_update` DATETIME,
 				`pic_path` VARCHAR(50) DEFAULT '',
 				`pic_like` INT DEFAULT 0,
+				`pic_name` VARCHAR(10) DEFAULT 0,
+				`album_name` VARCHAR(20) DEFAULT 'default',
 				PRIMARY KEY(`id`))");
 	}
 }
@@ -128,8 +130,9 @@ if(isset($_FILES['image']['name'])){
 		imagedestroy($tmp);
 		imagedestroy($src);
 	}
-	//qM("INSERT INTO `$id$album_name` (`date_update`, `pic_path`) VALUES('$date', '$saveto')");
 }
+
+echo $lang['YP'];
 echo $lang['YPP'];
 sP($email);
 ?>

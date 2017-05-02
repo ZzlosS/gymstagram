@@ -45,7 +45,6 @@
 				`album_name` VARCHAR(20),
 				PRIMARY KEY(`id`)');
 		
-		
 		if(!is_dir("images")){
 			mkdir("images", 0777);
 		}
