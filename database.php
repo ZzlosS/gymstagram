@@ -43,7 +43,8 @@
 				'`id` INT UNSIGNED AUTO_INCREMENT,
 				`user_id` INT UNSIGNED NOT NULL,
 				`album_name` VARCHAR(20),
-				PRIMARY KEY(`id`)');
+				PRIMARY KEY(`id`),
+				FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
 		
 		if(!is_dir("images")){
 			mkdir("images", 0777);
