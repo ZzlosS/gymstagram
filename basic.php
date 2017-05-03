@@ -29,8 +29,8 @@
 	
 	echo "<title>$appname$userstr$not</title>".
 			//"<link type='text/css' rel='stylesheet' href='styles.css'></link>".
-			"</head><body><center><canvas id='logo' width='624' height='96'>".
-			"$appname</canvas></center>".
+        "</head><body><div style=\"text-align: center;\"><canvas id='logo' width='624' height='96'>" .
+        "$appname</canvas></div>" .
 			"<div class='$appname'>".$lang['Welcome'].$appname.$userstr."<span style='color:red'>".$not."</span></div>";
 			//"<script src='javascript.js'></script>";
 	if(!$loggedIn){

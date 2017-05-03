@@ -19,15 +19,15 @@
 		die($connection->connect_error);
 	}
 	
-	function qM($querry){  //queryMysql
+	function qM($query){  //queryMysql
 		global $connection;
-		$result = $connection->query($querry);
+		$result = $connection->query($query);
 		if(!$result) die($connection->error);
 		return $result;
 	}
 	
-	function cT($name, $querry){ //createTable
-		qM("CREATE TABLE IF NOT EXISTS $name($querry)");
+	function cT($name, $query){ //createTable
+		qM("CREATE TABLE IF NOT EXISTS $name($query)");
 		echo "Table `$name` created or already exists.<br>";
 	}
 	
