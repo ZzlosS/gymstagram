@@ -61,23 +61,23 @@
 		}
 	}
 	
-	function dI($album_name, $pic_name){ //deleteImage
+	function dI($pic_id){ //deleteImage
 		//$id_$album_name
-		$result = qM("SELECT * FROM `$album_name`");
+		$result = qM("SELECT * FROM `pictures`");
 		if($result->num_rows){
 			$row = $result->fetch_assoc();
 			unlink($row['pic_path']);
-			qM("DELETE FROM `$album_name` WHERE `pic_name`=$pic_name");
+			qM("DELETE FROM `pictures` WHERE `id`=$pic_id");
 		}
 	}
 	
-	function sI($album_name){  //showImages
-		$result = qM("SELECT * FROM `$album_name`");
+	function sI($user_id){  //showImages
+		$result = qM("SELECT * FROM `pictures` WHERE `user_id` = $user_id");
 		if($n = $result->num_rows){
 			for($j = 0; $j < $n; $j++){
 				$row = $result->fetch_array(MYSQL_ASSOC);
-				echo "<img src='".$row['pic_path']."' alt = 'text' class='images'><br>Image name: "."<span>".$row['pic_name']."</span><br>Album name: "."<span>".$row['album_name']."</span><br>";
-				echo "<input type='button' value='delete' onclick='window.location.href=\" /gallery.php?picn=" . $row['pic_name']. "\"'><br><br>";
+				echo "<img src='".$row['pic_path']."' alt = 'text' class='images'><br>Image Description: "."<span>".$row['pic_desc']."</span><br>Album name: "."<span>".$row['album_name']."</span><br>";
+				echo "<input type='button' value='delete' onclick='window.location.href=\" /gymstagram/gallery.php?id=" . $row['id']. "\"'><br><br>";
 			}
 		}
 	}

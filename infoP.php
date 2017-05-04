@@ -16,34 +16,14 @@ if($result2->num_rows){
 	$id = $row2['id'];
 }
 
-$result3 = qM("SELECT * FROM `gallery` WHERE `user_id`=$id");
-if(!$result3->num_rows){
-	$name = $id."_default";
-	qM("INSERT INTO `gallery`(`user_id`, `album_name`) VALUES ($id, '$name')");
-	$result4 = qM("SELECT * FROM `gallery` WHERE `user_id`=$id");
-	if($result4->num_rows){
-		$row3 = $result4->fetch_assoc();
-		$album_id = $row3['id'];
-		$user_id = $row3['user_id'];
-		$album_name = $row3['album_name'];
-		qM("CREATE TABLE IF NOT EXISTS `$name`( 
-				`id` INT UNSIGNED AUTO_INCREMENT,
-				`user_id` INT DEFAULT $id,
-				`date_update` DATETIME,
-				`pic_path` VARCHAR(50) DEFAULT '',
-				`pic_like` INT DEFAULT 0,
-				`pic_name` VARCHAR(10) DEFAULT 0,
-				`album_name` VARCHAR(20) DEFAULT 'default',
-				PRIMARY KEY(`id`))");
-	}
-}
-
-$result5 = qM("SELECT * FROM `gallery` WHERE `user_id`=$id");
+$result5 = qM("SELECT * FROM `pictures` WHERE `user_id`=$id");
 if($result5->num_rows){
 	$row4 = $result5->fetch_assoc();
 	$album_id = $row4['id'];
 	$user_id = $row4['user_id'];
 	$album_name = $row4['album_name'];
+	$pic_desc = $row4['pic_desc'];
+	$pic_like = $row4['pic_like'];
 }
 
 if(isset($_POST['info'])){

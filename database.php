@@ -38,13 +38,19 @@
 				PRIMARY KEY(`id`),
 				FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION,
 				FOREIGN KEY(`friend_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
-		
-		cT('`gallery`', 
-				'`id` INT UNSIGNED AUTO_INCREMENT,
+
+
+		cT('`pictures`','
+				`id` INT UNSIGNED AUTO_INCREMENT,
 				`user_id` INT UNSIGNED NOT NULL,
-				`album_name` VARCHAR(20),
+				`date_update` DATETIME,
+				`pic_path` VARCHAR(50) DEFAULT "",
+				`pic_like` INT DEFAULT 0,
+				`pic_desc` VARCHAR(255) DEFAULT "",
+				`album_name` VARCHAR(20) NOT NULL,
 				PRIMARY KEY(`id`),
 				FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
+
 		
 		if(!is_dir("images")){
 			mkdir("images", 0777);
