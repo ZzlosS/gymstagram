@@ -117,11 +117,15 @@ if($result5->num_rows){
 				<select name="owner">
 				<?php 
 					$sql = qM("SELECT DISTINCT `album_name` FROM `pictures` WHERE `id`=$id");
-					while ($row = $sql->fetch_assoc()){
-						$an = $row['album_name'];
+					if(!$row = $sql->fetch_assoc()){
                         echo "<option value='default'>Default</option>";
-						echo "<option value=$an>" . $an . "</option>";
-					}
+                    }
+                    else {
+                        while ($row = $sql->fetch_assoc()) {
+                            $an = $row['album_name'];
+                            echo "<option value=$an>" . $an . "</option>";
+                        }
+                    }
 				?>
 				</select>,<br>in contrary pictures will be placed in default album.<br>
                 <label>Album name <input type="text" name="sub_album_name" id="sub_album_name"></label> <br>

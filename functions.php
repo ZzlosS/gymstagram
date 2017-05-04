@@ -77,7 +77,7 @@
 			for($j = 0; $j < $n; $j++){
 				$row = $result->fetch_array(MYSQL_ASSOC);
 				echo "<img src='".$row['pic_path']."' alt = 'text' class='images'><br>Image Description: "."<span>".$row['pic_desc']."</span><br>Album name: "."<span>".$row['album_name']."</span><br>";
-				echo "<input type='button' value='delete' onclick='window.location.href=\" /gymstagram/gallery.php?id=" . $row['id']. "\"'><br><br>";
+				echo "<input type='button' value='delete' onclick='window.location.href=\" /gallery.php?id=" . $row['id']. "\"'><br><br>";
 			}
 		}
 	}
