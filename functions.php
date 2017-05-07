@@ -63,7 +63,7 @@
 	
 	function dI($pic_id){ //deleteImage
 		//$id_$album_name
-		$result = qM("SELECT * FROM `pictures`");
+		$result = qM("SELECT * FROM `pictures` WHERE `id`=$pic_id");
 		if($result->num_rows){
 			$row = $result->fetch_assoc();
 			unlink($row['pic_path']);

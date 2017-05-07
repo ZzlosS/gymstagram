@@ -19,16 +19,19 @@ if(!$loggedIn) die();
 				else{
 					$view = "";
 				}
+
 				if($view == $gname){
 					$name = $lang['Your'];
 				}
 				else{
 					$name = "$view's";
 				}
+
 				echo "<h3>$name ".$lang['Profile']."</h3>";
 				sP($view2);
 				die("</div></body></html>");
 			}
+
 			if(isset($_GET['accept'])){
 				$accept = sS($_GET['accept']);
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$accept AND `friend_id`=$id");
@@ -43,6 +46,7 @@ if(!$loggedIn) die();
 					}
 				}
 			}
+
 			if(isset($_GET['add'])){
 				$add = sS($_GET['add']);
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$add AND `friend_id`=$id");
@@ -57,6 +61,7 @@ if(!$loggedIn) die();
 					}
 				}
 			}
+
 			if(isset($_GET['revoke'])){
 				$revoke = sS($_GET['revoke']);
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$revoke AND `friend_id`=$id");
@@ -71,21 +76,22 @@ if(!$loggedIn) die();
 					}
 				}
 			}
+
 			if(isset($_GET['decline'])){
 				$decline = sS($_GET['decline']);
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$decline");
-				if($result->num_rows){
-					qM("DELETE FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$decline");
-					$result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$id'");
-					if($result->num_rows){
-						$row = $result->fetch_assoc();
-						$notification = $row['notifications'] - 1;
-						qM("UPDATE `profile` SET `notifications`=$notification WHERE `id`=$id");
-						echo "<meta http-equiv='refresh' content='0'>";
-					}
-				}
-				
+				if($result->num_rows) {
+                    qM("DELETE FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$decline");
+                    $result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$id'");
+                    if ($result->num_rows) {
+                        $row = $result->fetch_assoc();
+                        $notification = $row['notifications'] - 1;
+                        qM("UPDATE `profile` SET `notifications`=$notification WHERE `id`=$id");
+                        echo "<meta http-equiv='refresh' content='0'>";
+                    }
+                }
 			}
+
 			if(isset($_GET['delete'])){
 				$delete = sS($_GET['delete']);
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$delete");

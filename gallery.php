@@ -17,17 +17,16 @@ if($result5->num_rows){
 		
 		<div class="main">
 			<h3> Your Gallery</h3> <!-- ubaci u recnik -->
-			<?php 
-				
+			<?php
 				if(!is_dir("images/$id/album")){
 					mkdir("images/$id/album", 0777);
 				}
-				
+
 				if(isset($_POST['sub_album_name'])){
 					$sub_album_name = sS($_POST['sub_album_name']);
-					if ($sub_album_name == ''){
-						$sub_album_name = 'default';
-					}
+					if($sub_album_name == ''){
+					    $sub_album_name = 'Default';
+                    }
 				}
 
 				if(isset($_POST['desc'])){
@@ -35,16 +34,18 @@ if($result5->num_rows){
                 }
 
 				if(isset($_FILES['image']['name'])){
-					$result = qM("SELECT * FROM `pictures`");
+					/*$result = qM("SELECT * FROM `pictures`");
 					if(($n = $result->num_rows) == 0){
 						$pic_name = 1;
 					}
 					else{
-						$row = $result->fetch_assoc();
-						$pic_name = $n + 1;
-					}
-					$saveto = "images/$id/album/".$pic_name.".jpg";
-					$date = date("Y-m-d H:i:s");
+					    $b = qM("SELECT MAX(id) FROM `pictures`");
+					    $c = $b->fetch_all();
+						$pic_name = $c + 1;
+					}*/
+                    $name = date("YmdHis");
+					$saveto = "images/$id/album/".$name.".jpg";
+                    $date = date("Y-m-d H:i:s");
 					move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
 					qM("INSERT INTO `pictures`(`user_id`, `date_update`, `pic_path`, `album_name`, `pic_desc`) 
                               VALUES('$id', '$date', '$saveto', '$sub_album_name', '$desc')");
@@ -113,21 +114,17 @@ if($result5->num_rows){
 				<label for="image">Add image:</label>
 				<input type="file" name="image" id="image"><br>
 				
-				Create new album by typing the name or enter the name of already existing ones:
+				<label>Create new album by typing the name or enter the name of already existing ones:
 				<select name="owner">
 				<?php 
-					$sql = qM("SELECT DISTINCT `album_name` FROM `pictures` WHERE `id`=$id");
-					if(!$row = $sql->fetch_assoc()){
-                        echo "<option value='default'>Default</option>";
-                    }
-                    else {
-                        while ($row = $sql->fetch_assoc()) {
-                            $an = $row['album_name'];
-                            echo "<option value=$an>" . $an . "</option>";
-                        }
+					$sql = qM("SELECT DISTINCT `album_name` FROM `pictures` WHERE `user_id`=$id");
+                    echo "<option value='default'>Default</option>";
+                    while ($row = $sql->fetch_assoc()) {
+                        $an = $row['album_name'];
+                        echo "<option value=$an>" . $an . "</option>";
                     }
 				?>
-				</select>,<br>in contrary pictures will be placed in default album.<br>
+				</select>,<br>in contrary pictures will be placed in Default album.</label><br>
                 <label>Album name <input type="text" name="sub_album_name" id="sub_album_name"></label> <br>
                 <label>Description <input type="text" name="desc" id="desc"></label> <br>
                 <input type="submit" value="Save Profile">

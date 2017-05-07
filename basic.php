@@ -8,6 +8,7 @@
 	require_once 'functions.php';
 	$userstr = ' (' .$lang['Guest'] .')';
 	$not = "";
+	$id = "";
 	if(isset($_SESSION['email'])){
 		$id = $_SESSION['id'];
 		$email = $_SESSION['email'];
@@ -31,7 +32,7 @@
 			//"<link type='text/css' rel='stylesheet' href='styles.css'></link>".
         "</head><body><div style=\"text-align: center;\"><canvas id='logo' width='624' height='96'>" .
         "$appname</canvas></div>" .
-			"<div class='$appname'>".$lang['Welcome'].$appname.$userstr."<span style='color:red'>".$not."</span></div>";
+			"<div class='$appname'>".$lang['Welcome'].$appname.$userstr."<a style='color:red; text-decoration: none' href='notifications.php?id=$id'>".$not."</a></div>";
 			//"<script src='javascript.js'></script>";
 	if(!$loggedIn){
 ?>
@@ -57,7 +58,10 @@
   		<li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
   		<li> <a href="friends.php"><?php echo $lang['Friends'];?></a> </li>
   		<li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
-  		<li> <a href="profile.php"><?php echo $lang['Profile'];?></a> </li>
+        <li> <a href="profile.php"><?php echo $lang['Profile'];?></a></li>
+        <!--<li> <a href="notifications.php">Notifications</a><text style='color:red; text-decoration: none'
+        href='notifications.php?id=$id'><?php echo $not ?></text> </li>
+        Kad se srede lajkovi i komentari da se ovo omoguci-->
   		<li> <a href="logout.php?page=index.php"><?php echo $lang['Logout'];?></a> </li>
 	</ul><br>
 
