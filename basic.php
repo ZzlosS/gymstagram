@@ -9,6 +9,8 @@
 	$userstr = ' (' .$lang['Guest'] .')';
 	$not = "";
 	$id = "";
+    $date = date("Y-m-d H:i:s"); //date_default_timezone_set jer ovako ne pokazuje tacno vreme
+
 	if(isset($_SESSION['email'])){
 		$id = $_SESSION['id'];
 		$email = $_SESSION['email'];
@@ -59,6 +61,7 @@
   		<li> <a href="friends.php"><?php echo $lang['Friends'];?></a> </li>
   		<li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
         <li> <a href="profile.php"><?php echo $lang['Profile'];?></a></li>
+        <li> <a href="log.php?page=1"><?php echo $lang['Log'];?></a> </li>
         <!--<li> <a href="notifications.php">Notifications</a><text style='color:red; text-decoration: none'
         href='notifications.php?id=$id'><?php echo $not ?></text> </li>
         Kad se srede lajkovi i komentari da se ovo omoguci-->

@@ -10,7 +10,7 @@ else{
 	$loc = "login.php";
 }
 		
-$error = $email = $question = $question2 = $npass = $rnpass = $done = $changed = '';
+$error = $email = $question = $question2 = $npass = $rnpass = $done = $changed = $redirect = '';
 if(isset($_POST['email'])){
 	$email = sS($_POST['email']);
 	$question = sS($_POST['question']);
@@ -25,6 +25,8 @@ if(isset($_POST['email'])){
 	else{
 		$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 		$row = $result->fetch_assoc();
+		$gname = $row['gym_name'];
+		$id = $row['id'];
 		if($question == $row['question1'] && $question2 == $row['question2']){
 			if(isset($_POST['npass']) && isset($_POST['rnpass'])){
 				$npass = $_POST['npass'];
@@ -42,7 +44,10 @@ if(isset($_POST['email'])){
 					else{
 						$hpass = hash('ripemd128', "$salt1$npass$salt2");
 						qM("UPDATE `members` SET `pass`='$hpass' WHERE `email`='$email'");
+                        qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname($id) changed his password')");
 						$changed = "<h3>".$lang['PassChanged']."</h3>";//."<a href='login.php'>".$lang['here']."</a>.";
+                        $redirect = "If you are not redirected automaticly in 5 seconds click this <a href='login.php'>link</a>";
+                        header( "refresh:5;url=login.php" );
 					}
 				}
 
@@ -85,7 +90,7 @@ if(isset($_POST['email'])){
 			<input type="submit" value="<?php echo $lang['Confirm']?>">
 			<input type="button" value="<?php echo $lang['BT']?>" onclick="window.location='<?php echo $loc?>';" /><br><br>
 			
-			<?php echo $changed ?>
+			<?php echo $changed, $redirect?>
 		</form>
 
 	</body>

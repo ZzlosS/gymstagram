@@ -17,11 +17,28 @@
 			}
 		});
 	}
+    function cU2(gname){
+        if(gname.value == ''){
+            document.getElementById('info2').innerHTML = '';
+            return;
+        }
+        $.ajax({
+            method : "POST",
+            url : "checkuser.php",
+            data : {
+                'gname' : gname.value
+            },
+            success : function(result){
+                document.getElementById('info2').innerHTML = result;
+            }
+        });
+    }
 </script>
 <?php 
 	require_once 'basic.php';
+	require_once 'checklanguage.php';
 	
-	$gname = $email = $pass = $error = $error2 = $alert = '';
+	$gname = $email = $pass = $error = $error2 = $alert = $redirect = '';
 	if(isset($_POST['email'])){
 		$gname = sS($_POST['gname']);
 		$email = sS($_POST['email']);
@@ -45,7 +62,9 @@
 					$hpass = hash('ripemd128', "$salt1$pass$salt2");
 					qM("INSERT INTO `members`(`gym_name`, `email`, `pass`, `question1`, `question2`) VALUES ('$gname', '$email', '$hpass', '$question', '$question2')");
 					qM("INSERT INTO `profile`(`gym_name`, `email`) VALUES ('$gname', '$email')");
-					die($lang['AccCreated']);
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname created account')");
+					$redirect = $lang['AccCreated']."<br>If you are not redirected automaticly in 5 seconds click this <a href='login.php'>link</a>";
+                    header( "refresh:5;url=login.php" );
 				}
 		}
 	}
@@ -54,8 +73,9 @@
 			
 			<h3><?php echo $lang['Registration']?>:</h3>
 			<label class="fieldname" for="gname"><?php echo $lang['GName']?></label>
-			<input type="text" name="gname" id="gname" value="" maxlength="20">
+			<input type="text" name="gname" id="gname" value="" maxlength="20" onBlur="cU2(this)">
 			<span id="ginfo"><?php echo $error2 ?></span>
+            <span id="info2"><?php echo $error ?></span>
 			<br>
 			
 			<label class="fieldname" for="email"><?php echo $lang['Email']?></label>
@@ -77,6 +97,8 @@
 			<br>
 			
 			<input type="submit" value="<?php echo $lang['Signup']?>">
+
+            <?php echo $redirect?>
 		</form>
 	</body>
 </html>

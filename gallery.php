@@ -24,7 +24,7 @@ if($result5->num_rows){
 
 				if(isset($_POST['sub_album_name'])){
 					$sub_album_name = sS($_POST['sub_album_name']);
-					if($sub_album_name == ''){
+					if($sub_album_name == '' || $sub_album_name == 'default'){
 					    $sub_album_name = 'Default';
                     }
 				}
@@ -45,10 +45,10 @@ if($result5->num_rows){
 					}*/
                     $name = date("YmdHis");
 					$saveto = "images/$id/album/".$name.".jpg";
-                    $date = date("Y-m-d H:i:s");
 					move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
 					qM("INSERT INTO `pictures`(`user_id`, `date_update`, `pic_path`, `album_name`, `pic_desc`) 
                               VALUES('$id', '$date', '$saveto', '$sub_album_name', '$desc')");
+					qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname($id) added picture $desc')");
 					$typeok = TRUE;
 					switch ($_FILES['image']['type']){
 						case "image/gif":
@@ -104,6 +104,7 @@ if($result5->num_rows){
 				}
 				if(isset($_GET['id'])){
 					dI($_GET['id']);
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname($id) deleted picture $pic_desc')");
 				}
 
 				

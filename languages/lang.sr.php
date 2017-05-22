@@ -45,6 +45,7 @@
 	$lang['friends'] = 'prijatelji';
 	$lang['Messages'] = 'Poruke';
 	$lang['Profile'] = 'Profil';
+	$lang['Log'] = 'Log';
 	$lang['Logout'] = 'Odjavi se';
 	$lang['PInformation'] = 'Informacije o profilu';
 	$lang['FPass'] = 'Zaboravio si sifru?';

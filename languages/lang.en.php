@@ -45,6 +45,7 @@
 	$lang['friends'] = 'friends';
 	$lang['Messages'] = 'Messages';
 	$lang['Profile'] = 'Profile';
+	$lang['Log'] = 'Log';
 	$lang['Logout'] = 'Log out';
 	$lang['PInformation'] = 'Profile information';
 	$lang['FPass'] = 'Forgot your password?';

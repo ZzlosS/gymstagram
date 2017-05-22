@@ -36,7 +36,14 @@ if(!$loggedIn) die();
 				$accept = sS($_GET['accept']);
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$accept AND `friend_id`=$id");
 				if(!$result->num_rows){
-					qM("INSERT INTO `gym_buddies`(`user_id`, `friend_id`) VALUES ($accept, $id)");
+                    qM("INSERT INTO `gym_buddies`(`user_id`, `friend_id`) VALUES ($accept, $id)");
+
+                    //uzima ime prijatelja da bi upisalo u log
+				    $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$accept");
+				    $row3 = $result3->fetch_assoc();
+				    $aname = $row3['gym_name'];
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) is now friend with $aname($accept)')");
+
 					$result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$id'");
 					if($result->num_rows){
 						$row = $result->fetch_assoc();
@@ -52,6 +59,13 @@ if(!$loggedIn) die();
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$add AND `friend_id`=$id");
 				if(!$result->num_rows){
 					qM("INSERT INTO `gym_buddies`(`user_id`, `friend_id`) VALUES ($add, $id)");
+
+                    //uzima ime prijatelja da bi upisalo u log
+                    $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$add");
+                    $row3 = $result3->fetch_assoc();
+                    $aname = $row3['gym_name'];
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) wants to be friend with $aname($add)')");
+
 					$result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$add'");
 					if($result->num_rows){
 						$row = $result->fetch_assoc();
@@ -67,6 +81,13 @@ if(!$loggedIn) die();
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$revoke AND `friend_id`=$id");
 				if($result->num_rows){
 					qM("DELETE FROM `gym_buddies` WHERE `user_id`=$revoke AND `friend_id`=$id");
+
+                    //uzima ime prijatelja da bi upisalo u log
+                    $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$revoke");
+                    $row3 = $result3->fetch_assoc();
+                    $aname = $row3['gym_name'];
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) revoked friend request for $aname($revoke)')");
+
 					$result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$revoke'");
 					if($result->num_rows){
 						$row = $result->fetch_assoc();
@@ -82,6 +103,13 @@ if(!$loggedIn) die();
 				$result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$decline");
 				if($result->num_rows) {
                     qM("DELETE FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$decline");
+
+                    //uzima ime prijatelja da bi upisalo u log
+                    $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$decline");
+                    $row3 = $result3->fetch_assoc();
+                    $aname = $row3['gym_name'];
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) declined friend request from $aname($decline)')");
+
                     $result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$id'");
                     if ($result->num_rows) {
                         $row = $result->fetch_assoc();
@@ -99,6 +127,12 @@ if(!$loggedIn) die();
 				if($result->num_rows && $result2->num_rows){
 					qM("DELETE FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$delete");
 					qM("DELETE FROM `gym_buddies` WHERE `user_id`=$delete AND `friend_id`=$id");
+
+                    //uzima ime prijatelja da bi upisalo u log
+                    $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$delete");
+                    $row3 = $result3->fetch_assoc();
+                    $aname = $row3['gym_name'];
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) and $aname($delete) are no longer friends')");
 				}
 			}
 		

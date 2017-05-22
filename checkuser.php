@@ -16,7 +16,22 @@
 				echo "<span class='available'>&nbsp;&#x2714;</span>";
 			}
 		}
-		
-	
+
+
 	}
+
+    if(isset($_POST['gname'])){
+        $gname = $_POST['gname'];
+        $result = qM("SELECT * FROM `members` WHERE `gym_name`='$gname'");
+        if($result->num_rows){
+            echo "<span class='taken'>&nbsp;&#x2718;".$lang['GUserTaken']."</span>";
+        }
+        else{
+            echo "<span class='available'>&nbsp;&#x2714;</span>";
+        }
+
+
+
+
+    }
 ?>

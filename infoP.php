@@ -1,6 +1,28 @@
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    //checkUser
+    function cU(gname){
+        if(gname.value == ''){
+            document.getElementById('info').innerHTML = '';
+            return;
+        }
+        $.ajax({
+            method : "POST",
+            url : "checkuser.php",
+            data : {
+                'gname' : gname.value
+            },
+            success : function(result){
+                document.getElementById('info').innerHTML = result + " (at least by you)";
+            }
+        });
+    }
+</script>
+
+
 <?php
 //Profile information
-
+$error = "";
 $result = qM("SELECT * FROM `profile` WHERE `email`='$email'");
 if($result->num_rows){
 	$row = $result->fetch_array(MYSQL_ASSOC);
@@ -31,17 +53,19 @@ if(isset($_POST['info'])){
 	$info = preg_replace('/\s+/', ' ', $info);
 	if($result->num_rows){
 		qM("UPDATE `profile` SET `information`='$info' WHERE `email`='$email'");
+		qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has updated information')");
 	}
 }
 
 if(isset($_POST['name']) && isset($_POST['lname'])){
-	$gname = sS($_POST['gname']);
-	$gname = preg_replace('/\s+/', '_', $gname);
+	$ngname = sS($_POST['gname']);
+	$ngname = preg_replace('/\s+/', '_', $ngname);
 	$name = sS($_POST['name']);
 	$name = preg_replace("/[^a-zA-Z]+/", "", $name);
 	$lname = sS($_POST['lname']);
 	$lname = preg_replace("/[^a-zA-Z]+/", "", $lname);
-	qM("UPDATE `profile` SET `name`='$name', `last_name`='$lname', `gym_name`='$gname' WHERE `email`='$email'");
+	qM("UPDATE `profile` SET `name`='$name', `last_name`='$lname', `gym_name`='$ngname' WHERE `email`='$email'");
+    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has new credetials: gname=$ngname, name=$name, lname=$lname')");
 	echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
 }
 
@@ -58,6 +82,7 @@ if(isset($_FILES['image']['name'])){
 	$date = date("Y-m-d H:i:s");
 	move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
 	qM("UPDATE `profile` SET `date_update` = '$date', `pic_path` = '$saveto' WHERE `email`='$email'");
+    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has updated profile picture')");
 	$typeok = TRUE;
 	switch ($_FILES['image']['type']){
 		case "image/gif":

@@ -11,7 +11,9 @@
 				<h3><?php echo $lang['EditP']?></h3>
 				
 				<label><?php echo $lang['GName']?>:
-		        <input type="text" id="gname" name="gname" value="<?php echo $gname ?>"></label><br>
+		        <input type="text" id="gname" name="gname" value="<?php echo $gname ?>" onBlur="cU(this)"></label>
+                <span id="info"><?php echo $error ?></span>
+                <br>
 
                 <!--<label><?php echo $lang['E']?>:</label>
                 <input type="text" id="email" name="email" value="<?php echo $email ?>"><br>-->

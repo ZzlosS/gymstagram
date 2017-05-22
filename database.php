@@ -51,6 +51,12 @@
 				PRIMARY KEY(`id`),
 				FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
 
+		cT('`log`','
+		        `id` INT UNSIGNED AUTO_INCREMENT,
+		        `date` DATETIME,
+		        `msg` VARCHAR(255),
+		        PRIMARY KEY(`id`)');
+
 		
 		if(!is_dir("images")){
 			mkdir("images", 0777);
