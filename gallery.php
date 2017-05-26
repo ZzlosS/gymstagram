@@ -122,7 +122,10 @@ if($result5->num_rows){
                     echo "<option value='default'>Default</option>";
                     while ($row = $sql->fetch_assoc()) {
                         $an = $row['album_name'];
-                        echo "<option value=$an>" . $an . "</option>";
+                        if($an != 'Default'){
+                            echo "<option value=$an>" . $an . "</option>";
+                        }
+
                     }
 				?>
 				</select>,<br>in contrary pictures will be placed in Default album.</label><br>

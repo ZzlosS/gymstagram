@@ -18,7 +18,7 @@
 	$lang['Question'] = 'Do you even lift bro?';
 	$lang['Question2'] = 'Max bench:';
 	$lang['NotAll'] = 'Not all fields were entered';
-	$lang['NotAllC'] = 'Not all fields were correct';
+	$lang['NotAllC'] = 'Not all fields are correct';
 	$lang['NotAllS'] = 'New and retyped passwords must be same';
 	$lang['OldNew'] = 'Old and new passwords can not be the same';
 	$lang['AccCreated'] = '<h4>Account created</h4>Please log in';

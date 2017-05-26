@@ -15,8 +15,11 @@
 				`gym_name` VARCHAR(20) DEFAULT "",
 				`email` VARCHAR(50) NOT NULL,
 				`pass` VARCHAR(50) NOT NULL,
+				`q1_id` VARCHAR(10) DEFAULT "",
 				`question1` VARCHAR(30) NOT NULL,
+				`q2_id` VARCHAR(10) DEFAULT "",
 				`question2` VARCHAR(30) NOT NULL,
+				`security_text` VARCHAR(255) DEFAULT "",
 				PRIMARY KEY(`id`)');
 		
 		cT('`profile`', 
@@ -56,8 +59,10 @@
 		        `date` DATETIME,
 		        `msg` VARCHAR(255),
 		        PRIMARY KEY(`id`)');
-
-		
+/*
+		aT('`members`', '`q1_id`', 'VARCHAR(255) DEFAULT ""') ;
+        aT('`members`', '`q2_id`', 'VARCHAR(255) DEFAULT ""') ;
+        aT('`members`', '`security_text`', 'VARCHAR(255) DEFAULT ""') ;*/
 		if(!is_dir("images")){
 			mkdir("images", 0777);
 		}

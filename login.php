@@ -56,24 +56,28 @@
 		}
 	}
 ?>
-	
-		<form method="post" action="login.php">
-			<?php echo $error1 ?>
-			<br>
-			
-			<label class="fieldname" for="email"><?php echo $lang['E']."/".$lang['GName']?></label>
-			<input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40">
-			<?php echo $error2 ?>
-			<br>
-			
-			<label class="fieldname" for="pass"><?php echo $lang['Pass']?></label>
-			<input type="password" name="pass" id="pass" value="<?php echo $pass ?>" maxlength="30">
-			<?php echo $error3 ?>
-			<br>
-			
-			<a href="passchange.php"><?php echo $lang['FPass']?></a><br>
-			
-			<input type="submit" value="<?php echo $lang['Login']?>">
-		</form>
-	</body>
+<body id="b2">
+<div class="container2">
+    <section id="content">
+        <form method="post" action="login.php">
+            <h1>Login Form</h1>
+            <div>
+                <input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40" placeholder="<?php echo $lang['E']."/".$lang['GName']?>" />
+                <br>
+            </div>
+
+            <div>
+                <input type="password" name="pass" id="pass" value="<?php echo $pass ?>" maxlength="30" placeholder="<?php echo $lang['Pass']?>"/>
+            </div>
+            <div>
+                <?php echo $error1, $error2, $error3 ?>
+            </div>
+            <div>
+                <input type="submit" value="Log in" />
+                <a href="passchange.php"><?php echo $lang['FPass']?></a>
+            </div>
+        </form><!-- form -->
+    </section><!-- content -->
+</div><!-- container -->
+</body>
 </html>
