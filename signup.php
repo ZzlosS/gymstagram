@@ -70,75 +70,69 @@
                     VALUES ('$gname', '$email', '$hpass', '$s1', '$q1', '$s2', '$q2', '$st')");
                 qM("INSERT INTO `profile`(`gym_name`, `email`) VALUES ('$gname', '$email')");
                 qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname created account')");
-                $redirect = $lang['AccCreated']."<br>If you are not redirected automaticly in 5 seconds click this <a href='login.php'>link</a>";
+                $redirect = $lang['AccCreated']."<br>Click <a href='login.php'>here</a> to Log in";
                 $ok = true;
-                header( "refresh:5;url=login.php" );
+                //header( "refresh:5;url=login.php" ); ne radi...
             }
         }
 	}
 ?>
 <?php if(!$ok) { ?>
-    <form method="post" action="signup.php">
-        <?php echo $redirect ?>
-        <h3><?php echo $lang['Registration'] ?>:</h3>
-        <label class="fieldname" for="gname"><?php echo $lang['GName'] ?></label>
-        <input type="text" name="gname" id="gname" value="" maxlength="20" onBlur="cU2(this)">
-        <span id="ginfo"><?php echo $error2 ?></span>
-        <span id="info2"><?php echo $error ?></span>
-        <br>
+<body id="b2">
+    <div class="container2">
+        <section id="content">
+            <form method="post" action="signup.php">
+                <?php echo $redirect ?>
+                <h3><?php echo $lang['Registration'] ?>:</h3>
+                <input type="text" name="gname" id="gname" value="<?php echo $gname ?>" maxlength="20" onBlur="cU2(this)" placeholder="<?php echo $lang['GName'] ?>"/>
+                <span id="ginfo"><?php echo $error2 ?></span>
+                <span id="info2"><?php echo $error ?></span>
+                <br>
 
-        <label class="fieldname" for="email"><?php echo $lang['Email'] ?></label>
-        <input type="text" name="email" id="email" value="" maxlength="40" onBlur="cU(this)">
-        <span id="info"><?php echo $error ?></span>
-        <br>
+                <input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40" onBlur="cU(this)" placeholder="<?php echo $lang['Email'] ?>">
+                <span id="info"><?php echo $error ?></span>
+                <br>
 
-        <label class="fieldname" for="pass"><?php echo $lang['Pass'] ?></label>
-        <input type="password" name="pass" id="pass" value="" maxlength="30">
+                <input type="password" name="pass" id="pass" value="" maxlength="30" placeholder="<?php echo $lang['Pass'] ?>">
 
+                <h3><?php echo $lang['SQ'] ?>:</h3>
 
-        <!--<h3><?php echo $lang['SQ'] ?>:</h3>
-			<label class="fieldname" for="question"><?php echo $lang['Question'] ?></label>
-			<input type="text" name="question" id="question" value="" maxlength="30">
-			<br>
-			
-			<label class="fieldname" for="question2"><?php echo $lang['Question2'] ?></label>
-			<input type="text" name="question2" id="question2" value="" maxlength="30">
-			<br>-->
-        <h3><?php echo $lang['SQ'] ?>:</h3>
+                <label class="fieldname" for="q1">
+                    <select name="s1" id="s1" class="form-control">
+                        <option value="cq1">Choose question:</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </label>
+                <input type="text" name="q1" id="q1" value="" maxlength="30">
+                <br>
 
-        <label class="fieldname" for="q1">
-            <select name="s1" id="s1" class="form-control">
-                <option value="cq1">Choose question:</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-        </label>
-        <input type="text" name="q1" id="q1" value="" maxlength="30">
-        <br>
-        <label class="fieldname" for="q2">
-            <select name="s2" id="s2" class="form-control">
-                <option value="cq2">Choose question:</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-        </label>
-        <input type="text" name="q2" id="q2" value="" maxlength="30">
-        <br>
-        <h3>Type in something only you know for maximum security</h3>
-        <textarea name="st" id="st" rows="6" cols="50" placeholder="Type in something only you know for maximum security" maxlength="255"></textarea>
-        <br>
+                <label class="fieldname" for="q2">
+                    <select name="s2" id="s2" class="form-control">
+                        <option value="cq2">Choose question:</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </label>
+                <input type="text" name="q2" id="q2" value="" maxlength="30">
+                <br>
+                <h3>Type in something only you know for maximum security</h3>
+                <textarea style="resize: none;" name="st" id="st" rows="6" cols="50" placeholder="Type in something only you know for maximum security" maxlength="255"></textarea>
+                <br>
+
+                <input type="submit" value="<?php echo $lang['Signup'] ?>">
 
 
-        <input type="submit" value="<?php echo $lang['Signup'] ?>">
-
-
-    </form>
+            </form>
+        </section><!-- content -->
+    </div><!-- container -->
+    </body>
     <?php
 }else{
     echo $redirect;
 }
 ?>
-	</body>
+
 </html>

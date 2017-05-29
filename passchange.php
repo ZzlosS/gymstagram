@@ -78,56 +78,54 @@ if(isset($_POST['email'])){
     <?php
     if(!$ok){
     ?>
-		<form method="post" action="">
-			
-			<h3><?php echo $lang['PC1']?></h3>
-			<label class="fieldname" for="email"><?php echo $lang['Email']?></label>
-			<input type="text" name="email" id="email" value="<?php echo $email?>" maxlength="40">
-			<span id="ginfo"><?php echo $error ?></span>
-			<br>
-<!--
-			<label class="fieldname" for="question"><?php echo $lang['Question']?></label>
-			<input type="text" name="question" id="question" value="<?php echo $question?>" maxlength="30">
-			<br>
-			
-			<label class="fieldname" for="question2"><?php echo $lang['Question2']?></label>
-			<input type="text" name="question2" id="question2" value="<?php echo $question2?>" maxlength="30" >
--->
-            <label class="fieldname" for="q1">
-                <select name="s1" id="s1" class="form-control">
-                    <option value="cq1">Choose question:</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </label>
-            <input type="text" name="q1" id="q1" value="" maxlength="30">
-            <br>
-            <label class="fieldname" for="q2">
-                <select name="s2" id="s2" class="form-control">
-                    <option value="cq2">Choose question:</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </label>
-            <input type="text" name="q2" id="q2" value="" maxlength="30"><br>
-            <h3>Type in your security text</h3>
-            <textarea name="st" id="st" rows="6" cols="50" placeholder="Type in your security text" maxlength="255"></textarea>
-            <br>
+<body id="b2">
+    <div class="container2">
+        <section id="content">
+            <form method="post" action="">
 
-			<h3><?php echo $lang['PC2']?></h3>
-			<label class="fieldname" for="npass"><?php echo $lang['NPass']?>:</label>
-			<input type="password" name="npass" id="npass" value="" maxlength="30" ><br>
-			
-			<label class="fieldname" for="rnpass"><?php echo $lang['RNPass']?>:</label>
-			<input type="password" name="rnpass" id="rnpass" value="" maxlength="30"><br>
-			
-			<input type="submit" value="<?php echo $lang['Confirm']?>">
-			<input type="button" value="<?php echo $lang['BT']?>" onclick="window.location='<?php echo $loc?>';" /><br><br>
-			
+                <h3><?php echo $lang['PC1']?></h3>
+                <input type="text" name="email" id="email" value="" maxlength="40" placeholder="<?php echo $lang['Email']?>" />
+                <span id="ginfo"><?php echo $error ?></span>
+                <br>
 
-		</form>
+                <label class="fieldname" for="q1">
+                    <select name="s1" id="s1" class="form-control">
+                        <option value="cq1">Choose question:</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </label>
+                <input type="text" name="q1" id="q1" value="" maxlength="30" />
+                <br>
+
+                <label class="fieldname" for="q2">
+                    <select name="s2" id="s2" class="form-control">
+                        <option value="cq2">Choose question:</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </label>
+                <input type="text" name="q2" id="q2" value="" maxlength="30" />
+                <br>
+
+                <h3>Type in your security text</h3>
+                <textarea name="st" id="st" rows="6" cols="50" placeholder="Type in your security text" maxlength="255"></textarea>
+                <br>
+
+                <h3><?php echo $lang['PC2']?></h3>
+                <input type="password" name="npass" id="npass" value="" maxlength="30" placeholder="<?php echo $lang['NPass']?>" /><br>
+
+                <input type="password" name="rnpass" id="rnpass" value="" maxlength="30" placeholder="<?php echo $lang['RNPass']?>" /><br>
+
+                <input type="submit" value="<?php echo $lang['Confirm']?>">
+                <input type="button" value="<?php echo $lang['BT']?>" onclick="window.location='<?php echo $loc?>';" /><br><br>
+
+            </form>
+        </section><!-- content -->
+    </div><!-- container -->
+</body>
     <?php
     }
     else{

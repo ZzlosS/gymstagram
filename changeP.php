@@ -2,11 +2,11 @@
 	require_once 'basic.php';
 	
 	if(!$loggedIn) die();
-?>
-<div class="main">
-<?php
 	require_once 'infoP.php';
 ?>
+    <body id="b2">
+    <div class="container2">
+        <section id="content">
 			<form method="post" action="profile.php" enctype="multipart/form-data">
 				<h3><?php echo $lang['EditP']?></h3>
 				
@@ -28,11 +28,12 @@
 				<input type="file" name="image" id="image"></label><br>
 				
 				<textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
-		        <input type="submit" value="<?php echo $lang['SP']?>"><br>
-		        
+		        <input type="submit" value="<?php echo $lang['SP']?>">
 		        <input type="button" value="<?php echo $lang['Cpass']?>" onclick="window.location='passchange.php';" />
 		     	
 			</form>
-		</div>
-	</body>
+
+    </section><!-- content -->
+</div><!-- container -->
+</body>
 </html>

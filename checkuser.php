@@ -10,7 +10,7 @@
 		else{
 			$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 			if($result->num_rows){
-				echo "<span class='taken'>&nbsp;&#x2718;".$lang['UserTaken']."</span>";
+				echo "<br><span class='taken'>&nbsp;&#x2718;".$lang['UserTaken']."</span>";
 			}
 			else{
 				echo "<span class='available'>&nbsp;&#x2714;</span>";
@@ -24,7 +24,7 @@
         $gname = $_POST['gname'];
         $result = qM("SELECT * FROM `members` WHERE `gym_name`='$gname'");
         if($result->num_rows){
-            echo "<span class='taken'>&nbsp;&#x2718;".$lang['GUserTaken']."</span>";
+            echo "<br><span class='taken'>&nbsp;&#x2718;".$lang['GUserTaken']."</span>";
         }
         else{
             echo "<span class='available'>&nbsp;&#x2714;</span>";
