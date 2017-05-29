@@ -57,16 +57,6 @@
 			//"<script src='javascript.js'></script>";
 	if(!$loggedIn){
 ?>
-	<!--<div>
-	<a href="index.php?lang=en"><img src="languages/en.png" /></a>
-	<a href="index.php?lang=sr"><img src="languages/sr.png" /></a>
-	</div>
-	<ul class = "menu">
-		<li><a href="index.php"><?php echo $lang['Home'];?></a></li>
-		<li><a href="login.php"><?php echo $lang['Login'];?></a></li>
-		<li><a href="signup.php"><?php echo $lang['Signup'];?></a></li>
-	</ul>
-	<br>-->
         <div class="main-nav">
             <div class="container">
                 <header class="group top-nav">
@@ -77,18 +67,24 @@
                         <span class="logo">Gymstagram</span>
                     </div>
                     <nav id="navbar-1" class="navbar item-nav navbar-right">
-
                         <ul class = "menu">
                             <li><a href="index.php"><?php echo $lang['Home'];?></a></li>
                             <li><a href="login.php"><?php echo $lang['Login'];?></a></li>
                             <li><a href="signup.php"><?php echo $lang['Signup'];?></a></li>
+                            <li>
+                                <div id="language">
+                                    <div class="dropdown1">
+                                        <button class="dropbtn1">Language</button>
+                                        <div class="dropdown-content1">
+                                            <a href="profile.php?lang=en"><img src="languages/en.png" /> Eng</a>
+                                            <a href="profile.php?lang=sr"><img src="languages/sr.png" /> Srb</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
-                    </nav>
-                    <div style="float: right;" id="language">
-                        <a href="index.php?lang=en"><img src="languages/en.png" /></a>
-                        <a href="index.php?lang=sr"><img src="languages/sr.png" /></a>
-                    </div>
 
+                    </nav>
                 </header>
             </div>
         </div>
@@ -134,13 +130,19 @@
                             <li> <a href="profile.php"><?php echo $lang['Profile'];?></a></li>
                             <li> <a href="log.php?page=1"><?php echo $lang['Log'];?></a> </li>
                             <li> <a href="logout.php?page=index.php"><?php echo $lang['Logout'];?></a> </li>
+                            <li>
+                                <div id="language">
+                                    <div class="dropdown1">
+                                        <button class="dropbtn1">Language</button>
+                                        <div class="dropdown-content1">
+                                            <a href="profile.php?lang=en"><img src="languages/en.png" /> Eng</a>
+                                            <a href="profile.php?lang=sr"><img src="languages/sr.png" /> Srb</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </nav>
-                    <div style="float: right;" id="language">
-                        <a href="profile.php?lang=en"><img src="languages/en.png" /></a>
-                        <a href="profile.php?lang=sr"><img src="languages/sr.png" /></a>
-                    </div>
-
                 </header>
             </div>
         </div>

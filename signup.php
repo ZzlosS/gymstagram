@@ -82,6 +82,7 @@
     <div class="container2">
         <section id="content">
             <form method="post" action="signup.php">
+                <h1>Sign up Form</h1>
                 <?php echo $redirect ?>
                 <h3><?php echo $lang['Registration'] ?>:</h3>
                 <input type="text" name="gname" id="gname" value="<?php echo $gname ?>" maxlength="20" onBlur="cU2(this)" placeholder="<?php echo $lang['GName'] ?>"/>
