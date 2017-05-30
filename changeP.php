@@ -6,8 +6,16 @@
 ?>
     <body id="b2">
     <div class="container2">
-        <section id="content">
+        <section id="content2">
 			<form method="post" action="profile.php" enctype="multipart/form-data">
+                <?php
+                echo "<br><br>";
+                echo $lang['YP'];
+                sP($email);
+                ?>
+                <label for="image"><?php  echo $lang['Image']?>:
+                <input type="file" name="image" id="image"></label><br><br>
+
 				<h3><?php echo $lang['EditP']?></h3>
 				
 				<label><?php echo $lang['GName']?>:
@@ -23,9 +31,8 @@
 		        
 		        <label><?php echo $lang['LName']?>:
 		        <input type="text" id="lname" name="lname" value="<?php echo $lname ?>"></label><br>
-		        
-		        <label for="image"><?php  echo $lang['Image']?>:
-				<input type="file" name="image" id="image"></label><br>
+
+
 				
 				<textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
 		        <input type="submit" value="<?php echo $lang['SP']?>">

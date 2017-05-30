@@ -58,11 +58,11 @@
 ?>
 <body id="b2">
 <div class="container2">
-    <section id="content">
+    <section id="content2">
         <form method="post" action="login.php">
             <h1>Login Form</h1>
             <div>
-                <input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40" placeholder="<?php echo $lang['E']."/".$lang['GName']?>" />
+                <input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40" placeholder="<?php echo $lang['E']."/".$lang['GName']?>" autofocus/>
                 <br>
             </div>
 

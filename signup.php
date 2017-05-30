@@ -72,7 +72,7 @@
                 qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname created account')");
                 $redirect = $lang['AccCreated']."<br>Click <a href='login.php'>here</a> to Log in";
                 $ok = true;
-                //header( "refresh:5;url=login.php" ); ne radi...
+                echo "<script> location.replace('login.php'); </script>";
             }
         }
 	}
@@ -80,21 +80,21 @@
 <?php if(!$ok) { ?>
 <body id="b2">
     <div class="container2">
-        <section id="content">
+        <section id="content2">
             <form method="post" action="signup.php">
                 <h1>Sign up Form</h1>
                 <?php echo $redirect ?>
                 <h3><?php echo $lang['Registration'] ?>:</h3>
-                <input type="text" name="gname" id="gname" value="<?php echo $gname ?>" maxlength="20" onBlur="cU2(this)" placeholder="<?php echo $lang['GName'] ?>"/>
+                <input type="text" name="gname" id="gname" value="<?php echo $gname ?>" maxlength="20" onBlur="cU2(this)" placeholder="<?php echo $lang['GName'] ?>" autofocus />
                 <span id="ginfo"><?php echo $error2 ?></span>
                 <span id="info2"><?php echo $error ?></span>
                 <br>
 
-                <input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40" onBlur="cU(this)" placeholder="<?php echo $lang['Email'] ?>">
+                <input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40" onBlur="cU(this)" placeholder="<?php echo $lang['Email'] ?>" />
                 <span id="info"><?php echo $error ?></span>
                 <br>
 
-                <input type="password" name="pass" id="pass" value="" maxlength="30" placeholder="<?php echo $lang['Pass'] ?>">
+                <input type="password" name="pass" id="pass" value="" maxlength="30" placeholder="<?php echo $lang['Pass'] ?>" />
 
                 <h3><?php echo $lang['SQ'] ?>:</h3>
 
@@ -106,7 +106,7 @@
                         <option value="3">3</option>
                     </select>
                 </label>
-                <input type="text" name="q1" id="q1" value="" maxlength="30">
+                <input type="text" name="q1" id="q1" value="" maxlength="30" />
                 <br>
 
                 <label class="fieldname" for="q2">
@@ -117,7 +117,7 @@
                         <option value="3">3</option>
                     </select>
                 </label>
-                <input type="text" name="q2" id="q2" value="" maxlength="30">
+                <input class="q2" type="text" name="q2" id="q2" value="" maxlength="30" />
                 <br>
                 <h3>Type in something only you know for maximum security</h3>
                 <textarea style="resize: none;" name="st" id="st" rows="6" cols="50" placeholder="Type in something only you know for maximum security" maxlength="255"></textarea>

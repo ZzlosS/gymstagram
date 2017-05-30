@@ -2,13 +2,13 @@
 	
 	session_start();
 	?>
-	<!DOCTYPE html><html><head>
+	<html><head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--<meta name="description" content="Saturn is free PSD &amp; HTML template by @flamekaizar">
     <meta name="author" content="Afnizar Nur Ghifari">-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,10 +16,9 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/custom.min.css" />
     <link rel="shortcut icon" href="img/favicon.png" />
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/mycss.css" />
-
 	<?php
 	require_once 'checklanguage.php';
 	
@@ -49,7 +48,7 @@
 		$loggedIn = FALSE;
 	}
 	
-	echo "<title>$appname$userstr$not</title>";
+	echo "<title>$appname$userstr$not</title></head>";
 			//"<link type='text/css' rel='stylesheet' href='styles.css'></link>".
         /*"</head><body><div style=\"text-align: center;\"><canvas id='logo' width='624' height='96'>" .
         "$appname</canvas></div>" .
@@ -57,17 +56,21 @@
 			//"<script src='javascript.js'></script>";
 	if(!$loggedIn){
 ?>
+        <body>
         <div class="main-nav">
             <div class="container">
                 <header class="group top-nav">
                     <nav class="navbar logo-w navbar-left" >
                         <a class="logo" href="index.php">Gymstagram</a>
                     </nav>
+
                     <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
                         <span class="logo">Gymstagram</span>
                     </div>
+
                     <nav id="navbar-1" class="navbar item-nav navbar-right">
                         <ul class = "menu">
+
                             <li><a href="index.php"><?php echo $lang['Home'];?></a></li>
                             <li><a href="login.php"><?php echo $lang['Login'];?></a></li>
                             <li><a href="signup.php"><?php echo $lang['Signup'];?></a></li>
@@ -82,9 +85,10 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
 
+                        </ul>
                     </nav>
+
                 </header>
             </div>
         </div>
@@ -104,8 +108,10 @@
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/kube.min.js"></script>
+        </body>
 	<!-- <span class="info">&#8658; <?php echo $lang['NotLogged'];?></span>  -->
 <?php } else{?>
+        <body>
         <!-- Navigation -->
         <div class="main-nav">
             <div class="container">
@@ -117,19 +123,30 @@
 
                     <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
                         <span class="logo">Gymstagram</span>
-
                     </div>
+
                     <nav id="navbar-1" class="navbar item-nav navbar-right">
 
                         <ul class = "menu">
-                            <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
+                            <li> <a href="#"><?php echo $lang['Home'];?></a> </li>
                             <li> <a href="members.php"><?php echo $lang['Members'];?></a> </li>
                             <li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
                             <li> <a href="friends.php"><?php echo $lang['Friends'];?></a> </li>
-                            <li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
-                            <li> <a href="profile.php"><?php echo $lang['Profile'];?></a></li>
+                            <li> <a href="#"><?php echo $lang['Messages'];?></a> </li>
                             <li> <a href="log.php?page=1"><?php echo $lang['Log'];?></a> </li>
-                            <li> <a href="logout.php?page=index.php"><?php echo $lang['Logout'];?></a> </li>
+                            <li>
+                                <div id="language">
+                                    <div class="dropdown1">
+                                        <button class="dropbtn1"><?php echo $gname ?></button>
+                                        <div class="dropdown-content1">
+                                            <a href="profile.php"><i class="icon-user"></i><?php echo $lang['Profile'];?></a>
+                                            <a href="#"><i class="icon-cog"></i>Settings</a>
+                                            <a href="logout.php?page=index.php"><i class="icon-remove"></i><?php echo $lang['Logout'];?></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
                             <li>
                                 <div id="language">
                                     <div class="dropdown1">
@@ -142,12 +159,14 @@
                                 </div>
                             </li>
                         </ul>
+
                     </nav>
                 </header>
             </div>
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/kube.min.js"></script>
-
-
-    <?php }?>
+        <script src="js/myjs.js"></script>
+    </body>
+</html>
+<?php }?>

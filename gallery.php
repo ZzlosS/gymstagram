@@ -16,6 +16,7 @@ if($result5->num_rows){
 ?>
 		
 		<div class="main">
+            <br><br>
 			<h3> Your Gallery</h3> <!-- ubaci u recnik -->
 			<?php
 				if(!is_dir("images/$id/album")){
@@ -88,15 +89,14 @@ if($result5->num_rows){
 							$x2 = $max/2 - $th/2;
 						}
 						$x1 = $max/2 - $tw/2;
-						$x2 = $max/2 - $th/2; //zbog w = h
-						$tmp = imagecreatetruecolor($max, $max); //$tw, $th
-						$white = imagecolorallocate($tmp, 255, 255, 255);//boji u belo
-						imagefill($tmp, 0, 0, $white);//boji u belo
-						imagecopyresampled($tmp, $src, $x1, $x2, 0, 0, $tw, $th, $w, $h);
+						$x2 = $max/2 - $th/2;
+						$tmp = imagecreatetruecolor($max, $max); //pravi neku pozadinu gde ce da lepi sliku
+						$white = imagecolorallocate($tmp, 255, 255, 255);//bela pozadina
+						imagefill($tmp, 0,0,$gray88);//na pozadinu lepi belu pozadinu
+						imagecopyresampled($tmp, $src, $x1, $x2, 0, 0, $tw, $th, $w, $h); //na sada belupozadinu lepi sliku
 						imageconvolution($tmp, array(array(-1, -1, -1),
 								array(-1, 16, 1),
 								array(-1, -1, -1)), 8, 0);
-					
 						imagejpeg($tmp, $saveto);
 						imagedestroy($tmp);
 						imagedestroy($src);

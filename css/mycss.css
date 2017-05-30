@@ -1,3 +1,6 @@
+@import url('font-awesome2.css');
+
+
 /* Reset CSS */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -34,7 +37,7 @@ h1,h2,h3,h4,h5,h6{ color:#563D64;}
 small{ font-size:10px;}
 b, strong{ font-weight:bold;}
 a{ text-decoration: none; }
-a:hover{ text-decoration: underline; }
+a:hover{ text-decoration: none; }
 .left { float:left; }
 .right { float:right; }
 .alignleft { float: left; margin-right: 15px; }
@@ -48,7 +51,7 @@ form:after {
 	visibility: hidden;
 }
 .container2 { margin: 25px auto; position: relative; width: 900px; }
-#content {
+#content2 {
 	background: #f9f9f9;
 	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
 	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
@@ -69,22 +72,22 @@ form:after {
 	text-shadow: 0 1px 0 #fff;
 	width: 400px;
 }
-#content h1 {
+#content2 h1 {
 	color: #7E7E7E;
 	font: bold 25px Helvetica, Arial, sans-serif;
 	letter-spacing: -0.05em;
 	line-height: 20px;
 	margin: 10px 0 30px;
 }
-#content h1:before,
-#content h1:after {
+#content2 h1:before,
+#content2 h1:after {
 	content: "";
 	height: 1px;
 	position: absolute;
 	top: 10px;
 	width: 27%;
 }
-#content h1:after {
+#content2 h1:after {
 	background: rgb(126,126,126);
 	background: -moz-linear-gradient(left,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
 	background: -webkit-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
@@ -93,7 +96,7 @@ form:after {
 	background: linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     right: 0;
 }
-#content h1:before {
+#content2 h1:before {
 	background: rgb(126,126,126);
 	background: -moz-linear-gradient(right,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
 	background: -webkit-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
@@ -102,8 +105,8 @@ form:after {
 	background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     left: 0;
 }
-#content:after,
-#content:before {
+#content2:after,
+#content2:before {
 	background: #f9f9f9;
 	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
 	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
@@ -119,7 +122,7 @@ form:after {
 	position: absolute;
 	width: 100%;
 }
-#content:after {
+#content2:after {
 	-webkit-transform: rotate(2deg);
 	-moz-transform: rotate(2deg);
 	-ms-transform: rotate(2deg);
@@ -128,7 +131,7 @@ form:after {
 	top: 0;
 	z-index: -1;
 }
-#content:before {
+#content2:before {
 	-webkit-transform: rotate(-3deg);
 	-moz-transform: rotate(-3deg);
 	-ms-transform: rotate(-3deg);
@@ -137,9 +140,9 @@ form:after {
 	top: 0;
 	z-index: -2;
 }
-#content form { margin: 0 20px; position: relative }
-#content form input[type="text"],
-#content form input[type="password"] {
+#content2 form { margin: 0 20px; position: relative }
+#content2 form input[type="text"],
+#content2 form input[type="password"] {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	-ms-border-radius: 3px;
@@ -163,8 +166,8 @@ form:after {
 	padding: 15px 10px 15px 40px;
 	width: 80%;
 }
-#content form input[type="text"]:focus,
-#content form input[type="password"]:focus {
+#content2 form input[type="text"]:focus,
+#content2 form input[type="password"]:focus {
 	-webkit-box-shadow: 0 0 2px #ed1c24 inset;
 	-moz-box-shadow: 0 0 2px #ed1c24 inset;
 	-ms-box-shadow: 0 0 2px #ed1c24 inset;
@@ -185,7 +188,7 @@ form:after {
 #rnpass { background-position: 10px -53px !important }
 
 
-#content form input[type="submit"] {
+#content2 form input[type="submit"] {
 	background: rgb(254,231,154);
 	background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
 	background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
@@ -214,7 +217,7 @@ form:after {
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	width: 120px;
 }
-#content form input[type="submit"]:hover {
+#content2 form input[type="submit"]:hover {
 	background: rgb(254,193,81);
 	background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
 	background: -webkit-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
@@ -224,7 +227,7 @@ form:after {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
 }
 
-#content form input[type="button"] {
+#content2 form input[type="button"] {
 	background: rgb(254,231,154);
 	background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
 	background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
@@ -253,7 +256,7 @@ form:after {
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	width: 150px;
 }
-#content form input[type="button"]:hover {
+#content2 form input[type="button"]:hover {
 	background: rgb(254,193,81);
 	background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
 	background: -webkit-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
@@ -262,7 +265,7 @@ form:after {
 	background: linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
 }
-#content form div a {
+#content2 form div a {
 	color: #004a80;
     float: right;
     font-size: 12px;
@@ -310,48 +313,49 @@ form:after {
 
 /* Stil za dropdwon listu */
 /* Style The Dropdown Button #DCDDDF*/
-        .dropbtn1 {
-            background-color: transparent;
-            color: #A4A4A4;
-            padding: 2px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
+.dropbtn1 {
+	background-color: transparent;
+	color: #A4A4A4;
+	padding: 2px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
 
-        /* The container <div> - needed to position the dropdown content */
-        .dropdown1 {
-            position: relative;
-            display: inline-block;
-        }
+/* The container <div> - needed to position the dropdown content */
+.dropdown1 {
+	position: relative;
+	display: inline-block;
+}
 
-        /* Dropdown Content (Hidden by Default) */
-        .dropdown-content1 {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content1 {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
 
-        /* Links inside the dropdown */
-        .dropdown-content1 a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
+/* pravi problem, centrira nepotrebne stvari */
+/* Links inside the dropdown */
+.dropdown-content1 a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
 
-        /* Change color of dropdown links on hover */
-        .dropdown-content1 a:hover {background-color: #f1f1f1}
+/* Change color of dropdown links on hover */
+.dropdown-content1 a:hover {background-color: #f1f1f1}
 
-        /* Show the dropdown menu on hover */
-        .dropdown1:hover .dropdown-content1 {
-            display: block;
-        }
+/* Show the dropdown menu on hover */
+.dropdown1:hover .dropdown-content1 {
+	display: block;
+}
 
-        /* Change the background color of the dropdown button when the dropdown content is shown */
-        .dropdown1:hover .dropbtn1 {
-            background-color: transparent;
-        }
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown1:hover .dropbtn1 {
+	background-color: transparent;
+}

@@ -80,7 +80,7 @@ if(isset($_POST['email'])){
     ?>
 <body id="b2">
     <div class="container2">
-        <section id="content">
+        <section id="content2">
             <form method="post" action="">
 
                 <h3><?php echo $lang['PC1']?></h3>

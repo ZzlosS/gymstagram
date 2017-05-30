@@ -12,7 +12,7 @@ else{
 $result = qM("SELECT * FROM `members` WHERE `id`=$mid");
 if($result->num_rows){
 	$row = $result->fetch_array(MYSQL_ASSOC);
-	$view = $row['gym_name'];
+	$view = $row['email'];
 }
 else{
 	$view = "";
@@ -51,7 +51,7 @@ else{
 				$friends = FALSE;
 				
 				if(sizeof($mutual)){
-					echo "<span class='subhead'>$name2 ". $lang['friends'].":</span>";
+					echo "<br><br><span class='subhead'><h3>$name2 ". $lang['friends'].":</h3></span>";
 					echo "<ul>";
 					foreach ($mutual as $friendId){
 						$result = qM("SELECT * FROM `members` WHERE `id`=$friendId");

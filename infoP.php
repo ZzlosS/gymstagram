@@ -13,7 +13,7 @@
                 'gname' : gname.value
             },
             success : function(result){
-                document.getElementById('info').innerHTML = result + " (at least by you)";
+                document.getElementById('info').innerHTML = result + "";
             }
         });
     }
@@ -103,30 +103,30 @@ if(isset($_FILES['image']['name'])){
 		$max = 100;
 		$tw = $w;
 		$th = $h;
-		$x1 = $x2 = 0;
+		$x1 = $x2 = 0;//-
 		if($w > $h && $w > $max){
 			$tw = $max;
 			$th = $h * $max / $w;
-			$x1 = $max/2 - $tw/2;
-			$x2 = $max/2 - $th/2;
+			$x1 = $max/2 - $tw/2;//-
+			$x2 = $max/2 - $th/2;//-
 		}
 		elseif($h > $w && $h > $max){
 			$th = $max;
 			$tw = $max / $h * $w;
-			$x1 = $max/2 - $tw/2;
-			$x2 = $max/2 - $th/2;
+			$x1 = $max/2 - $tw/2;//-
+			$x2 = $max/2 - $th/2;//-
 		}
 		elseif($w > $max){
 			$tw = $th = $max;
-			$x1 = $max/2 - $tw/2;
-			$x2 = $max/2 - $th/2;
+			$x1 = $max/2 - $tw/2;//-
+			$x2 = $max/2 - $th/2;//-
 		}
-		$x1 = $max/2 - $tw/2;
-		$x2 = $max/2 - $th/2; //zbog w = h
-		$tmp = imagecreatetruecolor($max, $max); //$tw, $th
+		$x1 = $max/2 - $tw/2;//-
+		$x2 = $max/2 - $th/2;//-
+		$tmp = imagecreatetruecolor($tw, $th); //$tw, $th
 		$white = imagecolorallocate($tmp, 255, 255, 255);//boji u belo
 		imagefill($tmp, 0, 0, $white);//boji u belo
-		imagecopyresampled($tmp, $src, $x1, $x2, 0, 0, $tw, $th, $w, $h);
+		imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h);
 		imageconvolution($tmp, array(array(-1, -1, -1),
 				array(-1, 16, 1),
 				array(-1, -1, -1)), 8, 0);
@@ -136,8 +136,4 @@ if(isset($_FILES['image']['name'])){
 		imagedestroy($src);
 	}
 }
-
-echo $lang['YP'];
-echo $lang['YPP'];
-sP($email);
 ?>

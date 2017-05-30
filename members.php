@@ -140,6 +140,7 @@ if(!$loggedIn) die();
 			$num = $result->num_rows;
 			
 		?>
+            <br><br>
 			<h3>Other Members</h3>
 			<ul>
 				<?php 
