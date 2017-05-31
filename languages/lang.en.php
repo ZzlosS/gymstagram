@@ -65,7 +65,7 @@
  	$lang['to'] = ' to';
  	$lang['ForeverAlone'] = '<br> You dont have any gym buddies yet.<br><br>';
  	$lang['Your'] = 'Your';
- 	$lang['yf'] = '&harr; is your friend ';
+ 	$lang['yf'] = 'is your friend ';
  	$lang['yousent'] = '&larr; you have sent friend request ';
  	$lang['sentyou'] = '&rarr; has sent you friend request ';
  	$lang['add'] = 'Accept';

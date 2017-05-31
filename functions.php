@@ -54,8 +54,8 @@
 		if($result->num_rows){
 			$row = $result->fetch_assoc();
 			$id = $row['id'];
-			if(file_exists("images/$id/profile/$id.jpg")){
-				echo "<div style='height: 100px; width: 100px;'><img src='images/$id/profile/$id.jpg'></div>";
+			if(file_exists("images/$id/profile/$id.png")){//style='border-radius: 50%'
+				echo "<div style='height: 100px; width: 100px;'><img src='images/$id/profile/$id.png'></div>";
 			}
 			echo "<br>";
 		}

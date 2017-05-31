@@ -67,7 +67,7 @@
             </div>
 
             <div>
-                <input type="password" name="pass" id="pass" value="<?php echo $pass ?>" maxlength="30" placeholder="<?php echo $lang['Pass']?>"/>
+                <input type="password" name="pass" id="pass" value="" maxlength="30" placeholder="<?php echo $lang['Pass']?>"/>
             </div>
             <div>
                 <?php echo $error1, $error2, $error3 ?>

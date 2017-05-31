@@ -78,7 +78,7 @@ if(!is_dir("images/$id/profile")){
 }
 
 if(isset($_FILES['image']['name'])){
-	$saveto = "images/$id/profile/".$id.".jpg";
+	$saveto = "images/$id/profile/".$id.".png";
 	$date = date("Y-m-d H:i:s");
 	move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
 	qM("UPDATE `profile` SET `date_update` = '$date', `pic_path` = '$saveto' WHERE `email`='$email'");
@@ -123,15 +123,22 @@ if(isset($_FILES['image']['name'])){
 		}
 		$x1 = $max/2 - $tw/2;//-
 		$x2 = $max/2 - $th/2;//-
-		$tmp = imagecreatetruecolor($tw, $th); //$tw, $th
-		$white = imagecolorallocate($tmp, 255, 255, 255);//boji u belo
-		imagefill($tmp, 0, 0, $white);//boji u belo
-		imagecopyresampled($tmp, $src, 0, 0, 0, 0, $tw, $th, $w, $h);
+		$tmp = imagecreatetruecolor($max, $max); //$tw, $th
+
+        //pravi providnu pozadinu
+        imagesavealpha($tmp, true);
+        $color = imagecolorallocatealpha($tmp, 0, 0, 0, 127);
+        imagefill($tmp, 0, 0, $color);
+
+
+		//$white = imagecolorallocate($tmp, 255, 255, 255);//boji u belo
+		//imagefill($tmp, 0, 0, $white);//boji u belo
+		imagecopyresampled($tmp, $src, $x1, $x2, 0, 0, $tw, $th, $w, $h);
 		imageconvolution($tmp, array(array(-1, -1, -1),
 				array(-1, 16, 1),
 				array(-1, -1, -1)), 8, 0);
 	
-		imagejpeg($tmp, $saveto);
+		imagepng($tmp, $saveto);
 		imagedestroy($tmp);
 		imagedestroy($src);
 	}

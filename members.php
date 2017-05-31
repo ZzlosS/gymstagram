@@ -136,7 +136,7 @@ if(!$loggedIn) die();
 				}
 			}
 		
-			$result = qM("SELECT * FROM `members`");
+			$result = qM("SELECT * FROM `profile`");
 			$num = $result->num_rows;
 			
 		?>
@@ -146,31 +146,77 @@ if(!$loggedIn) die();
 				<?php 
 					for($j = 0; $j < $num; $j++){
 						$row = $result->fetch_assoc();
-						if($row['id'] == $id){
+						//current
+						$cid = $row['id'];
+						$cgname = $row['gym_name'];
+						$cimage = $row['pic_path'];
+						$cname = $row['name'];
+                        $clname = $row['last_name'];
+                        $cinfo = $row['information'];
+						if($cid == $id){
 							continue;
 						}
-						echo "<li><a href='members.php?id=" . $row['id'] . "'>" . $row['gym_name'] . "</a> ";
-						$result1 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=" . $row['id'] . " AND `friend_id`=$id");
-						$t1 = $result1->num_rows;
-						$resutl2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=" . $row['id']);
-						$t2 = $resutl2->num_rows;
-						if($t1 + $t2 >1){
-							echo $lang['yf'];
-							echo "[<a href='members.php?delete=" . $row['id'] . "'>".$lang['delete']."</a>]";
-						}
-						elseif($t1){
-							echo $lang['yousent'];
-							echo "[<a href='members.php?revoke=" . $row['id'] . "'>".$lang['Revoke']."</a>]";
-						}
-						elseif($t2){
-							echo $lang['sentyou'];
-							echo "[<a href='members.php?decline=" . $row['id'] . "'>".$lang['nadd']."</a>]"; //decline
-							echo "[<a href='members.php?accept=" . $row['id'] . "'>".$lang['add']."</a>]"; //accept
-						}
-						else{
-							echo "[<a href='members.php?add=" . $row['id'] . "'>".$lang['send']."</a>]"; //add
-						}
-						echo "</li>";
+                        $result1 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=" . $row['id'] . " AND `friend_id`=$id");
+                        $t1 = $result1->num_rows;
+                        $resutl2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=" . $row['id']);
+                        $t2 = $resutl2->num_rows;
+                        $sent = $remove = false;
+                        if($t1){$sent = true;}
+                        if($t1 + $t2 >1){$remove = true;}
+						?>
+                        <li>
+                        <span class="box">
+                            <?php
+                            echo "<a href='members.php?id=" . $cid . "'>" . $cgname . "</a>";
+                            ?>
+
+                            <span class="overlay">
+                                <figure class="snip1336">
+                                <img src="img/cover.jpg" alt="sample87" />
+                                  <figcaption>
+                                    <img src="<?php echo $cimage?>" alt="profile-sample4" class="profile" />
+                                    <h2><?php echo $cname?>
+                                        <span>
+                                            <?php
+                                            if($t1 + $t2 >1){
+                                                echo $lang['yf'];
+                                            }
+                                            elseif($t1){
+                                                echo "is yet to decide if he wants to accept your friend request";
+                                            }
+                                            elseif($t2){
+                                                echo "wants yo be your friend";
+                                            }
+                                            else{
+                                                echo "is not your friend";
+                                            }
+                                            ?>
+                                        </span>
+                                    </h2>
+                                    <p><?php echo $cinfo?></p>
+                                      <?php
+                                      if($t1 + $t2 >1){
+                                          echo '<a href="members.php?delete='.$cid.'" class="delete">Delete friend</a>';
+                                      }
+                                      elseif($t1){
+                                          echo '<a href="members.php?revoke='.$cid.'" class="delete">Revoke request</a>';
+                                      }
+                                      elseif($t2){
+                                          echo "<a href='members.php?decline=".$cid."' class='delete'>".$lang['nadd']."</a>"; //decline
+                                          echo "<a href='members.php?accept=".$cid."' class='follow'>".$lang['add']."</a><br>"; //accept
+                                      }
+                                      else{
+                                          echo '<a href="members.php?add='.$cid.'" class="follow">Add friend</a>';
+                                      }
+                                      ?>
+                                    <a href="#" class="info">More Info</a>
+                                  </figcaption>
+                                </figure>
+                            </span>
+                        </span>
+                        </li>
+                        <?php
+
 					}
 				?>
 			</ul>

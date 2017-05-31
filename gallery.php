@@ -92,7 +92,7 @@ if($result5->num_rows){
 						$x2 = $max/2 - $th/2;
 						$tmp = imagecreatetruecolor($max, $max); //pravi neku pozadinu gde ce da lepi sliku
 						$white = imagecolorallocate($tmp, 255, 255, 255);//bela pozadina
-						imagefill($tmp, 0,0,$gray88);//na pozadinu lepi belu pozadinu
+						imagefill($tmp, 0,0,$white);//na pozadinu lepi belu pozadinu
 						imagecopyresampled($tmp, $src, $x1, $x2, 0, 0, $tw, $th, $w, $h); //na sada belupozadinu lepi sliku
 						imageconvolution($tmp, array(array(-1, -1, -1),
 								array(-1, 16, 1),

@@ -19,6 +19,9 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css" />
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/mycss.css" />
+    <link rel="stylesheet" type="text/css" href="css/profile-hover.css" />
+
+    <script src="js/myjs.js"></script>
 	<?php
 	require_once 'checklanguage.php';
 	
@@ -166,7 +169,6 @@
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/kube.min.js"></script>
-        <script src="js/myjs.js"></script>
     </body>
 </html>
 <?php }?>

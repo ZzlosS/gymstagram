@@ -19,12 +19,13 @@
 
     if(isset($_GET['page'])){
         $page = $_GET['page'];
-        $start = 1 + 20*($page-1);
-        $end = $page * 20 + 1;
+        $start = 0 + 20*($page-1);
+        $end = $page * 20;
         $result2 = qM("SELECT * FROM `log` ORDER BY `id` LIMIT $start,$end");
         for($i = $start; $i < $end; $i++){
             $row = $result2->fetch_assoc();
-            echo "<tr><td>$i</td>";
+            $lid = $i+1;
+            echo "<tr><td>$lid</td>";
             echo "<td>".$row['date']."</td>";
             echo "<td>".$row['msg']."</td></tr>";
         }

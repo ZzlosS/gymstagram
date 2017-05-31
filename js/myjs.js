@@ -12,3 +12,12 @@ DropDown.prototype = {
         }); 
     }
 }
+$(function(){
+    $(".box").hover(function(){
+      $(this).find(".overlay").fadeIn();
+    }
+                    ,function(){
+                        $(this).find(".overlay").fadeOut();
+                    }
+                   );        
+});

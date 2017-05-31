@@ -47,7 +47,7 @@
         }
     }
 
-    echo "<h3>Your friend requests</h3><ul>";
+    echo "<br><br><h3>Your friend requests</h3><ul>";
     $result = qM("SELECT * FROM `members`");
     $num = $result->num_rows;
 
