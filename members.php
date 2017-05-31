@@ -160,9 +160,7 @@ if(!$loggedIn) die();
                         $t1 = $result1->num_rows;
                         $resutl2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=" . $row['id']);
                         $t2 = $resutl2->num_rows;
-                        $sent = $remove = false;
-                        if($t1){$sent = true;}
-                        if($t1 + $t2 >1){$remove = true;}
+
 						?>
                         <li>
                         <span class="box">

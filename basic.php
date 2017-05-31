@@ -2,6 +2,7 @@
 	
 	session_start();
 	?>
+    <!DOCTYPE html>
 	<html><head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,7 +22,28 @@
     <link rel="stylesheet" type="text/css" href="css/mycss.css" />
     <link rel="stylesheet" type="text/css" href="css/profile-hover.css" />
 
-    <script src="js/myjs.js"></script>
+
+
+    <!--da izbacim u css-->
+    <style>
+        .loader{
+            position: fixed;
+            bottom: 0;
+            left: 48%;
+        }
+        .up{
+            position: fixed;
+            float: left;
+            bottom: 10px;
+            left: 96%;
+        }
+        .up:hover{
+            opacity: 0.7;
+            cursor: pointer;
+        }
+    </style>
+    <!-- ... -->
+
 	<?php
 	require_once 'checklanguage.php';
 	
@@ -111,6 +133,7 @@
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/kube.min.js"></script>
+        <script src="js/myjs.js"></script>
         </body>
 	<!-- <span class="info">&#8658; <?php echo $lang['NotLogged'];?></span>  -->
 <?php } else{?>
@@ -131,11 +154,11 @@
                     <nav id="navbar-1" class="navbar item-nav navbar-right">
 
                         <ul class = "menu">
-                            <li> <a href="#"><?php echo $lang['Home'];?></a> </li>
+                            <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
                             <li> <a href="members.php"><?php echo $lang['Members'];?></a> </li>
                             <li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
                             <li> <a href="friends.php"><?php echo $lang['Friends'];?></a> </li>
-                            <li> <a href="#"><?php echo $lang['Messages'];?></a> </li>
+                            <li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
                             <li> <a href="log.php?page=1"><?php echo $lang['Log'];?></a> </li>
                             <li>
                                 <div id="language">
@@ -169,6 +192,7 @@
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/kube.min.js"></script>
+        <script src="js/myjs.js"></script>
     </body>
 </html>
 <?php }?>

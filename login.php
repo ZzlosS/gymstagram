@@ -1,6 +1,6 @@
 <?php
 	require_once 'basic.php';
-	$email = $pass = $error1 = $error2 = $error3 = '';
+	$email = $pass = $error1 = $error2 = $error3 = $value = '';
 	if(isset($_POST['email'])){
 		$email = sS($_POST['email']);
 		$gname = sS($_POST['email']);
@@ -9,10 +9,11 @@
 			$error1 = $lang['NotAll'];
 		}
 		else{
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){//ako je lose uneta sifra onda je gym_name uneto
+			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){//ako je lose uneta email adresa onda je gym_name uneto
 				$result2 = qM("SELECT * FROM `members` WHERE `gym_name`='$gname'");
 				$row2 = $result2->fetch_assoc();
 				$email = $row2['email'];
+				$value = $gname;
 				$hpass = hash('ripemd128', "$salt1$pass$salt2");
 				$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 				if($result->num_rows == 0){
@@ -29,7 +30,7 @@
 						$_SESSION['id'] = $id;
 						$_SESSION['email'] = $email;
 						//die($lang['LoggedIn']);
-						header('Location: profile.php');
+                        echo "<script> location.replace('home.php'); </script>";
 					}
 				}
 			}
@@ -41,6 +42,7 @@
 				}
 				else{
 					$row = $result->fetch_assoc();
+					$value = $row['email'];
 					if($row['pass'] != $hpass){
 						$error3 = $lang['PassInvalid'];
 					}
@@ -49,7 +51,7 @@
 						$_SESSION['id'] = $id;
 						$_SESSION['email'] = $email;
 						//die($lang['LoggedIn']);
-						header('Location: profile.php');
+                        echo "<script> location.replace('home.php'); </script>";
 					}
 				}
 			}
@@ -62,7 +64,7 @@
         <form method="post" action="login.php">
             <h1>Login Form</h1>
             <div>
-                <input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40" placeholder="<?php echo $lang['E']."/".$lang['GName']?>" autofocus/>
+                <input type="text" name="email" id="email" value="<?php echo $value ?>" maxlength="40" placeholder="<?php echo $lang['E']."/".$lang['GName']?>" autofocus/>
                 <br>
             </div>
 

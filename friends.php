@@ -64,7 +64,7 @@ else{
 				}
 				
 				if(sizeof($followers)){
-					echo "<span class='subhead'>$name2 ". $lang['fr'].":</span>";
+					echo "<span class='subhead'>People who want to be your friends:</span>";
 					echo "<ul>";
 					foreach ($followers as $friendId){
 						$result = qM("SELECT * FROM `members` WHERE `id`=$friendId");
@@ -77,7 +77,7 @@ else{
 				}
 				
 				if(sizeof($following)){
-					echo "<span class='subhead'>$name3 ". $lang['sent'] . $lang['fr']. $lang['to'].":</span>";
+					echo "<span class='subhead'>People who you want to be friends with:</span>";
 					echo "<ul>";
 					foreach ($following as $friendId){
 						$result = qM("SELECT * FROM `members` WHERE `id`=$friendId");

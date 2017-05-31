@@ -134,10 +134,10 @@ if(isset($_FILES['image']['name'])){
 		//$white = imagecolorallocate($tmp, 255, 255, 255);//boji u belo
 		//imagefill($tmp, 0, 0, $white);//boji u belo
 		imagecopyresampled($tmp, $src, $x1, $x2, 0, 0, $tw, $th, $w, $h);
-		imageconvolution($tmp, array(array(-1, -1, -1),
+		/*imageconvolution($tmp, array(array(-1, -1, -1),
 				array(-1, 16, 1),
 				array(-1, -1, -1)), 8, 0);
-	
+	*/
 		imagepng($tmp, $saveto);
 		imagedestroy($tmp);
 		imagedestroy($src);
