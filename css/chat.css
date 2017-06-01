@@ -163,7 +163,7 @@ div#chat_all:before{
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
 }
-/* div koji cuva sadrzaj chat-a, profila, linkovia*/
+/* div koji cuva sadrzaj chat-a, profila, linkova*/
 div#chat_all{
     width: 1208px;
 	 background : -webkit-linear-gradient(rgb(242, 242, 243) 15%, rgb(240, 243, 241) 36%, rgb(241, 240, 241) 58%, rgb(236, 236, 236) 81%);
@@ -181,6 +181,7 @@ div#chat_chat div#chat_show-message{
     background : -moz-linear-gradient(rgb(242, 242, 243) 15%, rgb(240, 243, 241) 36%, rgb(241, 240, 241) 58%, rgb(236, 236, 236) 81%);
     border-bottom: 1px solid #D3D3D3;
     padding-bottom: 30px;
+	height: 230px;
 }
 /*mesto za kucanje poruka*/
 div#chat_chat div#chat_type-text{

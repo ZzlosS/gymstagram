@@ -54,10 +54,11 @@
 		if($result->num_rows){
 			$row = $result->fetch_assoc();
 			$id = $row['id'];
-			if(file_exists("images/$id/profile/$id.png")){//style='border-radius: 50%'
-				echo "<div style='height: 100px; width: 100px;'><img src='images/$id/profile/$id.png'></div>";
+			$pic = $row['pic_path'];
+			//if(file_exists("images/$id/profile/$id.png")){mozda bas i ne radi kako treba
+            if(file_exists("$pic")){
+				echo "<div style='height: 100px; width: 100px; float:left;'><img id='blah' src='$pic'></div>";
 			}
-			echo "<br>";
 		}
 	}
 	

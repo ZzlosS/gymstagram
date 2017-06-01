@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,6 +27,9 @@
 
     <!--da izbacim u css-->
     <style>
+        .subhead{
+            float: left;
+        }
         .loader{
             position: fixed;
             bottom: 0;
@@ -40,6 +44,23 @@
         .up:hover{
             opacity: 0.7;
             cursor: pointer;
+        }
+        .name_hover:hover{
+            cursor: pointer;
+        }
+
+        .image-upload > input
+        {
+            display: none;
+        }
+
+        #blah2{
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #211410;
+            top: 89px;
+            left: 140px;
         }
     </style>
     <!-- ... -->
@@ -62,6 +83,7 @@
 		if($result->num_rows){
 			$row = $result->fetch_array(MYSQL_ASSOC);
 			$gname = $row['gym_name'];
+			$pic = $row['pic_path'];
 			$notifications = $row['notifications'];
 			if($notifications != 0){
 				$not = "[$notifications]";
@@ -143,8 +165,12 @@
             <div class="container">
                 <header class="group top-nav">
                     <nav class="navbar logo-w navbar-left" >
-                        <a class="logo" href="profile.php">Gymstagram</a>
-                        <a style='color:red; text-decoration: none;' href='notifications.php?id='.<?php echo $id?>.><?php echo $not?></a>
+                        <span id="gym_logo">
+                            <a class="logo" href="profile.php">Gymstagram</a>
+                            <span id="gym_not">
+                                <a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a>
+                            </span>
+                        </span>
                     </nav>
 
                     <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
@@ -167,7 +193,7 @@
                                         <div class="dropdown-content1">
                                             <a href="profile.php"><i class="icon-user"></i><?php echo $lang['Profile'];?></a>
                                             <a href="#"><i class="icon-cog"></i>Settings</a>
-                                            <a href="logout.php?page=index.php"><i class="icon-remove"></i><?php echo $lang['Logout'];?></a>
+                                            <a href="logout.php?page=index.php"><i class="icon-off"></i><?php echo $lang['Logout'];?></a>
                                         </div>
                                     </div>
                                 </div>

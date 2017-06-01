@@ -8,6 +8,7 @@ echo $lang['YP'];
 echo $lang['YPP'];
 sP($email);
 ?>
+        <br>
 		<span><?php echo $lang['GName'].": @".$gname?></span><br>
        <!-- <span><?php echo $lang['E'].": ".$email?></span><br>-->
 		<span><?php echo $lang['FName'].": ".$name?></span><br>

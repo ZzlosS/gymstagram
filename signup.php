@@ -68,7 +68,7 @@
                 $hpass = hash('ripemd128', "$salt1$pass$salt2");
                 qM("INSERT INTO `members`(`gym_name`, `email`, `pass`, `q1_id`, `question1`, `q2_id`, `question2`, `security_text`)
                     VALUES ('$gname', '$email', '$hpass', '$s1', '$q1', '$s2', '$q2', '$st')");
-                qM("INSERT INTO `profile`(`gym_name`, `email`) VALUES ('$gname', '$email')");
+                qM("INSERT INTO `profile`(`gym_name`, `email`, `pic_path`) VALUES ('$gname', '$email', 'img/default_avatar.png')");//trebalo bi po defaultu da stavi profilnu
                 qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname created account')");
                 $redirect = $lang['AccCreated']."<br>Click <a href='login.php'>here</a> to Log in";
                 $ok = true;
