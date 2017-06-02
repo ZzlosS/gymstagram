@@ -1,19 +1,20 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
-    function info(){
+    function info(id){
         $.ajax({
             type:'post',
             url:'chat_ajax.php',
-            //data: $(this).val(),
+            data : {
+                'id' : id
+            },
             dataType: 'json',
             success: function(data){
                 //var fileName = data[0];
                 //$("#music").attr("src",fileName).trigger("play");
-                $('#chat_me #chat_message').css('background-image', 'url(' + data[2] + ')');
                 $('#chat_h3').text(data[0]);
-                $('#sag').text(data[1]);
-                //$('#chat_me #chat_message').text(data[2]);
-                $('#chat_friend #chat_message').text(data[3]);
+                $('#chat_image').css('background-image', 'url('+ data[1] + ')');
+                $('#chat_info').text(data[2]);
+                $('#chat_h3_1').text(data[3]);
             }
         });
     }
@@ -65,7 +66,7 @@ else{
             $result = qM("SELECT * FROM `members` WHERE `id`=$friendId");
             $row = $result->fetch_assoc();
             $friendName = $row['gym_name'];
-            echo "<li><a  onclick='info()'  class='name_hover'>$friendName</a></li>";
+            echo "<li><a  onclick='info(".$friendId.")'  class='name_hover'>$friendName</a></li>";
         }
         echo "</ul></span>";
         $friends = TRUE;
@@ -84,7 +85,8 @@ else{
     <div id="chat_container"">
 
         <div id="chat_bg-image">
-            <h3 id="chat_h3">Mostafa Hassani</h3>
+            <h3 id="chat_h3">Mostafa</h3>
+            <h3 id="chat_h3_1">Bla bla</h3>
         </div>
 
         <div id='chat_followe'>
@@ -139,7 +141,7 @@ else{
             </div>
 
             <div id="chat_Description">
-                <p id="sag">My name is Mostafa Hasani.<br>
+                <p id="chat_info">My name is Mostafa Hasani.<br>
                     I'm in love with Html,Css and anything about web design.<br>
                     I like sports too...<br>
                     because healthy mind is in healthy body.

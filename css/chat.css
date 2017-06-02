@@ -53,6 +53,16 @@ h3#chat_h3 {
     color : #F9F7F6;
     font-weight: normal;
 }
+h3#chat_h3_1 {
+    display: block;
+    position: absolute;
+    text-shadow : 0 -1px 2px #000;
+    left: 10px;
+    top: 35px;
+    font-size : 16px;
+    color : #F9F7F6;
+    font-weight: normal;
+}
 /*followe follower, following, chat, profile i linkovi*/
 div#chat_followe{
     background : -webkit-linear-gradient(rgb(112, 114, 119) 14%, rgb(101, 98, 98) 37%, rgb(80, 80, 81) 62%, rgb(65, 68, 67) 83%);
@@ -103,8 +113,10 @@ div#chat_image{
     top: 89px;
     left: 140px;
     border-radius: 50%;
+	background-size: 100% 100%;
+	background-image: url('http://i.cubeupload.com/Cocek1.png');
 }
-
+/*
 div#chat_image:before{
     content: '';
     position: absolute;
@@ -113,8 +125,9 @@ div#chat_image:before{
     border-radius: 50%;
     top: 5px;
     left: 5px;
-    background-image: url('http://i.cubeupload.com/Cocek1.png');
-}
+	background-image: url('http://i.cubeupload.com/Cocek1.png');
+	
+}*/
 /* useless, dodaje neku senku u gornjem desnom uglu
 .image:after{
     content: '';

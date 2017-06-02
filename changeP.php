@@ -39,8 +39,8 @@
                 //ili samo da bude dugme za resize i onda da se skalira  a po defaultu na 100x100
                 ?>
 
-                <label for="image" style="float:left; padding-left:20%;">
-                    <i style='cursor: pointer;' class='icon-picture icon-large'></i>
+                <label for="image" style="float:left; padding-left:18%;">
+                    <i style='cursor: pointer;' class='icon-picture icon-2x'></i>
                     <div class="image-upload">
                         <input type='file' onchange="readURL(this);" name="image" id="image"/>
                     </div>
@@ -70,7 +70,9 @@
 				
 				<textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
 		        <input type="submit" value="<?php echo $lang['SP']?>">
-		        <input type="button" value="<?php echo $lang['Cpass']?>" onclick="window.location='passchange.php';" />
+                <input type="button" value="<?php echo $lang['Cpass']?>" onclick="window.location='passchange.php';" />
+
+
 		     	
 			</form>
 

@@ -62,6 +62,7 @@
             top: 89px;
             left: 140px;
         }
+
     </style>
     <!-- ... -->
 
@@ -202,7 +203,7 @@
                             <li>
                                 <div id="language">
                                     <div class="dropdown1">
-                                        <button class="dropbtn1">Language</button>
+                                        <button class="dropbtn1"><i class="icon-flag"></i>Language</button>
                                         <div class="dropdown-content1">
                                             <a href="profile.php?lang=en"><img src="languages/en.png" /> Eng</a>
                                             <a href="profile.php?lang=sr"><img src="languages/sr.png" /> Srb</a>
