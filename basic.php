@@ -197,7 +197,20 @@
                             <li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
                             <li> <a href="friends.php"><?php echo $lang['Friends'];?></a> </li>
                             <li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
-                            <li> <a href="log.php?page=1"><?php echo $lang['Log'];?></a> </li>
+                            <!--<li> <a href="log.php?page=1"><?php echo $lang['Log'];?></a> </li>-->
+                            <li>
+                                <div id="language">
+                                    <div class="dropdown1">
+                                        <button class="dropbtn1"><?php echo $lang['Log'];?></button>
+                                        <div class="dropdown-content1">
+                                            <a href="log_pdf.php.php"><img src="img/pdf.png">PDF</a>
+                                            <a href="log_html.php"><img src="img/html.png">HTML</a>
+                                            <a href="log_docx.php"><img src="img/doc.png">DOCX</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
                             <li>
                                 <div id="language">
                                     <div class="dropdown1">
