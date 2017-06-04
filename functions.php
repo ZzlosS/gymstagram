@@ -1,7 +1,5 @@
 <?php
 
-	
-
 	$dbhost = 'localhost';
 	$dbname = 'gym';
 	$dbpass = 'gym';
@@ -57,7 +55,8 @@
 			$pic = $row['pic_path'];
 			//if(file_exists("images/$id/profile/$id.png")){mozda bas i ne radi kako treba
             if(file_exists("$pic")){
-				echo "<div style='height: 100px; width: 100px; float:left;'><img id='blah' src='$pic'></div>";
+				//echo "<div style='max-height: 100px; max-width: 100px;float:left;'><img style='max-height: 100px; max-width: 100px; height: auto; width: auto;' id='blah' src='$pic' /></div>";
+                echo "<div id='blah' style='float: left; height: 100px; width: 100px; background: url(" .$pic. ") no-repeat center; background-size:contain;'></div>";
 			}
 		}
 	}

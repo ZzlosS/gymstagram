@@ -10,14 +10,8 @@
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result)
-                    .width(100)
-                    .height(100);
-                $('#blah2')
-                    .attr('src', e.target.result)
-                    .width(100)
-                    .height(100);
+                $('#blah').css('background-image', 'url('+ e.target.result + ')');
+                $('#blah2').css('background-image', 'url(' + e.target.result + ')');
             };
 
             reader.readAsDataURL(input.files[0]);
@@ -45,11 +39,10 @@
                         <input type='file' onchange="readURL(this);" name="image" id="image"/>
                     </div>
                 </label>
-                <div style="float:right">
-                    <img id="blah2" src="<?php echo $pic ?>" /><br>
-                    Chat preview
-                </div>
-                <br><br><br><br><br><br><br><br>
+                <div id="blah2" style='float:right; height: 100px; width: 100px; background: url("<?php echo $pic ?>") no-repeat center;
+                        background-size:contain;'></div>
+                <br><br><br><br><br><br><br>
+                <div style="float: right; padding-right: 18%;">Chat preview</div><br>
 				<h3><?php echo $lang['EditP']?></h3>
 				
 				<label><?php echo $lang['GName']?>:

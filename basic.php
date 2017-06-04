@@ -4,16 +4,26 @@
 	?>
     <!DOCTYPE html>
 	<html><head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--<meta name="description" content="Saturn is free PSD &amp; HTML template by @flamekaizar">
     <meta name="author" content="Afnizar Nur Ghifari">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="css/radio.css" />
     <link rel="stylesheet" href="css/kube.min.css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/custom.min.css" />
@@ -25,7 +35,7 @@
 
 
 
-    <!--da izbacim u css-->
+     <!--da izbacim u css-->
     <style>
         .subhead{
             float: left;
@@ -56,8 +66,9 @@
 
         #blah2{
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
+            max-width: 100px;
+            max-height: 100px;
+            size: inherit;
             border: 1px solid #211410;
             top: 89px;
             left: 140px;
@@ -154,7 +165,7 @@
                 </div>
             </div>
         </div>
-        <script src="js/jquery.min.js"></script>
+        <!--<script src="js/jquery.min.js"></script>-->
         <script src="js/kube.min.js"></script>
         <script src="js/myjs.js"></script>
         </body>
@@ -203,7 +214,7 @@
                             <li>
                                 <div id="language">
                                     <div class="dropdown1">
-                                        <button class="dropbtn1"><i class="icon-flag"></i>Language</button>
+                                        <button class="dropbtn1">Language</button>
                                         <div class="dropdown-content1">
                                             <a href="profile.php?lang=en"><img src="languages/en.png" /> Eng</a>
                                             <a href="profile.php?lang=sr"><img src="languages/sr.png" /> Srb</a>
@@ -217,7 +228,7 @@
                 </header>
             </div>
         </div>
-        <script src="js/jquery.min.js"></script>
+        <!--<script src="js/jquery.min.js"></script>-->
         <script src="js/kube.min.js"></script>
         <script src="js/myjs.js"></script>
     </body>

@@ -53,7 +53,6 @@ if(isset($_POST['info'])){
 	$info = preg_replace('/\s+/', ' ', $info);
 	if($result->num_rows){
 		qM("UPDATE `profile` SET `information`='$info' WHERE `email`='$email'");
-		qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has updated information')");
 	}
 }
 
@@ -65,7 +64,7 @@ if(isset($_POST['name']) && isset($_POST['lname'])){
 	$lname = sS($_POST['lname']);
 	$lname = preg_replace("/[^a-zA-Z]+/", "", $lname);
 	qM("UPDATE `profile` SET `name`='$name', `last_name`='$lname', `gym_name`='$ngname' WHERE `email`='$email'");
-    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has new credetials: gname=$ngname, name=$name, lname=$lname')");
+    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has updated profile information')");
 	echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
 }
 
@@ -82,7 +81,6 @@ if(isset($_FILES['image']['name'])){
 	$date = date("Y-m-d H:i:s");
 	move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
 	qM("UPDATE `profile` SET `date_update` = '$date', `pic_path` = '$saveto' WHERE `email`='$email'");
-    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has updated profile picture')");
 	$typeok = TRUE;
 	switch ($_FILES['image']['type']){
 		case "image/gif":

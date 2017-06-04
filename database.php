@@ -60,10 +60,18 @@
 		        `msg` VARCHAR(255),
 		        PRIMARY KEY(`id`)');
 /*
-		aT('`members`', '`q1_id`', 'VARCHAR(255) DEFAULT ""') ;
-        aT('`members`', '`q2_id`', 'VARCHAR(255) DEFAULT ""') ;
-        aT('`members`', '`security_text`', 'VARCHAR(255) DEFAULT ""') ;*/
-		if(!is_dir("images")){
+		aT('`members`', '`name`', 'VARCHAR(46) DEFAULT ""') ;
+        aT('`members`', '`lname`', 'VARCHAR(46) DEFAULT ""') ;
+        aT('`members`', '`gender`', 'INT DEFAULT 1') ;
+        aT('`members`', '`birth_date`', 'DATE');
+
+        aT('`members`', '`information`', 'VARCHAR(4096) DEFAULT ""');
+        aT('`members`', '`pic_date`', 'DATETIME');
+        aT('`members`', '`pic_path`', 'VARCHAR(50) DEFAULT ""');
+        aT('`members`', '`notifications`', 'INT UNSIGNED DEFAULT 0');
+
+*/
+        if(!is_dir("images")){
 			mkdir("images", 0777);
 		}
 
