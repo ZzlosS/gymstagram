@@ -30,6 +30,7 @@
 						$_SESSION['id'] = $id;
 						$_SESSION['email'] = $email;
 						//die($lang['LoggedIn']);
+                        qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has logged in.')");
                         echo "<script> location.replace('home.php'); </script>";
 					}
 				}
@@ -51,6 +52,7 @@
 						$_SESSION['id'] = $id;
 						$_SESSION['email'] = $email;
 						//die($lang['LoggedIn']);
+                        qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has logged in.')");
                         echo "<script> location.replace('home.php'); </script>";
 					}
 				}
