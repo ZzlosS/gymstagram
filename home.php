@@ -2,9 +2,9 @@
 require_once 'basic.php';
 if(!$loggedIn) die();
 
-    $result = qM("SELECT * FROM `profile` ORDER BY `date_update` DESC LIMIT 0,2");
-    $count = qM("SELECT * FROM `profile`");
-    $n = $count->num_rows;
+    $result = qM("SELECT * FROM `members` ORDER BY `pic_date` DESC LIMIT 0,2");
+   /* $count = qM("SELECT * FROM `members`");
+    $n = $count->num_rows;*/
 ?>
     <br><br>
         <div class="images">

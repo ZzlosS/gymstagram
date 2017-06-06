@@ -15,11 +15,11 @@
             $aname = $row3['gym_name'];
             qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) is now friend with $aname($accept)')");
 
-            $result = qM("SELECT `notifications` FROM `profile` WHERE `id`=$id");
+            $result = qM("SELECT `notifications` FROM `members` WHERE `id`=$id");
             if($result->num_rows){
                 $row = $result->fetch_assoc();
                 $notification = $row['notifications'] - 1;
-                qM("UPDATE `profile` SET `notifications`=$notification WHERE `id`=$id");
+                qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$id");
                 echo "<meta http-equiv='refresh' content='0'>";
             }
         }
@@ -37,11 +37,11 @@
             $aname = $row3['gym_name'];
             qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) declined friend request from $aname($decline)')");
 
-            $result = qM("SELECT `notifications` FROM `profile` WHERE `id`=$id");
+            $result = qM("SELECT `notifications` FROM `members` WHERE `id`=$id");
             if ($result->num_rows) {
                 $row = $result->fetch_assoc();
                 $notification = $row['notifications'] - 1;
-                qM("UPDATE `profile` SET `notifications`=$notification WHERE `id`=$id");
+                qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$id");
                 echo "<meta http-equiv='refresh' content='0'>";
             }
         }

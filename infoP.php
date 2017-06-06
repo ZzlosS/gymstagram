@@ -23,11 +23,11 @@
 <?php
 //Profile information
 $error = "";
-$result = qM("SELECT * FROM `profile` WHERE `email`='$email'");
+$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 if($result->num_rows){
 	$row = $result->fetch_array(MYSQL_ASSOC);
 	$name = $row['name'];
-	$lname = $row['last_name'];
+	$lname = $row['lname'];
 	$info = $row['information'];
 	$gname = $row['gym_name'];
 }
@@ -52,7 +52,7 @@ if(isset($_POST['info'])){
 	$info = sS($_POST['info']);
 	$info = preg_replace('/\s+/', ' ', $info);
 	if($result->num_rows){
-		qM("UPDATE `profile` SET `information`='$info' WHERE `email`='$email'");
+		qM("UPDATE `members` SET `information`='$info' WHERE `email`='$email'");
 	}
 }
 
@@ -63,7 +63,7 @@ if(isset($_POST['name']) && isset($_POST['lname'])){
 	$name = preg_replace("/[^a-zA-Z]+/", "", $name);
 	$lname = sS($_POST['lname']);
 	$lname = preg_replace("/[^a-zA-Z]+/", "", $lname);
-	qM("UPDATE `profile` SET `name`='$name', `last_name`='$lname', `gym_name`='$ngname' WHERE `email`='$email'");
+	qM("UPDATE `members` SET `name`='$name', `lname`='$lname', `gym_name`='$ngname' WHERE `email`='$email'");
     qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has updated profile information')");
 	echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
 }
@@ -80,7 +80,7 @@ if(isset($_FILES['image']['name'])){
 	$saveto = "images/$id/profile/".$id.".png";
 	$date = date("Y-m-d H:i:s");
 	move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
-	qM("UPDATE `profile` SET `date_update` = '$date', `pic_path` = '$saveto' WHERE `email`='$email'");
+	qM("UPDATE `members` SET `pic_date` = '$date', `pic_path` = '$saveto' WHERE `email`='$email'");
 	$typeok = TRUE;
 	switch ($_FILES['image']['type']){
 		case "image/gif":

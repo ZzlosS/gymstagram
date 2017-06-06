@@ -15,6 +15,9 @@ if(!$loggedIn) die();
 					$row = $result->fetch_array(MYSQL_ASSOC);
 					$view = $row['gym_name'];
 					$view2 = $row['email'];
+					$vname = $row['name'];
+					$vlname = $row['lname'];
+					$vinfo = $row['information'];
 				}
 				else{
 					$view = "";
@@ -29,6 +32,7 @@ if(!$loggedIn) die();
 
 				echo "<h3>$name ".$lang['Profile']."</h3>";
 				sP($view2);
+				echo $view."<br>".$vname."<br>".$vlname."<br>".$vinfo;
 				die("</div></body></html>");
 			}
 
@@ -44,11 +48,11 @@ if(!$loggedIn) die();
 				    $aname = $row3['gym_name'];
                     qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) is now friend with $aname($accept)')");
 
-					$result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$id'");
+					$result = qM("SELECT `notifications` FROM `members` WHERE `id`='$id'");
 					if($result->num_rows){
 						$row = $result->fetch_assoc();
 						$notification = $row['notifications'] - 1;
-						qM("UPDATE `profile` SET `notifications`=$notification WHERE `id`=$id");
+						qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$id");
 						echo "<meta http-equiv='refresh' content='0'>";
 					}
 				}
@@ -70,7 +74,7 @@ if(!$loggedIn) die();
 					if($result->num_rows){
 						$row = $result->fetch_assoc();
 						$notification = $row['notifications'] + 1;
-						qM("UPDATE `profile` SET `notifications`=$notification WHERE `id`=$add");
+						qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$add");
 						echo "<meta http-equiv='refresh' content='0'>";
 					}
 				}
@@ -88,11 +92,11 @@ if(!$loggedIn) die();
                     $aname = $row3['gym_name'];
                     qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) revoked friend request for $aname($revoke)')");
 
-					$result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$revoke'");
+					$result = qM("SELECT `notifications` FROM `members` WHERE `id`='$revoke'");
 					if($result->num_rows){
 						$row = $result->fetch_assoc();
 						$notification = $row['notifications'] - 1;
-						qM("UPDATE `profile` SET `notifications`=$notification WHERE `id`=$revoke");
+						qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$revoke");
 						echo "<meta http-equiv='refresh' content='0'>";
 					}
 				}
@@ -110,11 +114,11 @@ if(!$loggedIn) die();
                     $aname = $row3['gym_name'];
                     qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) declined friend request from $aname($decline)')");
 
-                    $result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$id'");
+                    $result = qM("SELECT `notifications` FROM `members` WHERE `id`='$id'");
                     if ($result->num_rows) {
                         $row = $result->fetch_assoc();
                         $notification = $row['notifications'] - 1;
-                        qM("UPDATE `profile` SET `notifications`=$notification WHERE `id`=$id");
+                        qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$id");
                         echo "<meta http-equiv='refresh' content='0'>";
                     }
                 }
@@ -136,7 +140,7 @@ if(!$loggedIn) die();
 				}
 			}
 		
-			$result = qM("SELECT * FROM `profile`");
+			$result = qM("SELECT * FROM `members`");
 			$num = $result->num_rows;
 			
 		?>
@@ -151,7 +155,7 @@ if(!$loggedIn) die();
 						$cgname = $row['gym_name'];
 						$cimage = $row['pic_path'];
 						$cname = $row['name'];
-                        $clname = $row['last_name'];
+                        $clname = $row['lname'];
                         $cinfo = $row['information'];
 						if($cid == $id){
 							continue;

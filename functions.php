@@ -48,7 +48,7 @@
 	}
 	
 	function sP($email){ //showProfile
-		$result = qM("SELECT * FROM `profile` WHERE `email`='$email'");
+		$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 		if($result->num_rows){
 			$row = $result->fetch_assoc();
 			$id = $row['id'];

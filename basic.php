@@ -91,7 +91,7 @@
 		$id = $_SESSION['id'];
 		$email = $_SESSION['email'];
 		$loggedIn = TRUE;
-		$result = qM("SELECT * FROM `profile` WHERE `email`='$email'");
+		$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 		if($result->num_rows){
 			$row = $result->fetch_array(MYSQL_ASSOC);
 			$gname = $row['gym_name'];
