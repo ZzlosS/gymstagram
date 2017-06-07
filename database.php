@@ -59,7 +59,7 @@
 		        `date` DATETIME,
 		        `msg` VARCHAR(255),
 		        PRIMARY KEY(`id`)');
-/*
+
 		aT('`members`', '`name`', 'VARCHAR(46) DEFAULT ""') ;
         aT('`members`', '`lname`', 'VARCHAR(46) DEFAULT ""') ;
         aT('`members`', '`gender`', 'INT DEFAULT 1') ;
@@ -70,7 +70,6 @@
         aT('`members`', '`pic_path`', 'VARCHAR(50) DEFAULT ""');
         aT('`members`', '`notifications`', 'INT UNSIGNED DEFAULT 0');
 
-*/
         if(!is_dir("images")){
 			mkdir("images", 0777);
 		}
