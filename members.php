@@ -70,7 +70,7 @@ if(!$loggedIn) die();
                     $aname = $row3['gym_name'];
                     qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) wants to be friend with $aname($add)')");
 
-					$result = qM("SELECT `notifications` FROM `profile` WHERE `id`='$add'");
+					$result = qM("SELECT `notifications` FROM `members` WHERE `id`='$add'");
 					if($result->num_rows){
 						$row = $result->fetch_assoc();
 						$notification = $row['notifications'] + 1;
