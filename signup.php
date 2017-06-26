@@ -134,7 +134,7 @@
                 <br>
 
                 <div class="radio">
-                    <h3>Choose gender:</h3>
+                    <b>Choose gender:</b>
 
                     <ul id="s_ul">
                         <li id="s_li">
@@ -175,12 +175,8 @@
                 </label>
                 <input class="q2" type="text" name="q2" id="q2" value="<?php echo $q2?>" maxlength="30" />
                 <br>
-                <!--<h3>Type in something only you know for maximum security</h3>
-                <textarea style="resize: none;" name="st" id="st" rows="6" cols="50" placeholder="Type in something only you know for maximum security" maxlength="255"></textarea>
-                <br>-->
 
                 <input type="submit" value="<?php echo $lang['Signup'] ?>">
-
 
             </form>
         </section><!-- content -->

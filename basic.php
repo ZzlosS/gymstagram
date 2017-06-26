@@ -165,9 +165,9 @@
                 </div>
             </div>
         </div>
-        <!--<script src="js/jquery.min.js"></script>-->
+        <!--<script src="js/jquery.min.js"></script>
         <script src="js/kube.min.js"></script>
-        <script src="js/myjs.js"></script>
+        <script src="js/myjs.js"></script>-->
         </body>
 	<!-- <span class="info">&#8658; <?php echo $lang['NotLogged'];?></span>  -->
 <?php } else{?>

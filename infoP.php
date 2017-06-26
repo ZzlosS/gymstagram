@@ -1,4 +1,4 @@
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
 <script>
     //checkUser
     function cU(gname){
@@ -22,7 +22,7 @@
 
 <?php
 //Profile information
-$error = "";
+$error = $checked2 = $checked = "";
 $result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 if($result->num_rows){
 	$row = $result->fetch_array(MYSQL_ASSOC);
@@ -30,6 +30,19 @@ if($result->num_rows){
 	$lname = $row['lname'];
 	$info = $row['information'];
 	$gname = $row['gym_name'];
+	if($row['gender'] == 1){
+	    $gender = "Male";
+        $checked = 'checked';
+        $checked2 = '';
+    }
+    else{
+	    $gender = "Female";
+        $checked = '';
+        $checked2 = 'checked';
+    }
+    $bday = $row['birth_date'];
+    $dateObject = DateTime::createFromFormat('Y-m-d', $bday);
+    $bday2 = $dateObject->format('d/m/Y');
 }
 
 $result2 = qM("SELECT * FROM `members` WHERE `email`='$email'");
@@ -66,6 +79,22 @@ if(isset($_POST['name']) && isset($_POST['lname'])){
 	qM("UPDATE `members` SET `name`='$name', `lname`='$lname', `gym_name`='$ngname' WHERE `email`='$email'");
     qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has updated profile information')");
 	echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
+}
+
+if(isset($_POST['selector'])){
+    $gender = $_POST['selector'];
+    qM("UPDATE `members` SET `gender`='$gender' WHERE `email`='$email'");
+}
+
+if(isset($_POST['datepicker'])){
+    $bday = $_POST['datepicker'];
+    $dateObject = DateTime::createFromFormat('d/m/Y', "$bday");
+    if($dateObject == false){
+        echo "<script type='text/javascript'>alert('Wrong date format, please use day/month/Year')</script>";
+    }
+    else{
+        qM("UPDATE `members` SET `gender`='$gender' WHERE `email`='$email'");
+    }
 }
 
 if(!is_dir("images/$id")){

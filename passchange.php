@@ -17,8 +17,7 @@ if(isset($_POST['email'])){
     $rq1 = sS($_POST['q1']); //reset question 1
     $s2 = sS($_POST['s2']);
     $rq2 = sS($_POST['q2']); //reset question 2
-    $rst = sS($_POST['st']); //reset security text
-	if($email == '' || $rq1 == '' || $rq2 == '' || $rst == ''){
+	if($email == '' || $rq1 == '' || $rq2 == ''){
 		$alert = $lang['NotAll'];
 		echo "<script type='text/javascript'>alert('$alert')</script>";
 	}
@@ -34,9 +33,8 @@ if(isset($_POST['email'])){
         $q1 = $row['question1'];
         $q2_id = $row['q2_id'];
         $q2 = $row['question2'];
-        $st = $row['security_text'];
         $pass = $row['pass'];
-		if($s1 == $q1_id && $rq1 == $q1 && $s2 == $q2_id && $rq2 == $q2 && $rst == $st){
+		if($s1 == $q1_id && $rq1 == $q1 && $s2 == $q2_id && $rq2 == $q2){
 			if(isset($_POST['npass']) && isset($_POST['rnpass'])){
 				$npass = $_POST['npass'];
 				$rnpass = $_POST['rnpass'];
@@ -108,10 +106,6 @@ if(isset($_POST['email'])){
                     </select>
                 </label>
                 <input type="text" name="q2" id="q2" value="" maxlength="30" />
-                <br>
-
-                <h3>Type in your security text</h3>
-                <textarea name="st" id="st" rows="6" cols="50" placeholder="Type in your security text" maxlength="255"></textarea>
                 <br>
 
                 <h3><?php echo $lang['PC2']?></h3>
