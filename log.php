@@ -1,6 +1,65 @@
 <?php
     require_once 'basic.php';
-    ?>
+?>
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            dateFormat: "dd/mm/yy",
+            showAnim: "slideDown",
+            showOn: "button",
+            buttonImage: "img/calendar.png",
+            buttonImageOnly: true,
+            buttonText: "Select date",
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+</script>
+<script  type="text/javascript">
+
+    function f(){
+        $.ajax({
+            method : "POST",
+            url: "generate.php",
+            data: {
+              'select' : $("#select").val(),
+              'date' : $("#datepicker").val()
+            },
+            success : function(r){
+                $("#rez2").html(r)
+            }
+        });
+    }
+
+</script>
+
+<body>
+<select id='select' onchange='f()'>
+    <option value="">Choose a member</option>
+<?php
+$result = qM("SELECT * FROM `members`");
+$toRet = "";
+    while ($r = $result->fetch_assoc()){
+    $gn = $r['gym_name'];
+    $n = $r['name'];
+    $ln = $r['lname'];
+    $id = $r['id'];
+
+    $toRet .= "<option value='$id'>". $n . " " . $ln . " @" . $gn . "</option>";
+    }
+
+    $toRet .= "</select>";
+
+echo $toRet;
+?>
+    <br><label>Date: <input class='d_in' name='datepicker' type='text' id='datepicker' maxlength='10'
+                            value='' onblur='f()'></label>
+
+<br>
+<br>
+    <div id="rez2"></div>
+<div id="rez">
+
     <table border='1'>
         <thead>
         <tr>
@@ -56,4 +115,4 @@
 
     }
 ?>
-
+</div>
