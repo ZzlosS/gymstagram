@@ -12,9 +12,12 @@
 	$salt1 = "qm&h*";
 	$salt2 = "pg!@";
 
-	$connection = new mysqli($dbhost, $dbuserR, $dbpassR, $dbname);
+	$connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 	if($connection->connect_error){
-		die($connection->connect_error);
+		$connection = new mysqli($dbhost, $dbuserR, $dbpassR, $dbname);
+		if($connection->connect_error){
+			die($connection->connect_error);
+		}
 	}
 	
 	function qM($query){  //queryMysql
@@ -76,7 +79,7 @@
 		if($n = $result->num_rows){
 			for($j = 0; $j < $n; $j++){
 				$row = $result->fetch_array(MYSQL_ASSOC);
-				echo "<img src='".$row['pic_path']."' alt = 'text' class='images'><br>Image Description: "."<span>".$row['pic_desc']."</span><br>Album name: "."<span>".$row['album_name']."</span><br>";
+				echo "<div style='max-width:100px; max-height:100px;'><img src='".$row['pic_path']."' alt = 'text' class='images'></div><br>Image Description: "."<span>".$row['pic_desc']."</span><br>Album name: "."<span>".$row['album_name']."</span><br>";
 				echo "<input type='button' value='delete' onclick='window.location.href=\" /gallery.php?id=" . $row['id']. "\"'><br><br>";
 			}
 		}

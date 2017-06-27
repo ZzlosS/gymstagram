@@ -2,7 +2,7 @@
 require_once 'basic.php';
 if(!$loggedIn) die();
 
-    $result = qM("SELECT * FROM `members` ORDER BY `pic_date` DESC LIMIT 0,2");
+    $result = qM("SELECT m.id,p.* FROM `members` AS `m` LEFT JOIN `pictures` as `p` ON `m`.`id`=`p`.`user_id` ORDER BY `pic_date` DESC LIMIT 0,2");
    /* $count = qM("SELECT * FROM `members`");
     $n = $count->num_rows;*/
 ?>
@@ -10,7 +10,7 @@ if(!$loggedIn) die();
         <div class="images">
             <?php
             while($row = $result->fetch_assoc()){
-                echo "<p align='center'><img src='".$row['pic_path']."' height='500' width='500'></p>".$row['id'];
+                echo "<p align='center'><img src='".$row['pic_path']."' height='500' width='500'></p>".$row['date_update'];
             }
             ?>
         </div>

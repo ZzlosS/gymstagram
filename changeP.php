@@ -5,6 +5,20 @@
 	require_once 'infoP.php';
 ?>
 <script>
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            dateFormat: "dd/mm/yy",
+            showAnim: "slideDown",
+            showOn: "button",
+            buttonImage: "img/calendar.png",
+            buttonImageOnly: true,
+            buttonText: "Select date",
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+</script>
+<script>
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -16,8 +30,23 @@
 
             reader.readAsDataURL(input.files[0]);
         }
+    };
+    function cU2(gname){
+        if(gname.value == ''){
+            document.getElementById('info2').innerHTML = '';
+            return;
+        }
+        $.ajax({
+            method : "POST",
+            url : "checkuser.php",
+            data : {
+                'gname' : gname.value
+            },
+            success : function(result){
+                document.getElementById('info2').innerHTML = result;
+            }
+        });
     }
-
 </script>
 
     <body id="b2">
@@ -42,16 +71,15 @@
                 <div id="blah2" style='float:right; height: 100px; width: 100px; background: url("<?php echo $pic ?>") no-repeat center;
                         background-size:contain;'></div>
                 <br><br><br><br><br><br><br>
-                <div style="float: right; padding-right: 18%;">Chat preview</div><br>
+                <div style="float: right; padding-right: 5%;">Chat preview</div><br>
 				<h3><?php echo $lang['EditP']?></h3>
-				
-				<label><?php echo $lang['GName']?>:
-		        <input type="text" id="gname" name="gname" value="<?php echo $gname ?>" onBlur="cU(this)"></label>
-                <span id="info"><?php echo $error ?></span>
-                <br>
 
-                <!--<label><?php echo $lang['E']?>:</label>
-                <input type="text" id="email" name="email" value="<?php echo $email ?>"><br>-->
+                <label>Birthday: <br><input class='d_in' name="datepicker" type="text" id="datepicker" maxlength="10" value="<?php echo $bday2 ?>" /></label>
+                <br>
+				<label><?php echo $lang['GName']?>:
+		        <input type="text" id="gname" name="gname" value="<?php echo $gname ?>" onBlur="cU2(this)"></label>
+                <span id="info2"><?php echo $error ?></span>
+                <br>
 
 				<label><?php echo $lang['FName']?>:
 		        <input type="text" id="name" name="name" value="<?php echo $name ?>"></label><br>
@@ -59,14 +87,29 @@
 		        <label><?php echo $lang['LName']?>:
 		        <input type="text" id="lname" name="lname" value="<?php echo $lname ?>"></label><br>
 
+                <div class="radio">
+                    <b>Choose gender:</b>
 
-				
-				<textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
+                    <ul id="s_ul">
+                        <li id="s_li">
+                            <input type="radio" id="f-option" name="selector" <?php echo $checked ?> value="1"/>
+                            <label for="f-option">Male</label>
+                            <div class="check"></div>
+                        </li>
+
+                        <li id="s_li">
+                            <input type="radio" id="s-option" name="selector" <?php echo $checked2 ?> value="2"/>
+                            <label for="s-option">Female</label>
+                            <div class="check"></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <b>Profile information:</b><br>
+                <textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
+
 		        <input type="submit" value="<?php echo $lang['SP']?>">
-                <input type="button" value="<?php echo $lang['Cpass']?>" onclick="window.location='passchange.php';" />
-
-
-		     	
+                <input type="button" value="<?php echo $lang['BT']?>" onclick="window.location='settings.php';" /><br><br>
 			</form>
 
     </section><!-- content -->
