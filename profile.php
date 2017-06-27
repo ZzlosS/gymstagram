@@ -16,6 +16,5 @@ sP($email);
         <span>Gender: <?php echo $gender?></span><br>
         <span>Birth Date: <?php echo $bday2?></span><br>
 		<span><?php echo $lang['PInformation'].": ".$info?></span><br>
-		<a href="changeP.php"><?php echo $lang['CP']?></a>
 	</body>
 </html>

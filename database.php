@@ -32,7 +32,7 @@
 				`pic_path` VARCHAR(50) DEFAULT "",
 				`notifications` INT UNSIGNED DEFAULT 0,
 				PRIMARY KEY(`id`)');
-	*/	
+	*/
 		cT('`gym_buddies`',
 				'`id` INT UNSIGNED AUTO_INCREMENT,
 				`user_id` INT UNSIGNED NOT NULL,

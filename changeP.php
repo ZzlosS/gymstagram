@@ -109,7 +109,7 @@
                 <textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
 
 		        <input type="submit" value="<?php echo $lang['SP']?>">
-                <input type="button" value="<?php echo $lang['Cpass']?>" onclick="window.location='passchange.php';" />
+                <input type="button" value="<?php echo $lang['BT']?>" onclick="window.location='settings.php';" /><br><br>
 			</form>
 
     </section><!-- content -->

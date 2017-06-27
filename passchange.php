@@ -4,7 +4,7 @@ require_once 'functions.php';
 require_once 'basic.php';
 $ok = false;
 if($loggedIn){
-	$loc = "changeP.php";
+	$loc = "settings.php";
 }
 else{
 	$loc = "login.php";

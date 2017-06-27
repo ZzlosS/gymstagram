@@ -12,11 +12,12 @@ a {
 .container {
     margin: auto;
     max-width: 1000px;
-    padding: 0 20px
+    padding: 0 20px;
+	max-height: 50px;
 }
 .main-nav {
     padding-top: 30px;
-    padding-bottom: 25px;
+    padding-bottom: 0px;
     max-height: 85px;
     background-color: #dee2e6;
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
@@ -26,7 +27,7 @@ a {
     position: relative
 }
 .group.top-nav {
-    margin-bottom: -20px
+    max-height: 50px;
 }
 .group.top-nav nav a {
     text-decoration: none

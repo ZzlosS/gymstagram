@@ -177,12 +177,10 @@
             <div class="container">
                 <header class="group top-nav">
                     <nav class="navbar logo-w navbar-left" >
-                        <span id="gym_logo">
-                            <a class="logo" href="profile.php">Gymstagram</a>
-                            <span id="gym_not">
-                                <a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a>
-                            </span>
-                        </span>
+                        <div id="gym_logo" style="max-height: 50px;">
+                            <a class="logo" href="profile.php">Gymstagram</a><a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a>
+
+                        </div>
                     </nav>
 
                     <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
@@ -217,7 +215,7 @@
                                         <button class="dropbtn1"><?php echo $gname ?></button>
                                         <div class="dropdown-content1">
                                             <a href="profile.php"><i class="icon-user"></i><?php echo $lang['Profile'];?></a>
-                                            <a href="#"><i class="icon-cog"></i>Settings</a>
+                                            <a href="settings.php"><i class="icon-cog"></i>Settings</a>
                                             <a href="logout.php?page=index.php"><i class="icon-off"></i><?php echo $lang['Logout'];?></a>
                                         </div>
                                     </div>
