@@ -7,23 +7,21 @@
  */
 
     require_once 'functions.php';
-    $_POST['select'] = 2;
-    $_POST['date'] = "2017-05-30";
-    var_dump($_POST);
-if(isset($_POST['select']) || isset($_POST['date'])){
+
+if(isset($_POST['select']) || isset($_POST['date']) || isset($_POST['page'])){
 
     $q = "SELECT * FROM `log` ";
     $zlo = 0;
 
     if($_POST['date'] != ""){
         $date = $_POST['date'];
-       /* $b = qM($q);
-        while($rb = $b->fetch_assoc()){
-            echo $rb['MRK'];}*/
-       $y = $date ;
-        $q .= " WHERE YEAR(1date1) = $date ";
+        $day = substr($date, 0, 2);
+        $month = substr($date, 3, 2);
+        $year = substr($date, 6, 4);
+        $q .= " WHERE YEAR(`date`) = $year AND MONTH(`date`) = $month AND DAY(`date`) = $day ";
         $zlo = 1;
     }
+
     if($_POST['select'] != ""){
         if($zlo == 1){
             $q .= " AND ";
@@ -31,11 +29,20 @@ if(isset($_POST['select']) || isset($_POST['date'])){
             $q .= " WHERE ";
         }
         $id = $_POST['select'];
-        $q .= " `msg` LIKE '%(". $id . ")%'";
+        $q .= " `msg` LIKE '%(". $id . ")%' ";
     }
 
+    $page = $_POST['page'];
     $result = qM($q);
-    echo $q;
+    $n = $result->num_rows;
+
+    $limit = 0 + 5 *($page-1);
+    $offset = $page * 5;
+
+    $q2 = $q . " ORDER BY `id` LIMIT $limit, $offset";
+
+    $result2 = qM($q2);
+
     $toRet = "
             <table border='1'>
             <thead>
@@ -48,16 +55,40 @@ if(isset($_POST['select']) || isset($_POST['date'])){
                 <tbody>
         ";
 
-    while ($r = $result->fetch_assoc()){
-      $id = $r['id'];
-      $date = $r['date'];
-      $msg = $r['msg'];
-      $toRet .= "<tr> <td> $id </td> <td> $date </td> <td> $msg </td></tr>";
+    for($i = $limit; $i < $offset; $i++){
+        $row = $result2->fetch_assoc();
+        $lid = $i+1;
+        $toRet .= "<tr><td>$lid</td>";
+        $toRet .= "<td>".$row['date']."</td>";
+        $toRet .= "<td>".$row['msg']."</td></tr>";
     }
+    $toRet .=  "</tbody></table>";
+
+    $p = ceil($n/5);
+
+
 
     $toRet .= "</tbody></table>";
+    if($page-1 < 1){
+        $toRet .= "<a style='pointer-events: none;' href='#' onclick='changePage($page-1)'>Previous page</a>";
+    }
+    else{
+        $toRet .= "<a href='#' onclick='changePage($page-1)'>Previous page</a>";
+    }
+
+    $toRet .= "<br><b>Current page: ".$page."</b><br>";
+
+    if($page + 1 > $p){
+        $toRet .= "<a style='pointer-events: none;' href='#' onclick='changePage($page + 1)'>Next page</a>";
+    }
+    else{
+        $toRet .= "<a href='#' onclick='changePage($page + 1)'>Next page</a>";
+    }
+
+    $toRet .= "<br>";
+    for($j = 1; $j <= $p; $j++){
+        $toRet .= "<a href='#' onclick='changePage($j)'>" . $j . "</a> \t ";
+    }
 
     echo $toRet;
-
-
 }
