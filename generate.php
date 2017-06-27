@@ -8,7 +8,7 @@
 
     require_once 'functions.php';
 
-if(isset($_POST['select']) || isset($_POST['date']) || isset($_POST['page'])){
+if(isset($_POST['select']) || isset($_POST['date']) || isset($_POST['page']) || isset($_POST['select2'])){
 
     $q = "SELECT * FROM `log` ";
     $zlo = 0;
@@ -39,7 +39,11 @@ if(isset($_POST['select']) || isset($_POST['date']) || isset($_POST['page'])){
     $limit = 0 + 5 *($page-1);
     $offset = $page * 5;
 
-    $q2 = $q . " ORDER BY `id` LIMIT $limit, $offset";
+    $q2 = $q . " ORDER BY `log`.`date` ";
+    if($_POST['select2'] == "n"){
+        $q2 .= " DESC ";
+    }
+    $q2 .= " LIMIT $limit, $offset";
 
     $result2 = qM($q2);
 
