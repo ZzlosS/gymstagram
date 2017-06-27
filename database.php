@@ -19,9 +19,8 @@
 				`question1` VARCHAR(30) NOT NULL,
 				`q2_id` VARCHAR(10) DEFAULT "",
 				`question2` VARCHAR(30) NOT NULL,
-				`security_text` VARCHAR(255) DEFAULT "",
 				PRIMARY KEY(`id`)');
-		
+/*		
 		cT('`profile`', 
 				'`id` INT UNSIGNED AUTO_INCREMENT,
 				`gym_name` VARCHAR(20) DEFAULT "",
@@ -33,7 +32,7 @@
 				`pic_path` VARCHAR(50) DEFAULT "",
 				`notifications` INT UNSIGNED DEFAULT 0,
 				PRIMARY KEY(`id`)');
-		
+	*/	
 		cT('`gym_buddies`',
 				'`id` INT UNSIGNED AUTO_INCREMENT,
 				`user_id` INT UNSIGNED NOT NULL,

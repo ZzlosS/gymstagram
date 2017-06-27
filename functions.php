@@ -12,9 +12,12 @@
 	$salt1 = "qm&h*";
 	$salt2 = "pg!@";
 
-	$connection = new mysqli($dbhost, $dbuserR, $dbpassR, $dbname);
+	$connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 	if($connection->connect_error){
-		die($connection->connect_error);
+		$connection = new mysqli($dbhost, $dbuserR, $dbpassR, $dbname);
+		if($connection->connect_error){
+			die($connection->connect_error);
+		}
 	}
 	
 	function qM($query){  //queryMysql
