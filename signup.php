@@ -68,7 +68,7 @@
 			echo "<script type='text/javascript'>alert('Please choose a question')</script>";
 		}
 		else{
-            $date = $dateObject->format("Y-m-d");
+            $date2 = $dateObject->format("Y-m-d");
             if($gender == '2'){
                 $checked = '';
                 $checked2 = 'checked';
@@ -85,7 +85,7 @@
                 $hpass = hash('ripemd128', "$salt1$pass$salt2");
                 qM("INSERT INTO `members`(`gym_name`, `name`, `lname`, `gender`, `birth_date`, `email`, `pass`,
                                 `q1_id`, `question1`, `q2_id`, `question2`, `pic_path`)
-                    VALUES ('$gname', '$name', '$lname', $gender, '$date', '$email', '$hpass', '$s1', '$q1', '$s2', '$q2', 'img/default_avatar.png')");
+                    VALUES ('$gname', '$name', '$lname', $gender, '$date2', '$email', '$hpass', '$s1', '$q1', '$s2', '$q2', 'img/default_avatar.png')");
                 qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname created account')");
                 $redirect = $lang['AccCreated']."<br>Click <a href='login.php'>here</a> to Log in";
                 $ok = true;
