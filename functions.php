@@ -19,7 +19,7 @@
 			die($connection->connect_error);
 		}
 	}
-	
+
 	function qM($query){  //queryMysql
 		global $connection;
 		$result = $connection->query($query);
