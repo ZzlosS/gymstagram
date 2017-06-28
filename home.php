@@ -1,6 +1,5 @@
 <?php
 require_once 'basic.php';
-if(!$loggedIn) die();//da se skloni za guest
 
     $result = qM("SELECT m.id,m.name,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` ORDER BY `date_update` DESC LIMIT 0,2");
    /* $count = qM("SELECT * FROM `members`");
