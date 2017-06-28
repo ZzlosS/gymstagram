@@ -45,7 +45,7 @@ require_once 'basic.php';
             <a onclick="topFunction()"><img src="img/up.png"></a>
         </div>
 
-    <script src="js/jquery2.js"></script>
+    <!--<script src="js/jquery2.js"></script>-->
     <script>
         //to da se ubaci u jquery2.js
         $(document).ready(function(){

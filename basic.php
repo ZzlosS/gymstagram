@@ -10,11 +10,11 @@
     <!--<meta name="description" content="Saturn is free PSD &amp; HTML template by @flamekaizar">
     <meta name="author" content="Afnizar Nur Ghifari">-->
 
-
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
@@ -32,7 +32,6 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/mycss.css" />
     <link rel="stylesheet" type="text/css" href="css/profile-hover.css" />
-
 
 
      <!--da izbacim u css-->
@@ -107,7 +106,8 @@
 	else{
 		$loggedIn = FALSE;
 	}
-	
+	?>
+<?php
 	echo "<title>$appname$userstr$not</title></head>";
 	if(!$loggedIn){
 ?>
@@ -184,26 +184,27 @@
 
                         <ul class = "menu">
                             <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
+
                             <li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
                             <li> <a href="search.php"><?php echo $lang['Friends'];?></a> </li>
 
                             <!-- Ispis dodatnih stranica za admina -->
                             <?php if($role == 2){?>
-                            <li> <a href="members.php"><?php echo $lang['Members'];?></a> </li>
-                            <li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
-                            <li>
-                                <div id="language">
-                                    <div class="dropdown1">
-                                        <button class="dropbtn1"><?php echo $lang['Log'];?></button>
-                                        <div class="dropdown-content1">
-                                            <a href="log.php?page=1"><img src="img/log.png"><?php echo $lang['Log'];?></a>
-                                            <a href="log_pdf.php"><img src="img/pdf.png">PDF</a>
-                                            <a href="log_html.php"><img src="img/html.png">HTML</a>
-                                            <a href="log_docx.php"><img src="img/doc.png">DOCX</a>
+                                <li> <a href="members.php"><?php echo $lang['Members'];?></a> </li>
+                                <li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
+                                <li>
+                                    <div id="language">
+                                        <div class="dropdown1">
+                                            <button class="dropbtn1"><?php echo $lang['Log'];?></button>
+                                            <div class="dropdown-content1">
+                                                <a href="log.php?page=1"><img src="img/log.png"><?php echo $lang['Log'];?></a>
+                                                <a href="log_pdf.php"><img src="img/pdf.png">PDF</a>
+                                                <a href="log_html.php"><img src="img/html.png">HTML</a>
+                                                <a href="log_docx.php"><img src="img/doc.png">DOCX</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
                             <?php }?>
 
                             <li>
@@ -217,8 +218,8 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </li>
+
                             <li>
                                 <div id="language">
                                     <div class="dropdown1">
