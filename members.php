@@ -1,13 +1,10 @@
 <?php
-require_once 'basic.php';
-
-if(!$loggedIn) die();
-
+    require_once 'functions.php';
 ?>
 
 		<div class="main">
 		<?php 
-			
+			$id = $_POST['id'];
 			if(isset($_GET['id'])){
 				$mid = sS($_GET['id']);
 				$result = qM("SELECT * FROM `members` WHERE `id`=$mid");

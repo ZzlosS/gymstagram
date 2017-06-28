@@ -4,7 +4,6 @@ if(!$loggedIn) die();
 /*if(isset$post) show profile}
 else page.back*/
 ?>
-<head>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -22,7 +21,19 @@ else page.back*/
             height: 100px;
         }
     </style>
-    <script>
+    <script type="text/javascript">
+
+        function f(){
+            $.ajax({
+                method: 'post',
+                url: 'members.php',
+                data: {'id': $('#id').val()},
+                success: function (res) {
+                    $('#all').html(res);
+                }
+        });}
+
+
         $(function() {
             var availableTags = [
                 <?php
@@ -38,9 +49,18 @@ else page.back*/
         });
     </script>
 </head>
-<body>
-<div class="ui-widget">
-    <label for="tags">Tags: </label>
-    <input id="tags" />
-</div>
-</body></html>
+<body >
+    <input id="id" hidden value="<?php echo $id?>" />
+    <br><br>
+    <button id='but' type="button" style="margin-left: 45%" onclick="f()">Show all</button>
+    <br><br><br><br><br><br>
+    <div class="ui-widget" align="center">
+        <label for="tags">Tags: </label>
+        <input id="tags" />
+    </div>
+    <br><br>
+    <div id="all" align="center">
+    asgasgas
+    </div>
+</body>
+</html>
