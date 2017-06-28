@@ -81,7 +81,7 @@
                 <span id="info2"><?php echo $error ?></span>
                 <br>
 
-				<label><?php echo $lang['FName']?>
+				<label><?php echo $lang['FName']?>:<br>
 		        <input type="text" id="name" name="name" value="<?php echo $name ?>"></label><br>
 		        
 		        <label><?php echo $lang['LName']?>:

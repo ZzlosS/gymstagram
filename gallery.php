@@ -17,7 +17,7 @@ if($result5->num_rows){
 		
 		<div class="main">
             <br><br>
-			<h3> Your Gallery</h3> <!-- ubaci u recnik -->
+			<h3> <?php echo $lang['Your_Gallery']; ?></h3> <!-- ubaci u recnik -->
 			<?php
 				if(!is_dir("images/$id/album")){
 					mkdir("images/$id/album", 0777);
@@ -112,14 +112,14 @@ if($result5->num_rows){
 			
 			<form method="post" action="gallery.php" enctype="multipart/form-data" >
 
-				<label for="image">Add image:</label>
+				<label for="image"><?php echo $lang['Add_image']; ?></label>
 				<input type="file" name="image" id="image"><br>
 				
-				<label>Create new album by typing the name or enter the name of already existing ones:
+				<label><?php echo $lang['Create_album'];?>
 				<select name="owner">
 				<?php 
 					$sql = qM("SELECT DISTINCT `album_name` FROM `pictures` WHERE `user_id`=$id");
-                    echo "<option value='default'>Default</option>";
+                    echo "<option value='default'>". $lang['Default']." </option>";
                     while ($row = $sql->fetch_assoc()) {
                         $an = $row['album_name'];
                         if($an != 'Default'){
@@ -128,9 +128,9 @@ if($result5->num_rows){
 
                     }
 				?>
-				</select>,<br>in contrary pictures will be placed in Default album.</label><br>
-                <label>Album name <input type="text" name="sub_album_name" id="sub_album_name"></label> <br>
-                <label>Description <input type="text" name="desc" id="desc"></label> <br>
+				</select>,<br><?php echo $lang['contrary']; ?></label><br>
+                <label><?php echo $lang['Album_name']; ?> <input type="text" name="sub_album_name" id="sub_album_name"></label> <br>
+                <label><?php echo $lang['Description']; ?> <input type="text" name="desc" id="desc"></label> <br>
                 <input type="submit" value="Save Profile">
 			</form>
 		</div><br><br>

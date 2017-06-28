@@ -33,7 +33,7 @@
 	$lang['YP'] = '<h3>Tvoj profil</h3>';
 	$lang['YPP'] = 'Tvoja profilna slika';
 	$lang['EditP'] = 'Unesi ili izmeni svoje detalje';
-	$lang['FName'] = 'Ime:<br>';
+	$lang['FName'] = 'Ime';
 	$lang['LName'] = 'Prezime';
 	$lang['GName'] = 'Gym ime';
 	$lang['Image'] = 'Slika';
@@ -42,7 +42,7 @@
 	$lang['Cpass'] = 'Promeni sifru';
 	$lang['Members'] = 'Clanovi';
 	$lang['Gallery'] = 'Galerija';
-	$lang['Friends'] = 'Prijatelji';
+	$lang['Friends'] = 'Pretrazi članove';
 	$lang['friends'] = 'prijatelji';
 	$lang['Messages'] = 'Poruke';
 	$lang['Profile'] = 'Profil';
@@ -59,10 +59,9 @@
 	$lang['here'] = 'ovde';
 	$lang['PC1'] = 'Unesi email i odgovori na sigurnosna pitanja';
 	$lang['PC2'] = 'Promeni sifru';
-	$lanh['BT'] = 'Vrati se na stranicu za prijavljivanje';
 	$lang['BT'] = 'Vrati se nazad';
 	//+
-	$lang['has'] = 'has';
+	// $lang['has'] = 'has';
 	$lang['fr'] = 'zahtev za prijateljstvo'; 
 	$lang['sent'] = 'sent '; 
 	$lang['to'] = ' to';
@@ -73,7 +72,10 @@
 	$lang['sentyou'] = '&rarr; has sent you friend request ';
 	$lang['add'] = 'Prihvati';
 	$lang['Revoke'] = 'Opozovi';
-    $lang['Language'] = 'Jezik';
+
+
+
+	$lang['Language'] = 'Jezik';
     $lang['LanguageE'] = 'Eng';
     $lang['LanguageS'] = 'Srb';
     $lang['Welcome_to_Gymstagram'] = 'Dobro došli na Gymstagram!';
@@ -84,6 +86,16 @@
     $lang['Female'] = 'Ženski';
     $lang['Male'] = 'Muški';
     $lang['Profile_information'] = 'Informacije o profilu:';
+
+
+    $lang['Your_Gallery'] = 'Vaša Galerija';
+$lang['Add_image'] = 'Dodaj sliku:';
+$lang['Create_album'] = 'Ukucajte ime da biste kreirali novi album ili unesite ime već postojećeg albuma:';
+$lang['Default'] = 'Default';
+$lang['Album_name'] = 'Ime albuma';
+$lang['Description'] = 'Opis';
+$lang['contrary'] = 'u suprotnom, slike će se čuvati u albumu sa imenom Default.';
+$lang['Image_Description'] = 'Opis slike:';
 
 
 

@@ -42,7 +42,7 @@
 	$lang['Cpass'] = 'Change password';
 	$lang['Members'] = 'Members';
 	$lang['Gallery'] = 'Gallery';
-	$lang['Friends'] = 'Friends';
+	$lang['Friends'] = 'Search Members';
 	$lang['friends'] = 'friends';
 	$lang['Messages'] = 'Messages';
 	$lang['Profile'] = 'Profile';
@@ -60,6 +60,7 @@
 	$lang['PC1'] = 'Put the email and answer the security questions';
 	$lang['PC2'] = 'Reset your password';
 	$lang['BT'] = 'Go back';
+
 	$lang['has'] = 'has'; //+
 	$lang['fr'] = 'friend requests';
  	$lang['sent'] = 'sent ';
@@ -70,10 +71,13 @@
  	$lang['yousent'] = '&larr; you have sent friend request ';
  	$lang['sentyou'] = '&rarr; has sent you friend request ';
  	$lang['add'] = 'Accept';
- 	$lang['send'] = 'Send friend request';
  	$lang['Revoke'] = 'Revoke';
  	$lang['nadd'] = 'Decline';
  	$lang['delete'] = 'Delete';
+
+
+    $lang['send'] = 'Send friend request';
+
     $lang['Language'] = 'Language';
     $lang['LanguageE'] = 'Eng';
     $lang['LanguageS'] = 'Srb';
@@ -85,5 +89,15 @@
     $lang['Female'] = 'Female';
     $lang['Male'] = 'Male';
     $lang['Profile_information'] = 'Profile information:';
+
+$lang['Your_Gallery'] = 'Your Gallery';
+$lang['Add_image'] = 'Add image:';
+$lang['Create_album'] = 'Create new album by typing the name or enter the name of already existing ones:';
+$lang['Default'] = 'Default';
+$lang['Album_name'] = 'Album name';
+$lang['Description'] = 'Description';
+$lang['contrary'] = 'in contrary pictures will be placed in Default album.';
+$lang['Image_Description'] = 'Image Description:';
+
 
 ?>
