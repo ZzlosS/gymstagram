@@ -1,6 +1,7 @@
 <?php
 	
 	$lang = array();
+    $lang['Gymstagram'] = 'Gymstagram';
 	$lang['Guest'] = 'Log in or Sign up';
 	$lang['Welcome'] = 'Welcome to ';
 	$lang['Home'] = 'Home';
@@ -73,5 +74,16 @@
  	$lang['Revoke'] = 'Revoke';
  	$lang['nadd'] = 'Decline';
  	$lang['delete'] = 'Delete';
-			
+    $lang['Language'] = 'Language';
+    $lang['LanguageE'] = 'Eng';
+    $lang['LanguageS'] = 'Srb';
+    $lang['Welcome_to_Gymstagram'] = 'Welcome to Gymstagram!';
+    $lang['Settings'] = 'Settings';
+    $lang['Chat_preview'] = 'Chat preview';
+    $lang['Birthday'] = 'Birthday:';
+    $lang['Choose_gender'] = 'Choose gender:';
+    $lang['Female'] = 'Female';
+    $lang['Male'] = 'Male';
+    $lang['Profile_information'] = 'Profile information:';
+
 ?>

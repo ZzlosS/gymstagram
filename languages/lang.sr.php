@@ -1,6 +1,7 @@
 <?php
 
 	$lang = array();
+    $lang['Gymstagram'] = 'Gymstagram';
 	$lang['Guest'] = 'Uloguj se ili prijavi';
 	$lang['Welcome'] = 'Dobro dosli na ';
 	$lang['Home'] = 'Pocetna';
@@ -32,7 +33,7 @@
 	$lang['YP'] = '<h3>Tvoj profil</h3>';
 	$lang['YPP'] = 'Tvoja profilna slika';
 	$lang['EditP'] = 'Unesi ili izmeni svoje detalje';
-	$lang['FName'] = 'Ime';
+	$lang['FName'] = 'Ime:<br>';
 	$lang['LName'] = 'Prezime';
 	$lang['GName'] = 'Gym ime';
 	$lang['Image'] = 'Slika';
@@ -72,5 +73,20 @@
 	$lang['sentyou'] = '&rarr; has sent you friend request ';
 	$lang['add'] = 'Prihvati';
 	$lang['Revoke'] = 'Opozovi';
-	
+    $lang['Language'] = 'Jezik';
+    $lang['LanguageE'] = 'Eng';
+    $lang['LanguageS'] = 'Srb';
+    $lang['Welcome_to_Gymstagram'] = 'Dobro došli na Gymstagram!';
+    $lang['Settings'] = 'Podešavanja';
+    $lang['Chat_preview'] = 'Chat izgled';
+    $lang['Birthday'] = 'Rođendan:';
+    $lang['Choose_gender'] = 'Izaberi pol:';
+    $lang['Female'] = 'Ženski';
+    $lang['Male'] = 'Muški';
+    $lang['Profile_information'] = 'Informacije o profilu:';
+
+
+
+
+
 ?>

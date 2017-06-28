@@ -120,11 +120,11 @@
             <div class="container">
                 <header class="group top-nav">
                     <nav class="navbar logo-w navbar-left" >
-                        <a class="logo" href="index.php">Gymstagram</a>
+                        <a class="logo" href="index.php"><?php echo $lang['Gymstagram'];?></a>
                     </nav>
 
                     <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
-                        <span class="logo">Gymstagram</span>
+                        <span class="logo"><?php echo $lang['Gymstagram'];?></span>
                     </div>
 
                     <nav id="navbar-1" class="navbar item-nav navbar-right">
@@ -136,10 +136,10 @@
                             <li>
                                 <div id="language">
                                     <div class="dropdown1">
-                                        <button class="dropbtn1">Language</button>
+                                        <button class="dropbtn1"><?php echo $lang['Language'];?></button>
                                         <div class="dropdown-content1">
-                                            <a href="profile.php?lang=en"><img src="languages/en.png" /> Eng</a>
-                                            <a href="profile.php?lang=sr"><img src="languages/sr.png" /> Srb</a>
+                                            <a href="profile.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
+                                            <a href="profile.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
                         <img class="img-intro" src="img/avatar.png" alt="">
                     </div>
                     <div class="unit-90">
-                        <p class="p-intro">Wellcome to Gymstagram!</p>
+                        <p class="p-intro"> <?php $lang['Welcome_to_Gymstagram']; ?></p>
                     </div>
                 </div>
             </div>
@@ -178,13 +178,14 @@
                 <header class="group top-nav">
                     <nav class="navbar logo-w navbar-left" >
                         <div id="gym_logo" style="max-height: 50px;">
-                            <a class="logo" href="profile.php">Gymstagram</a><a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a>
+                            <a class="logo" href="profile.php"> <?php echo $lang['Gymstagram']; ?> </a>
+                            <a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a>
 
                         </div>
                     </nav>
 
                     <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
-                        <span class="logo">Gymstagram</span>
+                        <span class="logo"><?php echo $lang['Gymstagram']; ?></span>
                     </div>
 
                     <nav id="navbar-1" class="navbar item-nav navbar-right">
@@ -215,7 +216,7 @@
                                         <button class="dropbtn1"><?php echo $gname ?></button>
                                         <div class="dropdown-content1">
                                             <a href="profile.php"><i class="icon-user"></i><?php echo $lang['Profile'];?></a>
-                                            <a href="settings.php"><i class="icon-cog"></i>Settings</a>
+                                            <a href="settings.php"><i class="icon-cog"></i><?php echo $lang['Settings'];?></a>
                                             <a href="logout.php?page=index.php"><i class="icon-off"></i><?php echo $lang['Logout'];?></a>
                                         </div>
                                     </div>
@@ -225,10 +226,10 @@
                             <li>
                                 <div id="language">
                                     <div class="dropdown1">
-                                        <button class="dropbtn1">Language</button>
+                                        <button class="dropbtn1"> <?php echo $lang['Language']; ?></button>
                                         <div class="dropdown-content1">
-                                            <a href="profile.php?lang=en"><img src="languages/en.png" /> Eng</a>
-                                            <a href="profile.php?lang=sr"><img src="languages/sr.png" /> Srb</a>
+                                            <a href="profile.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
+                                            <a href="profile.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
                                         </div>
                                     </div>
                                 </div>

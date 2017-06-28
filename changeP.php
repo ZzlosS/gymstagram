@@ -71,41 +71,41 @@
                 <div id="blah2" style='float:right; height: 100px; width: 100px; background: url("<?php echo $pic ?>") no-repeat center;
                         background-size:contain;'></div>
                 <br><br><br><br><br><br><br>
-                <div style="float: right; padding-right: 5%;">Chat preview</div><br>
-				<h3><?php echo $lang['EditP']?></h3>
+                <div style="float: right; padding-right: 5%;"><?php echo $lang['Chat_preview']; ?></div><br>
+				<h3><?php echo $lang['EditP']?></h3><br>
 
-                <label>Birthday: <br><input class='d_in' name="datepicker" type="text" id="datepicker" maxlength="10" value="<?php echo $bday2 ?>" /></label>
+                <label><?php echo $lang['Birthday']; ?> <br><input class='d_in' name="datepicker" type="text" id="datepicker" maxlength="10" value="<?php echo $bday2 ?>" /></label>
                 <br>
 				<label><?php echo $lang['GName']?>:
 		        <input type="text" id="gname" name="gname" value="<?php echo $gname ?>" onBlur="cU2(this)"></label>
                 <span id="info2"><?php echo $error ?></span>
                 <br>
 
-				<label><?php echo $lang['FName']?>:
+				<label><?php echo $lang['FName']?>
 		        <input type="text" id="name" name="name" value="<?php echo $name ?>"></label><br>
 		        
 		        <label><?php echo $lang['LName']?>:
 		        <input type="text" id="lname" name="lname" value="<?php echo $lname ?>"></label><br>
 
                 <div class="radio">
-                    <b>Choose gender:</b>
+                    <b><?php echo $lang['Choose_gender']?></b>
 
                     <ul id="s_ul">
                         <li id="s_li">
                             <input type="radio" id="f-option" name="selector" <?php echo $checked ?> value="1"/>
-                            <label for="f-option">Male</label>
+                            <label for="f-option"><?php echo $lang['Male']; ?></label>
                             <div class="check"></div>
                         </li>
 
                         <li id="s_li">
                             <input type="radio" id="s-option" name="selector" <?php echo $checked2 ?> value="2"/>
-                            <label for="s-option">Female</label>
+                            <label for="s-option"><?php echo $lang['Female']; ?></label>
                             <div class="check"></div>
                         </li>
                     </ul>
                 </div>
 
-                <b>Profile information:</b><br>
+                <b><?php echo $lang['Profile_information']; ?></b><br>
                 <textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
 
 		        <input type="submit" value="<?php echo $lang['SP']?>">
