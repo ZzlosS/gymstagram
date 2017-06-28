@@ -22,6 +22,7 @@
         <br><br>
 
         <div align="center">
+            <b>Select role for:</b><br>
             <select id='select' onchange='role(this)' class="soflow">
                 <option value="" >Choose a member</option>
                 <?php
