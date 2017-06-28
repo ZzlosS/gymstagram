@@ -24,19 +24,21 @@
 //Profile information
 $error = $checked2 = $checked = "";
 $result = qM("SELECT * FROM `members` WHERE `email`='$email'");
+
 if($result->num_rows){
 	$row = $result->fetch_array(MYSQL_ASSOC);
 	$name = $row['name'];
 	$lname = $row['lname'];
 	$info = $row['information'];
 	$gname = $row['gym_name'];
+    $pic_path = $row['pic_path'];
 	if($row['gender'] == 1){
-	    $gender = "Male";
+	    $gender = $lang['Male'];
         $checked = 'checked';
         $checked2 = '';
     }
     else{
-	    $gender = "Female";
+	    $gender = $lang['Female'];
         $checked = '';
         $checked2 = 'checked';
     }
