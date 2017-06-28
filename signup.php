@@ -155,7 +155,7 @@
                 <h3><?php echo $lang['SQ'] ?>:</h3>
 
                 <label class="fieldname" for="q1">
-                    <select name="s1" id="s1" class="form-control">
+                    <select name="s1" id="s1" class="soflow">
                         <option value="<?php echo $s1?>">Choose question:</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -166,7 +166,7 @@
                 <br>
 
                 <label class="fieldname" for="q2">
-                    <select name="s2" id="s2" class="form-control">
+                    <select name="s2" id="s2" class="soflow">
                         <option value="<?php echo $s2?>">Choose question:</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
