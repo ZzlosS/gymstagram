@@ -88,7 +88,7 @@ if(isset($_POST['email'])){
 
                 <label class="fieldname" for="q1">
                     <select name="s1" id="s1" class="form-control">
-                        <option value="cq1">Choose question:</option>
+                        <option value="cq1"><?php echo $lang['choose_q']; ?></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -99,7 +99,7 @@ if(isset($_POST['email'])){
 
                 <label class="fieldname" for="q2">
                     <select name="s2" id="s2" class="form-control">
-                        <option value="cq2">Choose question:</option>
+                        <option value="cq2"><?php echo $lang['choose_q']; ?></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

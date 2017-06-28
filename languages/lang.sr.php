@@ -3,30 +3,30 @@
 	$lang = array();
     $lang['Gymstagram'] = 'Gymstagram';
 	$lang['Guest'] = 'Uloguj se ili prijavi';
-	$lang['Welcome'] = 'Dobro dosli na ';
-	$lang['Home'] = 'Pocetna';
+	$lang['Welcome'] = 'Dobro došli na ';
+	$lang['Home'] = 'Početna';
 	$lang['Login'] = 'Uloguj se';
 	$lang['Signup'] = 'Prijavi se';
 	$lang['NotLogged'] = 'Morate biti ulogovani da bi ste videli ovaj sajt.';
-	$lang['UserTaken'] = ' Ova email adresa je vec u upotrebi';
+	$lang['UserTaken'] = ' Ova email adresa je već u upotrebi';
 	$lang['GUserTaken'] = ' Ovo gym ime je vec u upotrebi';
-	$lang['UserAvailable'] = ' Korisnicko ime je dostupno';
+	$lang['UserAvailable'] = ' Korisničko ime je dostupno';
 	$lang['Email'] = 'Email adresa';
 	$lang['E'] = 'Email';
-	$lang['Pass'] = 'Sifra';
-	$lang['NPass'] = 'Nova sifra';
-	$lang['RNPass'] = 'Ponovo ukucaj novu sifru';
-	$lang['Question'] = 'Dizes li uopste?';
+	$lang['Pass'] = 'Čifra';
+	$lang['NPass'] = 'Nova šifra';
+	$lang['RNPass'] = 'Ponovo ukucaj novu šifru';
+	$lang['Question'] = 'Dižes li uopšte?';
 	$lang['Question2'] = 'Max bench:';
 	$lang['NotAll'] = 'Nisu popunjena sva polja';
-	$lang['NotAllC'] = 'Nisu tacna sva uneta polja';  //????
+	$lang['NotAllC'] = 'Nisu tačna sva uneta polja';  //????
 	$lang['NotAllS'] = 'Nova i ponovo ukucana nova sifra moraju biti iste';  //????
 	$lang['OldNew'] = 'Stara i nova sifra ne mogu biti iste';
 	$lang['AccCreated'] = '<h4>Nalog je napravljen</h4>Molimo vas da se ulogujete';
 	$lang['Wrong'] = 'Uneta email adresa nije validna';
 	$lang['NotInUse'] = 'Ne postoji nalog sa tom email adresom';
 	$lang['GNotInUse'] = 'Ne postoji nalog sa tim gym imenom';
-	$lang['PassInvalid'] = 'Pogresna sifra';
+	$lang['PassInvalid'] = 'Pogresna šifra';
 	//$lang['LoggedIn'] = 'You are now logged in. Please <a href="profile.php?view=$id">click here</a> to continue.<br>';
 	//$lang['loggedOut'] = '<div class="main">You have been logged out. Please <a href="index.php">click here</a> to refresh the screen.';
 	//$lang['CantLogOut'] = '<div class="main">You cannont log out because you are not logged in.';
@@ -39,17 +39,17 @@
 	$lang['Image'] = 'Slika';
 	$lang['SP'] = 'Sacuvaj profil';
 	$lang['CP'] = 'Izmeni profil';
-	$lang['Cpass'] = 'Promeni sifru';
+	$lang['Cpass'] = 'Promeni šifru';
 	$lang['Members'] = 'Clanovi';
 	$lang['Gallery'] = 'Galerija';
-	$lang['Friends'] = 'Pretrazi članove';
+	$lang['Friends'] = 'Pretraži članove';
 	$lang['friends'] = 'prijatelji';
 	$lang['Messages'] = 'Poruke';
 	$lang['Profile'] = 'Profil';
 	$lang['Log'] = 'Log';
 	$lang['Logout'] = 'Odjavi se';
 	$lang['PInformation'] = 'Informacije o profilu';
-	$lang['FPass'] = 'Zaboravio si sifru?';
+	$lang['FPass'] = 'Zaboravio si šifru?';
 	$lang['SQ'] = 'Odgovori na sigurnosna pitanja';
 	$lang['Registration'] = 'Popuni podatke za registraciju';
 	$lang['Confirm'] = 'Potvrdi';
@@ -81,12 +81,12 @@
     $lang['Welcome_to_Gymstagram'] = 'Dobro došli na Gymstagram!';
     $lang['Settings'] = 'Podešavanja';
     $lang['Chat_preview'] = 'Chat izgled';
-    $lang['Birthday'] = 'Rođendan:';
+    $lang['Birthday'] = 'Datum rođenja:';
     $lang['Choose_gender'] = 'Izaberi pol:';
     $lang['Female'] = 'Ženski';
     $lang['Male'] = 'Muški';
     $lang['Profile_information'] = 'Informacije o profilu:';
-
+$lang['Gender'] = 'Pol';
 
     $lang['Your_Gallery'] = 'Vaša Galerija';
 $lang['Add_image'] = 'Dodaj sliku:';
@@ -96,6 +96,8 @@ $lang['Album_name'] = 'Ime albuma';
 $lang['Description'] = 'Opis';
 $lang['contrary'] = 'u suprotnom, slike će se čuvati u albumu sa imenom Default.';
 $lang['Image_Description'] = 'Opis slike:';
+$lang['choose_q'] = 'Izaberite pitanje';
+$lang['See_Gallery'] = 'Galerija';
 
 
 

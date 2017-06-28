@@ -86,6 +86,7 @@
     $lang['Chat_preview'] = 'Chat preview';
     $lang['Birthday'] = 'Birthday:';
     $lang['Choose_gender'] = 'Choose gender:';
+    $lang['Gender'] = 'Gender';
     $lang['Female'] = 'Female';
     $lang['Male'] = 'Male';
     $lang['Profile_information'] = 'Profile information:';
@@ -98,6 +99,7 @@ $lang['Album_name'] = 'Album name';
 $lang['Description'] = 'Description';
 $lang['contrary'] = 'in contrary pictures will be placed in Default album.';
 $lang['Image_Description'] = 'Image Description:';
-
+$lang['choose_q'] = 'Choose question';
+$lang['See_Gallery'] = 'Gallery';
 
 ?>
