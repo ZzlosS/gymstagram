@@ -1,7 +1,6 @@
 <?php
 	require_once 'functions.php';
 	require_once 'checklanguage.php';
-	
 	if(isset($_POST['email'])){
 		$email = sS($_POST['email']);
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -17,8 +16,7 @@
 			}
 		}
 	}
-
-    if(isset($_POST['gname'])){
+	elseif(isset($_POST['gname'])){
         $gname = $_POST['gname'];
         $result = qM("SELECT * FROM `members` WHERE `gym_name`='$gname'");
         if($result->num_rows){
@@ -28,4 +26,6 @@
             echo "<span class='available'>&#x2714;</span>";
         }
     }
-?>
+    else{
+        die("<script>location.replace('home.php')</script>");
+    }

@@ -1,7 +1,7 @@
 <?php
 	require_once 'basic.php';
 	
-	if(!$loggedIn) echo "<script>location.reload();</script>";
+	if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 	require_once 'infoP.php';
 
     if(isset($_GET['gn'])){

@@ -8,31 +8,29 @@
 <body>
 <h3>Setting up...</h3>
 	<?php
+    /* da se doda ako si admin da mozes da pokrenes*/
 		require_once 'functions.php'; 
 		
 		cT('`members`', 
 				'`id` INT UNSIGNED AUTO_INCREMENT,
 				`gym_name` VARCHAR(20) DEFAULT "",
+				`name` VARCHAR(46) DEFAULT "",
+				`lname` VARCHAR(46) DEFAULT "",
 				`email` VARCHAR(50) NOT NULL,
 				`pass` VARCHAR(50) NOT NULL,
+				`gender` INT DEFAULT 1,
+				`birth_date` DATE,
 				`q1_id` VARCHAR(10) DEFAULT "",
 				`question1` VARCHAR(30) NOT NULL,
 				`q2_id` VARCHAR(10) DEFAULT "",
 				`question2` VARCHAR(30) NOT NULL,
-				PRIMARY KEY(`id`)');
-/*		
-		cT('`profile`', 
-				'`id` INT UNSIGNED AUTO_INCREMENT,
-				`gym_name` VARCHAR(20) DEFAULT "",
-				`email` VARCHAR(50) NOT NULL,
-				`name` VARCHAR(50) DEFAULT "",
-				`last_name` VARCHAR(50) DEFAULT "",
 				`information` VARCHAR(4096) DEFAULT "",
-				`date_update` DATETIME,
+				`pic_date` DATETIME,
 				`pic_path` VARCHAR(50) DEFAULT "",
-				`notifications` INT UNSIGNED DEFAULT 0,
+				`notifications` INT DEFAULT 0,
+				`role` INT DEFAULT 1,
 				PRIMARY KEY(`id`)');
-	*/
+
 		cT('`gym_buddies`',
 				'`id` INT UNSIGNED AUTO_INCREMENT,
 				`user_id` INT UNSIGNED NOT NULL,
@@ -68,9 +66,9 @@
         aT('`members`', '`pic_date`', 'DATETIME');
         aT('`members`', '`pic_path`', 'VARCHAR(50) DEFAULT ""');
         aT('`members`', '`notifications`', 'INT UNSIGNED DEFAULT 0');
-*/
-        aT('`members`', '`role`', 'INT DEFAULT 1') ;
 
+        aT('`members`', '`role`', 'INT DEFAULT 1') ;
+*/
         if(!is_dir("images")){
 			mkdir("images", 0777);
 		}

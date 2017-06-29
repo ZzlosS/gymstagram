@@ -21,6 +21,7 @@
 
 
 <?php
+    if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 //Profile information
     $error = $checked2 = $checked = "";
     $result = qM("SELECT * FROM `members` WHERE `email`='$email'");
@@ -175,7 +176,7 @@
 
 
     //add,delete,revoke,decline,accept
-
+//da se sredi da radi ili da nema prijateljstva
 
     if(isset($_GET['accept'])){
         $accept = sS($_GET['accept']);

@@ -43,5 +43,5 @@
 <?php
     }
     else{
-        if(!$loggedIn and $role!='2') die("<script>location.replace('home.php')</script>");
+        if(!$loggedIn || $role!='2') die("<script>location.replace('home.php')</script>");
     }

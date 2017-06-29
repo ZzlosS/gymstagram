@@ -1,6 +1,6 @@
 <?php
 require_once 'basic.php';
-if(!$loggedIn) die();
+if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 
 $result5 = qM("SELECT * FROM `pictures` WHERE `user_id`=$id");
 if($result5->num_rows){
@@ -11,8 +11,7 @@ if($result5->num_rows){
     $pic_desc = $row4['pic_desc'];
     $pic_like = $row4['pic_like'];
 }
-
-//da prevedem
+//da se prosledjuje id da bi se znalo ciju galeriju da prikaze
 ?>
 
 <div class="main">

@@ -9,8 +9,6 @@
             },
             dataType: 'json',
             success: function(data){
-                //var fileName = data[0];
-                //$("#music").attr("src",fileName).trigger("play");
                 $('#chat_h3').text(data[0]);
                 $('#chat_image').css('background-image', 'url('+ data[1] + ')');
                 $('#chat_info').text(data[2]);
@@ -21,20 +19,21 @@
 </script>
 
 <?php
-require_once 'basic.php';
-if(!$loggedIn and $role!='2') die("<script>location.replace('home.php')</script>");
-$mid = $id;
+    require_once 'basic.php';
+    if(!$loggedIn || $role!='2') die("<script>location.replace('home.php')</script>");
+/*    $mid = $id;
 
-$result = qM("SELECT * FROM `members` WHERE `id`=$mid");
-if($result->num_rows){
-    $row = $result->fetch_array(MYSQL_ASSOC);
-    $view = $row['email'];
-}
-else{
-    $view = "";
-}
-
-?>
+    $result = qM("SELECT * FROM `members` WHERE `id`=$mid");
+    if($result->num_rows){
+        $row = $result->fetch_array(MYSQL_ASSOC);
+        $view = $row['email'];
+    }
+    else{
+        $view = "";
+    }
+valjda ne treba
+    */
+    ?>
 <div class="main">
     <?php
     $followers = array();

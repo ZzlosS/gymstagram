@@ -1,6 +1,6 @@
 <?php
     require_once 'basic.php';
-    if(!$loggedIn) echo "<script>location.replace('index.php')</script>";
+    if(!$loggedIn) echo "<script>location.replace('home.php')</script>";
 
     $res = '';
 ?>
