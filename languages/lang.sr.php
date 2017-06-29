@@ -63,13 +63,13 @@
 	//+
 	// $lang['has'] = 'has';
 	$lang['fr'] = 'zahtev za prijateljstvo'; 
-	$lang['sent'] = 'sent '; 
+	$lang['sent'] = 'sent ';
 	$lang['to'] = ' to';
 	$lang['ForeverAlone'] = '<br> Jos uvek nemas prijatelje.<br><br>';
-	$lang['Your'] = 'Your';
+	$lang['Your'] = 'Vaši';
 	$lang['yf'] = '&harr; je tvoj prijatelj ';
-	$lang['yousent'] = '&larr; you have sent friend request ';
-	$lang['sentyou'] = '&rarr; has sent you friend request ';
+	$lang['yousent'] = '&larr; poslali ste zahtev za priajteljstvo ';
+	$lang['sentyou'] = '&rarr; Vam je poslao zahtev za prijateljstvo ';
 	$lang['add'] = 'Prihvati';
 	$lang['Revoke'] = 'Opozovi';
 

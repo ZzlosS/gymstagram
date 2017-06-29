@@ -79,8 +79,9 @@
 		if($n = $result->num_rows){
 			for($j = 0; $j < $n; $j++){
 				$row = $result->fetch_array(MYSQL_ASSOC);
-				echo "<div style='max-width:100px; max-height:100px;'><img src='".$row['pic_path']."' alt = 'text' class='images'></div><br><span>".$row['pic_desc']."</span><br><span>".$row['album_name']."</span><br>";
-				echo "<input type='button' value='delete' onclick='window.location.href=\" /gallery.php?id=" . $row['id']. "\"'><br><br>";
+				echo "<div class='gallery'><img src='".$row['pic_path']."' alt = 'text' class='images'>
+                        <br><div class='desc'>".$row['pic_desc']."</div>";
+				echo "<input type='button' value='delete' onclick='window.location.href=\" /gallery.php?id=" . $row['id']. "\"'><br><br></div>";
 			}
 		}
 	}
