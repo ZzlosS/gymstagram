@@ -230,7 +230,7 @@ if($result5->num_rows){
                 <input type="submit" value="Save Profile">
             </form>
         </div>
-    </div><br><br>
+    </div><br>
 <?php sI($id); ?>
 </body>
 </html>
