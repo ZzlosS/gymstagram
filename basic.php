@@ -190,7 +190,6 @@
 
                             <!-- Ispis dodatnih stranica za admina -->
                             <?php if($role == 2){?>
-                                <li> <a href="members.php"><?php echo $lang['Members'];?></a> </li>
                                 <li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
                                 <li>
                                     <div id="language">

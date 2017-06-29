@@ -1,7 +1,7 @@
 <?php
 
     require_once 'basic.php';
-    if(!$loggedIn) die();
+    if(!$loggedIn) echo "<script>location.replace('index.php')</script>";
 
    if(isset($_GET['accept'])){
         $accept = sS($_GET['accept']);
