@@ -16,8 +16,7 @@ if($result5->num_rows){
 ?>
 
 <div class="main">
-    <br><br>
-    <h3> <?php echo $lang['Your_Gallery']; ?></h3> <!-- ubaci u recnik -->
+    <!--  <div align="center"> <h3> <?php echo $lang['Your_Gallery']; ?></h3> </div>-->
     <?php
     if(!is_dir("images/$id/album")){
         mkdir("images/$id/album", 0777);
@@ -109,31 +108,106 @@ if($result5->num_rows){
 
 
     ?>
+</div>
+    <style>
 
-    <form method="post" action="gallery.php" enctype="multipart/form-data" >
 
-        <label for="image"><?php echo $lang['Add_image']; ?></label>
-        <input type="file" name="image" id="image"><br>
+        @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300);
+        html {
 
-        <label><?php echo $lang['Create_album'];?>
-            <select name="owner">
-                <?php
-                $sql = qM("SELECT DISTINCT `album_name` FROM `pictures` WHERE `user_id`=$id");
-                echo "<option value='default'>". $lang['Default']." </option>";
-                while ($row = $sql->fetch_assoc()) {
-                    $an = $row['album_name'];
-                    if($an != 'Default'){
-                        echo "<option value=$an>" . $an . "</option>";
-                    }
+            background-size: cover;
+        }
 
-                }
-                ?>
-            </select>,<br><?php echo $lang['contrary']; ?></label><br>
-        <label><?php echo $lang['Album_name']; ?> <input type="text" name="sub_album_name" id="sub_album_name"></label> <br>
-        <label><?php echo $lang['Description']; ?> <input type="text" name="desc" id="desc"></label> <br>
-        <input type="submit" value="Save Profile">
-    </form>
-</div><br><br>
+        * {
+            box-sizing: border-box;
+        }
+
+        .ppic {
+            width: 100%;
+        }
+
+        .card-wrap {
+            width: 400px;
+            margin: 80px auto;
+            background: #e3e3e3;
+            position: relative;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .profile_pic-wrap {
+            width: 100px;
+            height: 100px;
+            background: #e3e3e3;
+            top: 0;
+            left: 50%;
+            padding: 5px;
+            position: absolute;
+            margin-left: -50px;
+            top: -50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .profile_pic-wrap img {
+            border-radius: 50%;
+        }
+
+        .user-name {
+            text-align: center;
+            margin-top: 28px;
+        }
+
+
+        .info-wrap {
+            text-align: center;
+
+        }
+
+        .icon-wrap a {
+            line-height: 70px;
+            width: 24%;
+            text-decoration: none;
+            padding: 0;
+            font-size: 2em;
+            cursor: pointer;
+            margin: 0;
+            color: #b0b0b0;
+            transition: color .1s linear;
+        }
+        .icon-wrap a:hover {
+            color: #7d7d7d;
+        }
+    </style>
+
+
+    <div class="card-wrap">
+        <div class="info-wrap">
+            <form method="post" action="gallery.php" enctype="multipart/form-data" >
+
+                <label for="image"><h3><?php echo $lang['Add_image']; ?></h3></label><br><br>
+                <div align="center"> <input type="file" name="image" id="image"></div><br>
+
+                <label><?php echo $lang['Create_album'];?>
+                    <select name="owner">
+                        <?php
+                        $sql = qM("SELECT DISTINCT `album_name` FROM `pictures` WHERE `user_id`=$id");
+                        echo "<option value='default'>". $lang['Default']." </option>";
+                        while ($row = $sql->fetch_assoc()) {
+                            $an = $row['album_name'];
+                            if($an != 'Default'){
+                                echo "<option value=$an>" . $an . "</option>";
+                            }
+
+                        }
+                        ?>
+                    </select>,<br><?php echo $lang['contrary']; ?></label><br><br>
+                <label><?php echo $lang['Album_name']; ?> <input type="text" name="sub_album_name" id="sub_album_name"></label> <br><br>
+                <label><?php echo $lang['Description']; ?> <input type="text" name="desc" id="desc"></label> <br><br>
+                <input type="submit" value="Save Profile">
+            </form>
+        </div>
+    </div><br><br>
 <?php sI($id); ?>
 </body>
 </html>
