@@ -7,10 +7,6 @@
         $( "#datepicker" ).datepicker({
             dateFormat: "dd/mm/yy",
             showAnim: "slideDown",
-            /*showOn: "button",
-            buttonImage: "img/calendar.png",
-            buttonImageOnly: true,
-            buttonText: "Select date",*/
             changeMonth: true,
             changeYear: true
         });
