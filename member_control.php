@@ -1,7 +1,7 @@
 <?php
 
     require_once 'basic.php';
-    if(!$loggedIn) die();
+    if(!$loggedIn and $role!='2') die("<script>location.replace('home.php')</script>");
 
     $result = qM("SELECT `role` FROM `members` WHERE `id`=$id");
     $row = $result->fetch_assoc();

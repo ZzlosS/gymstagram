@@ -1,7 +1,7 @@
 <?php
 	require_once 'basic.php';
-	
-	if(!$loggedIn) die();
+
+    if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 	require_once 'infoP.php';
 ?>
 <script>
