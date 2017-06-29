@@ -111,84 +111,15 @@ if($result5->num_rows){
 </div>
     <style>
 
-
-        @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300);
-        html {
-
-            background-size: cover;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .ppic {
-            width: 100%;
-        }
-
-        .card-wrap {
-            width: 400px;
-            margin: 80px auto;
-            background: #e3e3e3;
-            position: relative;
-            padding: 20px;
-            border-radius: 5px;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .profile_pic-wrap {
-            width: 100px;
-            height: 100px;
-            background: #e3e3e3;
-            top: 0;
-            left: 50%;
-            padding: 5px;
-            position: absolute;
-            margin-left: -50px;
-            top: -50px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        .profile_pic-wrap img {
-            border-radius: 50%;
-        }
-
-        .user-name {
-            text-align: center;
-            margin-top: 28px;
-        }
-
-
-        .info-wrap {
-            text-align: center;
-
-        }
-
-        .icon-wrap a {
-            line-height: 70px;
-            width: 24%;
-            text-decoration: none;
-            padding: 0;
-            font-size: 2em;
-            cursor: pointer;
-            margin: 0;
-            color: #b0b0b0;
-            transition: color .1s linear;
-        }
-        .icon-wrap a:hover {
-            color: #7d7d7d;
-        }
-
-
          div.gallery {
              margin: 5px;
-             border: 1px solid #ccc;
+
              float: left;
              width: 180px;
          }
 
         div.gallery:hover {
-            border: 1px solid #777;
+            border: 1px solid #FF6C40;
         }
 
         div.gallery img {
