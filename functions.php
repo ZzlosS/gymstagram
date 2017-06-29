@@ -74,7 +74,7 @@
 		}
 	}
 	
-	function sI($user_id){  //showImages
+	function sI($user_id){  //showImages za trenutnog korisnika
 		$result = qM("SELECT * FROM `pictures` WHERE `user_id` = $user_id ORDER BY  `date_update` DESC");
 		if($n = $result->num_rows){
 			for($j = 0; $j < $n; $j++){
@@ -82,10 +82,23 @@
 				echo "<div class='gallery'>
                             <a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' alt = 'text' class='images'></a> <br>
                             <div class='desc'>".$row['pic_desc']."</div>";
-				echo "<div align='center'<button value='delete' onclick='window.location.href=\" /gallery.php?id=" . $row['id']. "\"'>
+				echo "<div align='center'><button value='delete' onclick='window.location.href=\" /gallery.php?id=" . $row['id']. "\"'>
                         <i class='icon-trash'></i>
                     </button></div><br><br></div>";
 			}
 		}
 	}
+
+    function sOI($user_id){  //showOtherImages za ostale korisnike, razlika u delete dugme
+        $result = qM("SELECT * FROM `pictures` WHERE `user_id` = $user_id ORDER BY  `date_update` DESC");
+        if($n = $result->num_rows){
+            for($j = 0; $j < $n; $j++){
+                $row = $result->fetch_array(MYSQL_ASSOC);
+                echo "<div class='gallery'>
+                                <a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' alt = 'text' class='images'></a> <br>
+                                <div class='desc'>".$row['pic_desc']."</div>";
+                echo "<br><br></div>";
+            }
+        }
+    }
 ?>

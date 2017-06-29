@@ -7,13 +7,12 @@ require_once 'basic.php';
     <style>
         div.im {
             margin: 5px 5px 20px 5px;
-            border: 1px solid #ccc;
             width: 500px;
             height: 570px;
         }
 
         div.im:hover {
-            border: 1px solid #777;
+            border: 1px solid #FF6C40;
         }
 
         div.descN {
@@ -24,6 +23,7 @@ require_once 'basic.php';
             padding-top: 10px;
             text-align: center;
         }
+
     </style>
     <br><br>
         <div class="images" align="center">

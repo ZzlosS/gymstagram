@@ -36,7 +36,7 @@
         <p><?php echo "<b>".$lang['Birthday']."</b> ".$bday2;?></p>
         <p><?php echo "<b>".$lang['Gender'].": </b>" .$gender; ?></p>
         <p><?php echo "<b>".$lang['PInformation'].":</b> <br>".$info."";?></p><br>
-        <p><a href="gallery.php?gn=".$gname."><?php echo $lang['See_Gallery'];?></a></p>
+        <p><a href="gallery.php?gn=<?php echo $gname ?>"><?php echo $lang['See_Gallery'];?></a></p>
     </div>
 
 </div>

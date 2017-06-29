@@ -13,10 +13,21 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <!--
+        <script>
+            function lang(lan) {
+                $.ajax({
+                    method: 'post',
+                    url: 'checklanguage.php',
+                    data: {'lang': lan}
+                    success: function () {
+                        location
+                    }
+                });
+            }
+        </script>
+    -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -171,7 +182,7 @@
                     <nav class="navbar logo-w navbar-left" >
                         <div id="gym_logo" style="max-height: 50px;">
                             <a class="logo" href="profile.php"> <?php echo $lang['Gymstagram']; ?> </a>
-                            <a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a>
+
 
                         </div>
                     </nav>
@@ -183,8 +194,8 @@
                     <nav id="navbar-1" class="navbar item-nav navbar-right">
 
                         <ul class = "menu">
+                            <li> <a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a> </li>
                             <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
-
                             <li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
                             <li> <a href="search.php"><?php echo $lang['Friends'];?></a> </li>
 
@@ -224,14 +235,14 @@
                                     <div class="dropdown1">
                                         <button class="dropbtn1"> <?php echo $lang['Language']; ?></button>
                                         <div class="dropdown-content1">
-                                            <a href="profile.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
-                                            <a href="profile.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
+                                            <a href="home.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
+                                            <a href="home.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                         </ul>
-                        
+
                     </nav>
                 </header>
             </div>

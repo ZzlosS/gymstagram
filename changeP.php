@@ -58,8 +58,6 @@
                 echo "<br><br>";
                 echo $lang['YP'];
                 sP($email);
-                //ajax funkciji da se proslede visina i sirina slike pa da se tek onda promeni inace samo da je smanji na 100x100
-                //ili samo da bude dugme za resize i onda da se skalira  a po defaultu na 100x100
                 ?>
 
                 <label for="image" style="float:left; padding-left:18%;">

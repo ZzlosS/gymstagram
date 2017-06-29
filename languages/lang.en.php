@@ -83,7 +83,7 @@
     $lang['LanguageS'] = 'Srb';
     $lang['Welcome_to_Gymstagram'] = 'Welcome to Gymstagram!';
     $lang['Settings'] = 'Settings';
-    $lang['Chat_preview'] = 'Chat preview';
+    $lang['Chat_preview'] = 'Profile preview';
     $lang['Birthday'] = 'Birthday:';
     $lang['Choose_gender'] = 'Choose gender:';
     $lang['Gender'] = 'Gender';
@@ -101,5 +101,7 @@ $lang['contrary'] = 'in contrary pictures will be placed in Default album.';
 $lang['Image_Description'] = 'Image Description:';
 $lang['choose_q'] = 'Choose question';
 $lang['See_Gallery'] = 'Gallery';
+
+$lang['ova'] = "'s";
 
 ?>

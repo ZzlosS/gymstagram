@@ -80,7 +80,7 @@
     $lang['LanguageS'] = 'Srb';
     $lang['Welcome_to_Gymstagram'] = 'Dobro došli na Gymstagram!';
     $lang['Settings'] = 'Podešavanja';
-    $lang['Chat_preview'] = 'Chat izgled';
+    $lang['Chat_preview'] = 'Porfil izgled';
     $lang['Birthday'] = 'Datum rođenja:';
     $lang['Choose_gender'] = 'Izaberi pol:';
     $lang['Female'] = 'Ženski';
@@ -99,7 +99,7 @@ $lang['Image_Description'] = 'Opis slike:';
 $lang['choose_q'] = 'Izaberite pitanje';
 $lang['See_Gallery'] = 'Galerija';
 
-
+$lang['ova'] = "-ova";
 
 
 

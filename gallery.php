@@ -2,15 +2,27 @@
 require_once 'basic.php';
 if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 
-$result5 = qM("SELECT * FROM `pictures` WHERE `user_id`=$id");
-if($result5->num_rows){
-    $row4 = $result5->fetch_assoc();
-    $pic_id = $row4['id'];
-    $user_id = $row4['user_id'];
-    $album_name = $row4['album_name'];
-    $pic_desc = $row4['pic_desc'];
-    $pic_like = $row4['pic_like'];
-}
+    $show = true;
+    if(isset($_GET['gn'])){
+        $gn = $_GET['gn'];
+        if($gn != $gname){
+            $res = qM("SELECT id,gym_name FROM `members` WHERE `gym_name`='$gn'");
+            $row = $res->fetch_assoc();
+            $id = $row['id'];
+            $gname = $row['gym_name'];
+            $n = $lang['ova']." ".$lang['See_Gallery'];
+            $show = false;
+        }
+    }
+    $result5 = qM("SELECT * FROM `pictures` WHERE `user_id`=$id");
+    if($result5->num_rows){
+        $row4 = $result5->fetch_assoc();
+        $pic_id = $row4['id'];
+        $user_id = $row4['user_id'];
+        $album_name = $row4['album_name'];
+        $pic_desc = $row4['pic_desc'];
+        $pic_like = $row4['pic_like'];
+    }
 //da se prosledjuje id da bi se znalo ciju galeriju da prikaze
 ?>
 
@@ -33,15 +45,6 @@ if($result5->num_rows){
     }
 
     if(isset($_FILES['image']['name'])){
-        /*$result = qM("SELECT * FROM `pictures`");
-        if(($n = $result->num_rows) == 0){
-            $pic_name = 1;
-        }
-        else{
-            $b = qM("SELECT MAX(id) FROM `pictures`");
-            $c = $b->fetch_all();
-            $pic_name = $c + 1;
-        }*/
         $name = date("YmdHis");
         $saveto = "images/$id/album/".$name.".jpg";
         move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
@@ -133,7 +136,7 @@ if($result5->num_rows){
 
     </style>
 
-
+<?php if($show){?>
     <div class="card-wrap">
         <div class="info-wrap">
             <form method="post" action="gallery.php" enctype="multipart/form-data" >
@@ -161,6 +164,11 @@ if($result5->num_rows){
             </form>
         </div>
     </div><br>
-<?php sI($id); ?>
+<?php sI($id); }
+else{
+    echo "<br><br>";
+    echo "<h3 align='center'>$gname$n</h3>";
+    sOI($id);
+}?>
 </body>
 </html>
