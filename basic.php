@@ -44,6 +44,9 @@
     <link rel="stylesheet" type="text/css" href="css/mycss.css" />
     <link rel="stylesheet" type="text/css" href="css/profile-hover.css" />
 
+    <script src="js/kube.min.js"></script>
+    <script src="js/myjs.js"></script>
+
 
      <!--da izbacim u css-->
     <style>
@@ -101,9 +104,12 @@
 		$id = $_SESSION['id'];
 		$email = $_SESSION['email'];
 		$loggedIn = TRUE;
+		$loggedIn2 = 1;
 		$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
         $row = $result->fetch_array(MYSQL_ASSOC);
         $role = $row['role'];
+        $public = $row['public'];
+
 		if($result->num_rows){
 			$gname = $row['gym_name'];
 			$pic = $row['pic_path'];
@@ -115,6 +121,7 @@
 		}
 	}
 	else{
+	    $loggedIn2 = 2;
 		$loggedIn = FALSE;
 	}
 	?>
@@ -196,7 +203,7 @@
                         <ul class = "menu">
                             <li> <a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a> </li>
                             <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
-                            <li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li>
+                            <!--<li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li> ne treba jer preko profila se tu dolazi-->
                             <li> <a href="search.php"><?php echo $lang['Friends'];?></a> </li>
 
                             <!-- Ispis dodatnih stranica za admina -->
@@ -248,6 +255,5 @@
             </div>
         </div>
         <!--<script src="js/jquery.min.js"></script>-->
-        <script src="js/kube.min.js"></script>
-        <script src="js/myjs.js"></script>
+
 <?php }?>

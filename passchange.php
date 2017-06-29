@@ -1,73 +1,76 @@
 <?php
-require_once 'checklanguage.php';
-require_once 'functions.php';
-require_once 'basic.php';
-$ok = false;
-if($loggedIn){
-	$loc = "settings.php";
-}
-else{
-	$loc = "login.php";
-}
-		
-$error = $email = $npass = $rnpass = $done = $changed = $redirect = '';
-if(isset($_POST['email'])){
-	$email = sS($_POST['email']);
-    $s1 = sS($_POST['s1']);
-    $rq1 = sS($_POST['q1']); //reset question 1
-    $s2 = sS($_POST['s2']);
-    $rq2 = sS($_POST['q2']); //reset question 2
-	if($email == '' || $rq1 == '' || $rq2 == ''){
-		$alert = $lang['NotAll'];
-		echo "<script type='text/javascript'>alert('$alert')</script>";
-	}
-	elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-		$error = $lang['Wrong'];
-	}
-	else{
-		$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
-		$row = $result->fetch_assoc();
-		$gname = $row['gym_name'];
-		$id = $row['id'];
-        $q1_id = $row['q1_id'];
-        $q1 = $row['question1'];
-        $q2_id = $row['q2_id'];
-        $q2 = $row['question2'];
-        $pass = $row['pass'];
-		if($s1 == $q1_id && $rq1 == $q1 && $s2 == $q2_id && $rq2 == $q2){
-			if(isset($_POST['npass']) && isset($_POST['rnpass'])){
-				$npass = $_POST['npass'];
-				$rnpass = $_POST['rnpass'];
-				$hpass = hash('ripemd128', "$salt1$npass$salt2");
-				if($hpass == $pass){
-					$alert2 = $lang['OldNew'];
-					echo "<script type='text/javascript'>alert('$alert2')</script>";
-				}
-				else{
-					if($npass != $rnpass){
-						$alert3 = $lang['NotAllS'];
-						echo "<script type='text/javascript'>alert('$alert3')</script>";
-					}
-					else{
-						$hpass = hash('ripemd128', "$salt1$npass$salt2");
-						qM("UPDATE `members` SET `pass`='$hpass' WHERE `email`='$email'");
-                        qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname($id) changed his password')");
-						$changed = "<h3>".$lang['PassChanged']."</h3>";//."<a href='login.php'>".$lang['here']."</a>.";
-                        $redirect = "If you are not redirected automaticly in 5 seconds click this <a href='login.php'>link</a>";
-                        $ok = true;
-                        header( "refresh:5;url=login.php" );
-					}
-				}
+    require_once 'checklanguage.php';
+    require_once 'functions.php';
+    require_once 'basic.php';
+    $ok = false;
+    if($loggedIn){
+        $loc = "settings.php";
+    }
+    else{
+        $loc = "login.php";
+    }
 
-			}
-		}
-		else{
-			$alert4 = $lang['NotAllC'];
-			echo "<script type='text/javascript'>alert('$alert4')</script>";
-		}
+    $error = $email = $npass = $rnpass = $done = $changed = $gname = $redirect = '';
+    //$done valjda visak
+    if(isset($_POST['email'])){
+        $email = sS($_POST['email']);
+        $s1 = sS($_POST['s1']);
+        $rq1 = sS($_POST['q1']); //reset question 1
+        $s2 = sS($_POST['s2']);
+        $rq2 = sS($_POST['q2']); //reset question 2
+        if($email == '' || $rq1 == '' || $rq2 == ''){
+            $alert = $lang['NotAll'];
+            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) didnt enter all fields in pass change.')");
+            echo "<script type='text/javascript'>alert('$alert')</script>";
+        }
+        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $error = $lang['Wrong'];
+        }
+        else{
+            $result = qM("SELECT * FROM `members` WHERE `email`='$email'");
+            $row = $result->fetch_assoc();
+            $gname = $row['gym_name'];
+            $id = $row['id'];
+            $q1_id = $row['q1_id'];
+            $q1 = $row['question1'];
+            $q2_id = $row['q2_id'];
+            $q2 = $row['question2'];
+            $pass = $row['pass'];
+            if($s1 == $q1_id && $rq1 == $q1 && $s2 == $q2_id && $rq2 == $q2){
+                if(isset($_POST['npass']) && isset($_POST['rnpass'])){
+                    $npass = $_POST['npass'];
+                    $rnpass = $_POST['rnpass'];
+                    $hpass = hash('ripemd128', "$salt1$npass$salt2");
+                    if($hpass == $pass){
+                        $alert2 = $lang['OldNew'];
+                        echo "<script type='text/javascript'>alert('$alert2')</script>";
+                    }
+                    else{
+                        if($npass != $rnpass){
+                            $alert3 = $lang['NotAllS'];
+                            echo "<script type='text/javascript'>alert('$alert3')</script>";
+                        }
+                        else{
+                            $hpass = hash('ripemd128', "$salt1$npass$salt2");
+                            qM("UPDATE `members` SET `pass`='$hpass' WHERE `email`='$email'");
+                            qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname($id) changed his password')");
+                            $changed = "<h3>".$lang['PassChanged']."</h3>";//."<a href='login.php'>".$lang['here']."</a>.";
+                            $redirect = "If you are not redirected automaticly in 5 seconds click this <a href='login.php'>link</a>";
+                            $ok = true;
+                            header( "refresh:5;url=login.php" );
+                        }
+                    }
 
-	}
-}
+                }
+            }
+            else{
+                $alert4 = $lang['NotAllC'];
+                echo "<script type='text/javascript'>alert('$alert4')</script>";
+                qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) didnt enter all fields corectly.')");
+            }
+
+        }
+    }
 
 ?>
 

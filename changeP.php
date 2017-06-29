@@ -103,6 +103,25 @@
                     </ul>
                 </div>
 
+                <div class="radio">
+                    <b><?php echo $lang['Public']?>:</b><br>
+                    <?php echo $lang['public']?>
+
+                    <ul id="s_ul">
+                        <li id="s_li">
+                            <input type="radio" id="y-option" name="selector2" <?php echo $yes?> value="1"/>
+                            <label for="y-option"><?php echo $lang['yes']; ?></label>
+                            <div class="check"></div>
+                        </li>
+
+                        <li id="s_li">
+                            <input type="radio" id="n-option" name="selector2" <?php echo $no?> value="0"/>
+                            <label for="n-option"><?php echo $lang['no']; ?></label>
+                            <div class="check"></div>
+                        </li>
+                    </ul>
+                </div>
+                <br>
                 <b><?php echo $lang['Profile_information']; ?></b><br>
                 <textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
 

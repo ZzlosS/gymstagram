@@ -21,7 +21,7 @@
 <?php
     require_once 'basic.php';
     if(!$loggedIn || $role!='2') die("<script>location.replace('home.php')</script>");
-/*    $mid = $id;
+   $mid = $id;
 
     $result = qM("SELECT * FROM `members` WHERE `id`=$mid");
     if($result->num_rows){
@@ -31,8 +31,8 @@
     else{
         $view = "";
     }
-valjda ne treba
-    */
+
+
     ?>
 <div class="main">
     <?php

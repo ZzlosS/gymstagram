@@ -103,5 +103,9 @@ $lang['choose_q'] = 'Choose question';
 $lang['See_Gallery'] = 'Gallery';
 
 $lang['ova'] = "'s";
+$lang['Public'] = "Public";
+$lang['public'] = "Profile is visible to not logged in visitors";
+$lang['yes'] = "Yes";
+$lang['no'] = "No";
 
 ?>

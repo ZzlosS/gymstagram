@@ -23,7 +23,6 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
         $pic_desc = $row4['pic_desc'];
         $pic_like = $row4['pic_like'];
     }
-//da se prosledjuje id da bi se znalo ciju galeriju da prikaze
 ?>
 
 <div class="main">
@@ -167,7 +166,7 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 <?php sI($id); }
 else{
     echo "<br><br>";
-    echo "<h3 align='center'>$gname$n</h3>";
+    echo "<h3 align='center'><a href='profile.php?gn=".$gname."'>$gname</a>$n</h3>";
     sOI($id);
 }?>
 </body>

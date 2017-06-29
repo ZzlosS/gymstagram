@@ -23,9 +23,8 @@
 <?php
     if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 //Profile information
-    $error = $checked2 = $checked = "";
+    $error = $checked2 = $checked = $yes = $no = "";
     $result = qM("SELECT * FROM `members` WHERE `email`='$email'");
-
     if($result->num_rows){
         $row = $result->fetch_array(MYSQL_ASSOC);
         $name = $row['name'];
@@ -33,6 +32,7 @@
         $info = $row['information'];
         $gname = $row['gym_name'];
         $pic_path = $row['pic_path'];
+        $public = $row['public'];
         if($row['gender'] == 1){
             $gender = $lang['Male'];
             $checked = 'checked';
@@ -43,6 +43,15 @@
             $checked = '';
             $checked2 = 'checked';
         }
+        if($public == 0){
+            $yes = '';
+            $no = 'checked';
+        }
+        else{
+            $yes = 'checked';
+            $no = '';
+        }
+
         $bday = $row['birth_date'];
         $dateObject = DateTime::createFromFormat('Y-m-d', $bday);
         $bday2 = $dateObject->format('d/m/Y');
@@ -81,7 +90,7 @@
         $lname = preg_replace("/[^a-zA-Z]+/", "", $lname);
         qM("UPDATE `members` SET `name`='$name', `lname`='$lname', `gym_name`='$ngname' WHERE `email`='$email'");
         qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has updated profile information')");
-        echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
+        //echo "<meta http-equiv='refresh' content='0'>"; //refresuje stranicu
     }
 
     if(isset($_POST['selector'])){
@@ -89,15 +98,43 @@
         qM("UPDATE `members` SET `gender`='$gender' WHERE `email`='$email'");
     }
 
+    if(isset($_POST['selector2'])){
+        $public = $_POST['selector2'];
+        qM("UPDATE `members` SET `public`=$public WHERE `email`='$email'");
+    }
+
     if(isset($_POST['datepicker'])){
         $bday = $_POST['datepicker'];
         $dateObject = DateTime::createFromFormat('d/m/Y', "$bday");
+        $bday2 = $dateObject->format('Y-m-d');
         if($dateObject == false){
             echo "<script type='text/javascript'>alert('Wrong date format, please use day/month/Year')</script>";
         }
         else{
-            qM("UPDATE `members` SET `gender`='$gender' WHERE `email`='$email'");
+            qM("UPDATE `members` SET `birth_date`='$bday2' WHERE `email`='$email'");
         }
+    }
+
+
+    if(isset($_GET['gn'])){
+        $mgn = sS($_GET['gn']);
+        $result = qM("SELECT * FROM `members` WHERE `gym_name`='$mgn'");
+        if($result->num_rows){
+            $row = $result->fetch_array(MYSQL_ASSOC);
+            $gname = $row['gym_name'];
+            $email = $row['email'];
+            $name = $row['name'];
+            $lname = $row['lname'];
+            $info = $row['information'];
+            $bday2 = $row['birth_date'];
+            $public = $row['public'];
+        }
+        else{
+            echo "<script>location.replace('home.php')</script>";
+        }
+    }
+    else{
+        $public = 1; //to znaci da je logovani korisnik dosao na svoju profil stranicu i samo se njemu postavlja profil na public
     }
 
     if(!is_dir("images/$id")){

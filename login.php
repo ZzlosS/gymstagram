@@ -7,6 +7,8 @@
 		$pass = sS($_POST['pass']);
 		if($gname == '' || $email == '' || $pass == ''){
 			$error1 = $lang['NotAll'];
+			$value = $_POST['email'];
+            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) didnt enter all fields.')");
 		}
 		else{
 			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){//ako je lose uneta email adresa onda je gym_name uneto
@@ -18,10 +20,12 @@
 				$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 				if($result->num_rows == 0){
 					$error2 = $lang['GNotInUse'];
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', 'Someone tried to log in with wrong gym_name.')");
 				}
 				else{
 					$row = $result->fetch_assoc();
 					if($row['pass'] != $hpass){
+                        qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has entered wrong password.')");
 						$error3 = $lang['PassInvalid'];
 						$email = $gname;//da ne ispise email adresu u polju
 					}
@@ -40,12 +44,14 @@
 				$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 				if($result->num_rows == 0){
 					$error2 = $lang['NotInUse'];
+                    qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', 'Someone tried to log in with wrong email.')");
 				}
 				else{
 					$row = $result->fetch_assoc();
 					$value = $row['email'];
 					if($row['pass'] != $hpass){
 						$error3 = $lang['PassInvalid'];
+                        qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) has entered wrong password.')");
 					}
 					else{
 						$id = $row['id'];

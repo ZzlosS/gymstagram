@@ -100,7 +100,10 @@ $lang['choose_q'] = 'Izaberite pitanje';
 $lang['See_Gallery'] = 'Galerija';
 
 $lang['ova'] = "-ova";
-
+$lang['Public'] = "Javan"; //?????
+$lang['public'] = "Profil je vidljiv ne ulogovanim posetiocima";
+$lang['yes'] = "Da";
+$lang['no'] = "Ne";
 
 
 ?>

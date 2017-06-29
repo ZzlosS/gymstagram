@@ -1,7 +1,12 @@
 <?php
 require_once 'basic.php';
+    if($loggedIn){
+        $result = qM("SELECT m.id,m.name,m.gym_name,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` ORDER BY `date_update` DESC LIMIT 0,2");
+    }
+    else{
+        $result = qM("SELECT m.id,m.name,m.gym_name,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` WHERE `public`=1 ORDER BY `date_update` DESC LIMIT 0,2");
+    }
 
-    $result = qM("SELECT m.id,m.name,m.gym_name,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` ORDER BY `date_update` DESC LIMIT 0,2");
 
 ?>
     <style>
@@ -26,6 +31,7 @@ require_once 'basic.php';
 
     </style>
     <br><br>
+    <input id="id" hidden value="<?php echo $loggedIn2?>" /> <!-- tu postavlja vrednost da li je neko logovan, pa je preko funckije salje u news_feed-->
         <div class="images" align="center">
             <?php
             while($row = $result->fetch_assoc()){
@@ -51,15 +57,24 @@ require_once 'basic.php';
             $('.loader').hide();
             $('.up').hide();
             var load = 0;
+            var loged = document.getElementById('id').value;
                 $(window).scroll(function(){
                     if($(window).scrollTop()===$(document).height()-$(window).height()){
                         $('.loader').show();
                         $('.up').show();
                         load++;
-                        $.post("news_feed.php", {load:load}, function(data){
-                            $('.images').append(data);
-                            $('.loader').hide();
-                        })
+                        $.ajax({
+                            method: 'post',
+                            url: 'news_feed.php',
+                            data:{
+                                'load': load,
+                                'loged': loged
+                            },
+                            success: function (data) {
+                                $('.images').append(data);
+                                $('.loader').hide();
+                            }
+                        });
                     }
                 })
         });
@@ -69,5 +84,6 @@ require_once 'basic.php';
             document.documentElement.scrollTop = 0; // za IE i Firefox
         }
     </script>
+
     </body>
 </html>

@@ -62,7 +62,7 @@ if(isset($_POST['select']) || isset($_POST['date']) || isset($_POST['page']) || 
     }
     $toRet .=  "</tbody></table>";
 
-    $p = ceil($n/5);
+    $p = ceil($n/20);
 
 
 

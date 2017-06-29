@@ -29,6 +29,7 @@
 				`pic_path` VARCHAR(50) DEFAULT "",
 				`notifications` INT DEFAULT 0,
 				`role` INT DEFAULT 1,
+				`public` INT DEFAULT 0,
 				PRIMARY KEY(`id`)');
 
 		cT('`gym_buddies`',
@@ -68,6 +69,8 @@
         aT('`members`', '`notifications`', 'INT UNSIGNED DEFAULT 0');
 
         aT('`members`', '`role`', 'INT DEFAULT 1') ;
+
+        aT('`members`', '`public`', 'INT DEFAULT 0');
 */
         if(!is_dir("images")){
 			mkdir("images", 0777);

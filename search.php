@@ -64,9 +64,10 @@
 
     <input id="id" hidden value="<?php echo $id?>" />
     <br><br>
-    <button id='but' type="button" style="margin-left: 45%" onclick="f()">Show all</button>
-    <br><br><br><br><br><br>
-
+    <?php if($role == 2){ ?>
+        <button id='but' type="button" style="margin-left: 45%" onclick="f()">Show all</button>
+        <br><br><br><br><br><br>
+    <?php } ?>
 
     <div class="ui-widget" align="center">
 
