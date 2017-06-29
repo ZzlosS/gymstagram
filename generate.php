@@ -1,17 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: STRALE
- * Date: 26.6.2017.
- * Time: 13.47
- */
 
     require_once 'functions.php';
 
 if(isset($_POST['select']) || isset($_POST['date']) || isset($_POST['page']) || isset($_POST['select2'])){
 
     $q = "SELECT * FROM `log` ";
-    $zlo = 0;
+    $zlo = 0; //dal je prazan string
 
     if($_POST['date'] != ""){
         $date = $_POST['date'];
@@ -36,8 +30,8 @@ if(isset($_POST['select']) || isset($_POST['date']) || isset($_POST['page']) || 
     $result = qM($q);
     $n = $result->num_rows;
 
-    $limit = 0 + 5 *($page-1);
-    $offset = $page * 5;
+    $limit = 0 + 20 *($page-1);
+    $offset = $page * 20;
 
     $q2 = $q . " ORDER BY `log`.`date` ";
     if($_POST['select2'] == "n"){
@@ -95,4 +89,7 @@ if(isset($_POST['select']) || isset($_POST['date']) || isset($_POST['page']) || 
     }
 
     echo $toRet;
+}
+else{
+    die("<script>location.replace('log.php')</script>");
 }
