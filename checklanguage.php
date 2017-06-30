@@ -1,7 +1,7 @@
 <?php
 //odredjuje koji jezik je izabran
-    if(isset($_GET['lang'])){
-        $lang = $_GET['lang'];
+    if(isset($_POST['lang'])){
+        $lang = $_POST['lang'];
         //registruje sesiju i postavlja cookie
         $_SESSION['lang'] = $lang;
         setcookie('lang',$lang, time() + (3600 * 24 * 30));
