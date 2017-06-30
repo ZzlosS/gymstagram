@@ -83,7 +83,7 @@
     <div class="container2">
         <section id="content2">
             <form method="post" action="">
-
+                <h1><?php echo $lang['Pchange']?></h1>
                 <h3><?php echo $lang['PC1']?></h3>
                 <input type="text" name="email" id="email" value="" maxlength="40" placeholder="<?php echo $lang['Email']?>" />
                 <span id="ginfo"><?php echo $error ?></span>
@@ -117,7 +117,7 @@
                 <input type="password" name="rnpass" id="rnpass" value="" maxlength="30" placeholder="<?php echo $lang['RNPass']?>" /><br>
 
                 <input type="submit" value="<?php echo $lang['Confirm']?>">
-                <input type="button" value="<?php echo $lang['BT']?>" onclick="window.location='<?php echo $loc?>';" /><br><br>
+                <input type="button" value="<?php echo $lang['BT']?>" onclick="window.history.back();" /><br><br>
 
             </form>
         </section><!-- content -->

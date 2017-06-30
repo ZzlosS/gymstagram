@@ -40,7 +40,7 @@
 	$lang['SP'] = 'Sacuvaj profil';
 	$lang['CP'] = 'Izmeni profil';
 	$lang['Cpass'] = 'Promeni šifru';
-	$lang['Members'] = 'Clanovi';
+	$lang['Members'] = 'Članovi';
 	$lang['Gallery'] = 'Galerija';
 	$lang['Friends'] = 'Pretraži članove';
 	$lang['friends'] = 'prijatelji';
@@ -100,10 +100,13 @@ $lang['choose_q'] = 'Izaberite pitanje';
 $lang['See_Gallery'] = 'Galerija';
 
 $lang['ova'] = "-ova";
-$lang['Public'] = "Javan"; //?????
+$lang['Public'] = "Javni";
 $lang['public'] = "Profil je vidljiv ne ulogovanim posetiocima";
 $lang['yes'] = "Da";
 $lang['no'] = "Ne";
-
+$lang['control'] = "Kontrola";
+$lang['search'] = "Pretraga";
+$lang['tags'] = "ime, prezime, gym_ime";
+$lang['Pchange'] = "Promena <br> lozinke";
 
 ?>

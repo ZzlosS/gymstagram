@@ -27,7 +27,6 @@
 				`information` VARCHAR(4096) DEFAULT "",
 				`pic_date` DATETIME,
 				`pic_path` VARCHAR(50) DEFAULT "",
-				`notifications` INT DEFAULT 0,
 				`role` INT DEFAULT 1,
 				`public` INT DEFAULT 0,
 				PRIMARY KEY(`id`)');

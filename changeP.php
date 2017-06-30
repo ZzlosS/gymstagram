@@ -55,8 +55,7 @@
 			<form method="post" action="profile.php" enctype="multipart/form-data">
 
                 <?php
-                echo "<br><br>";
-                echo $lang['YP'];
+                echo "<h1>".$lang['YP']."</h1><br>";
                 sP($email);
                 ?>
 
@@ -126,7 +125,7 @@
                 <textarea name="info" rows="3" cols="50" placeholder="Info"><?php echo $info ?></textarea><br>
 
 		        <input type="submit" value="<?php echo $lang['SP']?>">
-                <input type="button" value="<?php echo $lang['BT']?>" onclick="window.location='settings.php';" /><br><br>
+                <input type="button" value="<?php echo $lang['BT']?>" onclick="window.history.back();" /><br><br>
 			</form>
 
     </section><!-- content -->

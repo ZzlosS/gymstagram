@@ -98,7 +98,7 @@
             </select>
             <label>Date:
                 <input class='d_in' name='datepicker' type='text' id='datepicker' maxlength='10'
-                                    value='' onblur='f()'>
+                                    value='' onchange='f()'>
             </label>
     </div>
     <button onclick="location.replace('log.php')" id="but">Reset Log</button>

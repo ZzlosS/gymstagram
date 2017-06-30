@@ -96,7 +96,6 @@
 	
 	require_once 'functions.php';
 	$userstr = ' (' .$lang['Guest'] .')';
-	$not = "";
 	$id = "";
     $date = date("Y-m-d H:i:s"); //date_default_timezone_set jer ovako ne pokazuje tacno vreme
 
@@ -113,10 +112,6 @@
 		if($result->num_rows){
 			$gname = $row['gym_name'];
 			$pic = $row['pic_path'];
-			$notifications = $row['notifications'];
-			if($notifications != 0){
-				$not = "[$notifications]";
-			}
 			$userstr = " (@$gname)";
 		}
 	}
@@ -126,7 +121,7 @@
 	}
 	?>
 <?php
-	echo "<title>$appname$userstr$not</title></head>";
+	echo "<title>$appname$userstr</title></head>";
 	if(!$loggedIn){
 ?>
         <body>
@@ -201,19 +196,26 @@
                     <nav id="navbar-1" class="navbar item-nav navbar-right">
 
                         <ul class = "menu">
-                            <li> <a style='color:red; text-decoration: none;' href='notifications.php'><?php echo $not?></a> </li>
                             <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
-                            <!--<li> <a href="gallery.php"><?php echo $lang['Gallery'];?></a> </li> ne treba jer preko profila se tu dolazi-->
-                            <li> <a href="search.php"><?php echo $lang['Friends'];?></a> </li>
 
                             <!-- Ispis dodatnih stranica za admina -->
                             <?php if($role == 2){?>
-                                <li> <a href="messages.php"><?php echo $lang['Messages'];?></a> </li>
+                                <li> <div id="language">
+                                        <div class="dropdown1">
+                                            <button class="dropbtn1"><?php echo $lang['Members'];?></button>
+                                            <div class="dropdown-content1">
+                                                <a href="search.php"><i class="icon-search"></i><?php echo $lang['search'];?></a>
+                                                <a href="member_control.php"><i class="icon-edit"></i><?php echo $lang['control'];?></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </li>
                                 <li>
                                     <div id="language">
                                         <div class="dropdown1">
                                             <button class="dropbtn1"><?php echo $lang['Log'];?></button>
-                                            <div class="dropdown-content1">
+                                            <div class="dropdown-content1"  id="log">
                                                 <a href="log.php"><img src="img/log.png"><?php echo $lang['Log'];?></a>
                                                 <a href="log_pdf.php"><img src="img/pdf.png">PDF</a>
                                                 <a href="log_html.php"><img src="img/html.png">HTML</a>
@@ -222,15 +224,19 @@
                                         </div>
                                     </div>
                                 </li>
-                            <?php }?>
+                            <?php }
+                            else { ?>
+                                <li> <a href="search.php"><?php echo $lang['Friends'];?></a> </li>
+                            <?php } ?>
 
-                            <li>
+                                <li>
                                 <div id="language">
                                     <div class="dropdown1">
                                         <button class="dropbtn1"><?php echo $gname ?></button>
-                                        <div class="dropdown-content1">
+                                        <div class="dropdown-content1" id="prof">
                                             <a href="profile.php"><i class="icon-user"></i><?php echo $lang['Profile'];?></a>
-                                            <a href="settings.php"><i class="icon-cog"></i><?php echo $lang['Settings'];?></a>
+                                            <a href="changeP.php"><i class="icon-cog"></i><?php echo $lang['CP']?></a>
+                                            <a href="passchange.php"><i class="icon-lock"></i><?php echo $lang['Cpass']?></a>
                                             <a href="logout.php?page=index.php"><i class="icon-off"></i><?php echo $lang['Logout'];?></a>
                                         </div>
                                     </div>
@@ -241,7 +247,7 @@
                                 <div id="language">
                                     <div class="dropdown1">
                                         <button class="dropbtn1"> <?php echo $lang['Language']; ?></button>
-                                        <div class="dropdown-content1">
+                                        <div class="dropdown-content1" id="lang">
                                             <a href="home.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
                                             <a href="home.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
                                         </div>

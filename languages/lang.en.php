@@ -107,5 +107,9 @@ $lang['Public'] = "Public";
 $lang['public'] = "Profile is visible to not logged in visitors";
 $lang['yes'] = "Yes";
 $lang['no'] = "No";
+$lang['control'] = "Control";
+$lang['search'] = "Search";
+$lang['tags'] = "name, lastname, gym_name";
+$lang['Pchange'] = "Password <br> change";
 
 ?>

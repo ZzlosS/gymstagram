@@ -383,6 +383,12 @@ form:after {
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 }
+#log, #lang{
+	min-width: 110px;
+}
+#prof{
+	min-width: 170px;
+}
 
 /* pravi problem, centrira nepotrebne stvari */
 /* Links inside the dropdown */

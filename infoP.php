@@ -21,7 +21,10 @@
 
 
 <?php
+    require_once 'functions.php';
+    require_once 'basic.php';
     if(!$loggedIn) die("<script>location.replace('home.php')</script>");
+
 //Profile information
     $error = $checked2 = $checked = $yes = $no = "";
     $result = qM("SELECT * FROM `members` WHERE `email`='$email'");
@@ -33,6 +36,7 @@
         $gname = $row['gym_name'];
         $pic_path = $row['pic_path'];
         $public = $row['public'];
+        $id = $row['id'];
         if($row['gender'] == 1){
             $gender = $lang['Male'];
             $checked = 'checked';
@@ -57,12 +61,13 @@
         $bday2 = $dateObject->format('d/m/Y');
     }
 
+/*
     $result2 = qM("SELECT * FROM `members` WHERE `email`='$email'");
     if($result2->num_rows){
         $row2 = $result2->fetch_assoc();
         $id = $row2['id'];
     }
-
+*/
     $result5 = qM("SELECT * FROM `pictures` WHERE `user_id`=$id");
     if($result5->num_rows){
         $row4 = $result5->fetch_assoc();
@@ -72,6 +77,13 @@
         $pic_desc = $row4['pic_desc'];
         $pic_like = $row4['pic_like'];
     }
+
+    $result2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id");
+    $following = array();
+    while($row = $result2->fetch_assoc()){
+        $following[] = $row['friend_id'];
+    }
+
 
     if(isset($_POST['info'])){
         $info = sS($_POST['info']);
@@ -116,11 +128,13 @@
     }
 
 
+    $fol = 'Follow';
     if(isset($_GET['gn'])){
         $mgn = sS($_GET['gn']);
         $result = qM("SELECT * FROM `members` WHERE `gym_name`='$mgn'");
         if($result->num_rows){
             $row = $result->fetch_array(MYSQL_ASSOC);
+            $fid = $row['id'];
             $gname = $row['gym_name'];
             $email = $row['email'];
             $name = $row['name'];
@@ -128,6 +142,9 @@
             $info = $row['information'];
             $bday2 = $row['birth_date'];
             $public = $row['public'];
+            if(in_array($fid, $following)){
+                $fol = 'Unfollow';
+            }
         }
         else{
             echo "<script>location.replace('home.php')</script>";
@@ -135,6 +152,8 @@
     }
     else{
         $public = 1; //to znaci da je logovani korisnik dosao na svoju profil stranicu i samo se njemu postavlja profil na public
+        $fol = '';
+        $fid = '';
     }
 
     if(!is_dir("images/$id")){
@@ -212,110 +231,23 @@
     }
 
 
-    //add,delete,revoke,decline,accept
-//da se sredi da radi ili da nema prijateljstva
 
-    if(isset($_GET['accept'])){
-        $accept = sS($_GET['accept']);
-        $result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$accept AND `friend_id`=$id");
+    if(isset($_POST['follow'])){
+        $follow = $_POST['follow'];
+        $result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$follow");
         if(!$result->num_rows){
-            qM("INSERT INTO `gym_buddies`(`user_id`, `friend_id`) VALUES ($accept, $id)");
 
-            //uzima ime prijatelja da bi upisalo u log
-            $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$accept");
+            qM("INSERT INTO `gym_buddies`(`user_id`, `friend_id`) VALUES ($id, $follow)");
+
+            //uzima ime onoga kog pratis da bi upisalo u log
+            $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$follow");
             $row3 = $result3->fetch_assoc();
             $aname = $row3['gym_name'];
-            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) is now friend with $aname($accept)')");
-
-            $result = qM("SELECT `notifications` FROM `members` WHERE `id`='$id'");
-            if($result->num_rows){
-                $row = $result->fetch_assoc();
-                $notification = $row['notifications'] - 1;
-                qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$id");
-                echo "<meta http-equiv='refresh' content='0'>";
-            }
+            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) is now following $aname($follow)')");
         }
-    }
-
-    if(isset($_GET['add'])){
-        $add = sS($_GET['add']);
-        $result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$add AND `friend_id`=$id");
-        if(!$result->num_rows){
-            qM("INSERT INTO `gym_buddies`(`user_id`, `friend_id`) VALUES ($add, $id)");
-
-            //uzima ime prijatelja da bi upisalo u log
-            $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$add");
-            $row3 = $result3->fetch_assoc();
-            $aname = $row3['gym_name'];
-            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) wants to be friend with $aname($add)')");
-
-            $result = qM("SELECT `notifications` FROM `members` WHERE `id`='$add'");
-            if($result->num_rows){
-                $row = $result->fetch_assoc();
-                $notification = $row['notifications'] + 1;
-                qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$add");
-                echo "<meta http-equiv='refresh' content='0'>";
-            }
-        }
-    }
-
-    if(isset($_GET['revoke'])){
-        $revoke = sS($_GET['revoke']);
-        $result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$revoke AND `friend_id`=$id");
-        if($result->num_rows){
-            qM("DELETE FROM `gym_buddies` WHERE `user_id`=$revoke AND `friend_id`=$id");
-
-            //uzima ime prijatelja da bi upisalo u log
-            $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$revoke");
-            $row3 = $result3->fetch_assoc();
-            $aname = $row3['gym_name'];
-            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) revoked friend request for $aname($revoke)')");
-
-            $result = qM("SELECT `notifications` FROM `members` WHERE `id`='$revoke'");
-            if($result->num_rows){
-                $row = $result->fetch_assoc();
-                $notification = $row['notifications'] - 1;
-                qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$revoke");
-                echo "<meta http-equiv='refresh' content='0'>";
-            }
-        }
-    }
-
-    if(isset($_GET['decline'])){
-        $decline = sS($_GET['decline']);
-        $result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$decline");
-        if($result->num_rows) {
-            qM("DELETE FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$decline");
-
-            //uzima ime prijatelja da bi upisalo u log
-            $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$decline");
-            $row3 = $result3->fetch_assoc();
-            $aname = $row3['gym_name'];
-            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) declined friend request from $aname($decline)')");
-
-            $result = qM("SELECT `notifications` FROM `members` WHERE `id`='$id'");
-            if ($result->num_rows) {
-                $row = $result->fetch_assoc();
-                $notification = $row['notifications'] - 1;
-                qM("UPDATE `members` SET `notifications`=$notification WHERE `id`=$id");
-                echo "<meta http-equiv='refresh' content='0'>";
-            }
-        }
-    }
-
-    if(isset($_GET['delete'])){
-        $delete = sS($_GET['delete']);
-        $result = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$delete");
-        $result2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$delete AND `friend_id`=$id");
-        if($result->num_rows && $result2->num_rows){
-            qM("DELETE FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$delete");
-            qM("DELETE FROM `gym_buddies` WHERE `user_id`=$delete AND `friend_id`=$id");
-
-            //uzima ime prijatelja da bi upisalo u log
-            $result3 = qM("SELECT `gym_name` FROM `members` WHERE `id`=$delete");
-            $row3 = $result3->fetch_assoc();
-            $aname = $row3['gym_name'];
-            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) and $aname($delete) are no longer friends')");
+        else{
+            qM("DELETE FROM `gym_buddies` WHERE `user_id`=$id AND `friend_id`=$follow");
+            qM("INSERT INTO `log`(`date`, `msg`) VALUES ('$date', '$gname($id) is no longer following $aname($follow)')");
         }
     }
 
