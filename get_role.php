@@ -1,5 +1,6 @@
 <?php
     require_once 'functions.php';
+    require_once 'checklanguage.php';
     if(isset($_POST['id'])){
         $id = $_POST['id'];
         if($id != ''){
@@ -22,25 +23,25 @@
                 <ul id="s_ul">
                     <li id="s_li">
                         <input type="radio" id="f-option" name="selector" <?php echo $checked ?> value="1"/>
-                        <label for="f-option">User</label>
+                        <label for="f-option"><?php echo $lang['user'] ?></label>
                         <div class="check"></div>
                     </li>
                     <br><br><br>
                     <li id="s_li">
                         <input type="radio" id="s-option" name="selector" <?php echo $checked2 ?> value="2"/>
-                        <label for="s-option">Admin</label>
+                        <label for="s-option"><?php echo $lang['admin'] ?></label>
                         <div class="check"></div>
                     </li>
                     <br><br><br>
                     <li id="s_li">
                         <input type="radio" id="b-option" name="selector" <?php echo $checked3 ?> value="3"/>
-                        <label for="b-option">Banned</label>
+                        <label for="b-option"><?php echo $lang['banned'] ?></label>
                         <div class="check"></div>
                     </li>
                 </ul>
                 <input name="id" hidden value="<?php echo $id ?>" />
                 <br>
-                <input id='but' type="submit" value="Save changes" style="margin-left: 28%"/>
+                <input id='but' type="submit" value="<?php echo $lang['SC'] ?>" style="margin-left: 28%"/>
             </form>
 
 

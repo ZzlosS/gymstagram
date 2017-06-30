@@ -52,10 +52,10 @@
             method : "POST",
             url : "generate.php",
             data : {
-              'select' : $("#select").val(),
+                'select' : $("#select").val(),
                 'select2' : $("#select2").val(),
-              'date' : $("#datepicker").val(),
-               'page' : 1
+                'date' : $("#datepicker").val(),
+                'page' : 1
             },
             success : function(r){
                 $("#rez2").html(r)
@@ -75,7 +75,7 @@
     <br><br>
     <div style="float: left">
         <select id='select' onchange='f()' class="soflow">
-            <option value="" >Choose a member</option>
+            <option value="" ><?php echo $lang['Cm'] ?></option>
         <?php
         $result = qM("SELECT * FROM `members`");
         $toRet = "";
@@ -93,15 +93,15 @@
         echo $toRet;
         ?>
             <select id='select2' onchange='f()' class="soflow">
-                <option value="o" >Oldest First</option>
-                <option value="n" >Newest First</option>
+                <option value="o" ><?php echo $lang['OF'] ?></option>
+                <option value="n" ><?php echo $lang['NF'] ?></option>
             </select>
-            <label>Date:
+            <label><?php echo $lang['Date'] ?>:
                 <input class='d_in' name='datepicker' type='text' id='datepicker' maxlength='10'
                                     value='' onchange='f()'>
             </label>
     </div>
-    <button onclick="location.replace('log.php')" id="but">Reset Log</button>
+    <button onclick="location.replace('log.php')" id="but"><?php echo $lang['RL'] ?></button>
 </div>
     <div id="rez2"></div>
 

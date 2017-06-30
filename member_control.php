@@ -24,9 +24,9 @@
         <div class="container2">
             <section id="content2">
                 <form>
-                    <h1>Select role for:</h1>
+                    <h1><?php echo $lang['Select_role'] ?>:</h1>
                     <select id='select' onchange='role(this)' class="soflow">
-                        <option value="" >Choose a member</option>
+                        <option value="" ><?php echo $lang['Cm'] ?></option>
 
                         <?php
                         $result = qM("SELECT * FROM `members`");

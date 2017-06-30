@@ -108,5 +108,22 @@ $lang['control'] = "Kontrola";
 $lang['search'] = "Pretraga";
 $lang['tags'] = "ime, prezime, gym_ime";
 $lang['Pchange'] = "Promena <br> lozinke";
+$lang['Select_role'] = "Izaberite <br> rolu za";
+$lang['Cm'] = "Izaberite člana";
+$lang['user'] = "Korisnik";
+$lang['admin'] = "Admin";
+$lang['banned'] = "Banovan";
+$lang['SC'] = "Sačuvaj izmene";
+$lang['Sa'] = "Prikaži sve";
+$lang['OF'] = "Prvo Starije";
+$lang['NF'] = "Prvo Novije";
+$lang['Date'] = "Datum";
+$lang['RL'] = "Resetuj Log";
+$lang['Followers'] = "Pratioci";
+$lang['Following'] = "Pratiš";
+$lang['Following2'] = "Prati";
+$lang['Follow'] = "Zaprati";
+$lang['Follow'] = "Follow";
+$lang['Unfollow'] = "Ne prati";
 
 ?>

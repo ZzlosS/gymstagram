@@ -17,15 +17,15 @@
         <script>
             function langu(lan) {
                 if(lan === 1){
-                    var langua = following;
+                    var langua = 'en';
                 }
                 else{
-                    var langua = followers;
+                    var langua = 'sr';
                 }
                 $.ajax({
                     method: 'post',
                     url: 'checklanguage.php',
-                    data: {'langua': langua}
+                    data: {'lang': langua}
                 });
             }
         </script>
@@ -167,8 +167,8 @@
                                         <div class="dropdown-content1">
                                             <!--<a href="profile.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
                                             <a href="profile.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>-->
-                                            <a href="javascript:window.location.reload();" onclick="lang('en')"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
-                                            <a href="javascript:window.location.reload();" onclick="lang('sr')"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
+                                            <a href="javascript:window.location.reload();" onclick="langu(1)"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
+                                            <a href="javascript:window.location.reload();" onclick="langu(2)"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
                                         </div>
                                     </div>
                                 </div>
@@ -217,6 +217,7 @@
 
                         <ul class = "menu">
                             <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
+                            <li><div id="test"></div></li>
 
                             <!-- Ispis dodatnih stranica za admina -->
                             <?php if($role == 2){?>

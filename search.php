@@ -74,7 +74,7 @@
                 <input id="id" hidden value="<?php echo $id?>" />
 
                 <?php if($role == 2){ ?>
-                <button id='but' type="button" style="margin-left: 28%" onclick="f()">Show all</button>
+                <button id='but' type="button" style="margin-left: 28%" onclick="f()"><?php echo $lang['Sa'] ?></button>
                 <?php } ?>
 
                 <div class="ui-widget" align="center">

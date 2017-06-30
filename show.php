@@ -1,7 +1,6 @@
 <?php
     require_once 'functions.php';
     if(isset($_POST['fol'])){
-        //samo prosledim niz pa ispitujem, ne mora show
         $res = '';
         $follow = $_POST['fol'];
         foreach ($follow as $f){

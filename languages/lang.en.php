@@ -111,5 +111,21 @@ $lang['control'] = "Control";
 $lang['search'] = "Search";
 $lang['tags'] = "name, lastname, gym_name";
 $lang['Pchange'] = "Password <br> change";
+$lang['Select_role'] = "Select <br> role for";
+$lang['Cm'] = "Choose a member";
+$lang['user'] = "User";
+$lang['admin'] = "Admin";
+$lang['banned'] = "Banned";
+$lang['SC'] = "Save changes";
+$lang['Sa'] = "Show all";
+$lang['OF'] = "Oldest First";
+$lang['NF'] = "Newest First";
+$lang['Date'] = "Date";
+$lang['RL'] = "Reset Log";
+$lang['Followers'] = "Followers";
+$lang['Following'] = "Following";
+$lang['Following2'] = 'Following';
+$lang['Follow'] = "Follow";
+$lang['Unfollow'] = "Unfollow";
 
 ?>

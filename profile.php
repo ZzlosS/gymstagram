@@ -68,8 +68,8 @@
         <p><?php echo "<b>".$lang['PInformation'].":</b> <br>".$info."";?></p><br>
         <?php if($public == 1 || in_array($fid, $following)){ ?>
         <p><a href="gallery.php?gn=<?php echo $gname ?>"><?php echo $lang['See_Gallery'];?></a></p>
-        <p><button onclick="show(1)">Following(<?php echo $num_following?>)</button></p>
-        <p><button onclick="show(2)">Followers(<?php echo $num_followers?>)</button></p>
+        <p><button onclick="show(1)"><?php echo $foll."(". $num_following?>)</button></p>
+        <p><button onclick="show(2)"><?php echo $lang['Followers']."(". $num_followers?>)</button></p>
         <?php } ?>
         <p><a href="javascript:window.location.reload();" onclick="follow()"><?php echo $fol ?></a></p>
         <div id="show"></div>

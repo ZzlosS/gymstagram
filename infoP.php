@@ -115,8 +115,9 @@
     }
 
 
-    $fol = 'Follow';
-    if(isset($_GET['gn'])){
+
+    $fol = $lang['Follow'];
+    if(isset($_GET['gn'])){ //ako je to setovano znaci da nisi na svom profilu
         $mgn = sS($_GET['gn']);
         $result = qM("SELECT * FROM `members` WHERE `gym_name`='$mgn'");
         if($result->num_rows){
@@ -130,17 +131,19 @@
             $bday2 = $row['birth_date'];
             $public = $row['public'];
             if(in_array($fid, $following)){
-                $fol = 'Unfollow';
+                $fol = $lang['Unfollow'];
             }
+            $foll = $lang['Following2']; //da pise Prati a ne Pratis
         }
         else{
             echo "<script>location.replace('home.php')</script>";
         }
     }
-    else{
-        $public = 1; //to znaci da je logovani korisnik dosao na svoju profil stranicu i samo se njemu postavlja profil na public
+    else{ //ovde ulazi ako si na svom profilu
+        $public = 1; //sam sebi postavi profil na public da bi mogao da ga vidi
         $fol = '';
         $fid = '';
+        $foll = $lang['Following'];
     }
 
 
