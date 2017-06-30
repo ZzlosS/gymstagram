@@ -20,29 +20,36 @@
             }
         </script>
         <br><br>
+        <body id="b2">
+        <div class="container2">
+            <section id="content2">
+                <form>
+                    <h1>Select role for:</h1>
+                    <select id='select' onchange='role(this)' class="soflow">
+                        <option value="" >Choose a member</option>
 
-        <div align="center">
-            <b>Select role for:</b><br>
-            <select id='select' onchange='role(this)' class="soflow">
-                <option value="" >Choose a member</option>
-                <?php
-                $result = qM("SELECT * FROM `members`");
-                $toRet = "";
-                while ($r = $result->fetch_assoc()){
-                    $gn = $r['gym_name'];
-                    $n = $r['name'];
-                    $ln = $r['lname'];
-                    $id = $r['id'];
+                        <?php
+                        $result = qM("SELECT * FROM `members`");
+                        $toRet = "";
+                        while ($r = $result->fetch_assoc()){
+                            $gn = $r['gym_name'];
+                            $n = $r['name'];
+                            $ln = $r['lname'];
+                            $id = $r['id'];
 
-                    $toRet .= "<option value='$id'>". $n . " " . $ln . " @" . $gn . "</option>";
-                }
+                            $toRet .= "<option value='$id'>". $n . " " . $ln . " @" . $gn . "</option>";
+                        }
 
-                $toRet .= "</select>";
+                        $toRet .= "</select>";
 
-                echo $toRet;
-                ?>
-                <div class="radio">
-                </div>
+                        echo $toRet;
+                        ?>
+
+                        <br><br>
+                        <div class="radio">
+                        </div>
+                </form>
+            </section>
         </div>
 <?php
     }

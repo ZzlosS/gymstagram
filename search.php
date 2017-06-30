@@ -69,29 +69,31 @@
         <div class="container2">
             <section id="content2">
                 <form>
-                    <h1><?php echo $lang['search'] ?></h1>
-                    <input id="id" hidden value="<?php echo $id?>" />
-
-                    <?php if($role == 2){ ?>
-                    <button id='but' type="button" style="margin-left: 28%" onclick="f()">Show all</button>
-                    <?php } ?>
-
-                    <div class="ui-widget" align="center">
-
-                        <label>
-                        <input id="tags" name="tags" placeholder="<?php echo $lang['tags'] ?>" />
-                        </label>
-                        <button value="Search" onclick="search()">
-                            <i class="icon-search"></i>
-                        </button>
-                    </div>
-                    <br><br>
+                <h1><?php echo $lang['search'] ?></h1>
                 </form>
-            </section>
+                <input id="id" hidden value="<?php echo $id?>" />
+
+                <?php if($role == 2){ ?>
+                <button id='but' type="button" style="margin-left: 28%" onclick="f()">Show all</button>
+                <?php } ?>
+
+                <div class="ui-widget" align="center">
+
+                    <label>
+                    <input id="tags" name="tags" placeholder="<?php echo $lang['tags'] ?>" />
+                    </label>
+                    <button value="Search" onclick="search()">
+                        <i class="icon-search"></i>
+                    </button>
+                </div>
+                <br><br>
+
+                <div id="all" align="center">
+                    <?php
+                    echo $res; ?>
+                </div>
+           </section>
         </div>
-        <div id="all" align="center">
-            <?php
-            echo $res; ?>
-        </div>
+
     </body>
 </html>

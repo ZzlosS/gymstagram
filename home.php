@@ -1,10 +1,10 @@
 <?php
 require_once 'basic.php';
     if($loggedIn){
-        $result = qM("SELECT m.id,m.name,m.gym_name,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` ORDER BY `date_update` DESC LIMIT 0,2");
+        $result = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` ORDER BY `date_update` DESC LIMIT 0,2");
     }
     else{
-        $result = qM("SELECT m.id,m.name,m.gym_name,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` WHERE `public`=1 ORDER BY `date_update` DESC LIMIT 0,2");
+        $result = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` WHERE `public`=1 ORDER BY `date_update` DESC LIMIT 0,2");
     }
 
 
@@ -35,9 +35,22 @@ require_once 'basic.php';
         <div class="images" align="center">
             <?php
             while($row = $result->fetch_assoc()){
-                echo "<div class='im'><div class='descN'><a href='profile.php?gn=".$row['gym_name']."'>".$row['name']."</a></div>";
-                echo "<a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' height='500' width='500'></a>";
-                echo "<div class='desc'>".$row['pic_desc']."</div></div>";
+                $fid = $row['id']; //id korisnika
+                $public = $row['public'];
+                if($loggedIn){
+                    if($public == 1 || in_array($fid, $following) || $fid == $id){ //ako je public ili ga pratis ili si ti
+                        echo "<div class='im'><div class='descN'><a href='profile.php?gn=".$row['gym_name']."'>".$row['name']."</a></div>";
+                        echo "<a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' height='500' width='500'></a>";
+                        echo "<div class='desc'>".$row['pic_desc']."</div></div>";
+                    }
+                }
+                else{
+                    echo "<div class='im'><div class='descN'><a href='profile.php?gn=".$row['gym_name']."'>".$row['name']."</a></div>";
+                    echo "<a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' height='500' width='500'></a>";
+                    echo "<div class='desc'>".$row['pic_desc']."</div></div>";
+                }
+
+
             }
             ?>
         </div>
@@ -57,6 +70,17 @@ require_once 'basic.php';
             $('.loader').hide();
             $('.up').hide();
             var load = 0;
+            <?php if($loggedIn){ //ako si prijavljen da prosledi koga sve pratis i tvoj id?>
+            var following = [
+                <?php
+                $result2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id");
+                while($row = $result2->fetch_assoc()){
+                    echo  '"'.$row['friend_id'].'",';
+                }
+                ?>
+            ];
+            var id = <?php echo $id ?>;
+            <?php } ?>
             var loged = document.getElementById('id').value;
                 $(window).scroll(function(){
                     if($(window).scrollTop()===$(document).height()-$(window).height()){
@@ -68,7 +92,9 @@ require_once 'basic.php';
                             url: 'news_feed.php',
                             data:{
                                 'load': load,
-                                'loged': loged
+                                'loged': loged <?php if($loggedIn){ ?>,
+                                'fol': following,
+                                'id': id <?php } ?>
                             },
                             success: function (data) {
                                 $('.images').append(data);

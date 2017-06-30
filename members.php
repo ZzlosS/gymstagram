@@ -15,7 +15,7 @@
         $res = '';
         if(isset($_POST['tags'])){
             $name = $_POST['tags'];
-            $result = qM("SELECT * FROM `members` WHERE (`gym_name`='$name' OR CONCAT(`name`,' ',`lname`)='$name')");
+            $result = qM("SELECT * FROM `members` WHERE (`gym_name`='$name' OR `name`='$name' OR `lname`='$name' OR CONCAT(`name`,' ',`lname`)='$name')");
             $row = $result->fetch_assoc();
             $num = $result->num_rows;
             $res .= "<ul>";
@@ -28,7 +28,7 @@
                 if($cid == $id){
                     continue;
                 }
-                $res.='<li><div align="center">';
+                $res.='<li style="list-style-type:none"><div align="center">';
                 $res.= "<a href='profile.php?gn=" . $cgname . "'>" . $cname ." ".$clname." @". $cgname . "</a>";
                 $res.="</div></li>";
             }
@@ -43,7 +43,6 @@
 			$num = $result->num_rows;
 
 		?>
-            <br><br>
 			<ul>
 				<?php 
 					for($j = 0; $j < $num; $j++){
@@ -57,7 +56,7 @@
 							continue;
 						}
 						?>
-                        <li>
+                        <li style="list-style-type:none">
                         <div align="center">
                             <?php
                             echo "<a href='profile.php?gn=" . $cgname . "'>" . $cname ." ".$clname." @". $cgname . "</a>";
@@ -72,6 +71,6 @@
 				?>
 			</ul>
 		</div>
-		
+		<br><br>
 	</body>
 </html>

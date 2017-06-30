@@ -16,6 +16,10 @@
 				$row2 = $result2->fetch_assoc();
 				$email = $row2['email'];
 				$value = $gname;
+				$role = $row2['role'];
+				if($role == 3){
+				    die("<script>alert('You are banned, contact admin for more info')</script>");
+                }
 				$hpass = hash('ripemd128', "$salt1$pass$salt2");
 				$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
 				if($result->num_rows == 0){
@@ -48,6 +52,10 @@
 				}
 				else{
 					$row = $result->fetch_assoc();
+                    $role = $row['role'];
+                    if($role == 3){
+                        die("<script>alert('You are banned, contact admin for more info')</script>");
+                    }
 					$value = $row['email'];
 					if($row['pass'] != $hpass){
 						$error3 = $lang['PassInvalid'];

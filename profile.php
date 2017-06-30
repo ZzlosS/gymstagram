@@ -6,12 +6,46 @@
 
 ?>
 <script>
+    var following = [
+        <?php
+        $result2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id");
+        while($row = $result2->fetch_assoc()){
+            echo  '"'.$row['friend_id'].'",';
+        }
+        ?>
+    ];
+    var followers = [
+        <?php
+        $result2 = qM("SELECT * FROM `gym_buddies` WHERE `friend_id`=$id");
+        while($row = $result2->fetch_assoc()){
+            echo  '"'.$row['user_id'].'",';
+        }
+        ?>
+    ];
     function follow() {
         $.ajax({
             method: 'POST',
             url: 'infoP.php',
             data: {
                 'follow': $('#fol').val()
+            }
+        });
+    }
+    function show(sh) {
+        if(sh === 1){
+            var fol = following;
+        }
+        else{
+            var fol = followers;
+        }
+        $.ajax({
+            method: 'POST',
+            url: 'show.php',
+            data: {
+                'fol': fol
+            },
+            success: function (res) {
+                $('#show').html(res)
             }
         });
     }
@@ -32,12 +66,14 @@
         <p><?php echo "<b>".$lang['Birthday']."</b> ".$bday2;?></p>
         <p><?php echo "<b>".$lang['Gender'].": </b>" .$gender; ?></p>
         <p><?php echo "<b>".$lang['PInformation'].":</b> <br>".$info."";?></p><br>
-        <?php if($public == 1){ //dal da ima ova provera, jer se u svakom slucaju slike vide na pocetnoj iako nije public?>
+        <?php if($public == 1 || in_array($fid, $following)){ ?>
         <p><a href="gallery.php?gn=<?php echo $gname ?>"><?php echo $lang['See_Gallery'];?></a></p>
+        <p><button onclick="show(1)">Following(<?php echo $num_following?>)</button></p>
+        <p><button onclick="show(2)">Followers(<?php echo $num_followers?>)</button></p>
         <?php } ?>
         <p><a href="javascript:window.location.reload();" onclick="follow()"><?php echo $fol ?></a></p>
+        <div id="show"></div>
     </div>
-
 </div>
 
 	</body>

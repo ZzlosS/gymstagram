@@ -61,13 +61,6 @@
         $bday2 = $dateObject->format('d/m/Y');
     }
 
-/*
-    $result2 = qM("SELECT * FROM `members` WHERE `email`='$email'");
-    if($result2->num_rows){
-        $row2 = $result2->fetch_assoc();
-        $id = $row2['id'];
-    }
-*/
     $result5 = qM("SELECT * FROM `pictures` WHERE `user_id`=$id");
     if($result5->num_rows){
         $row4 = $result5->fetch_assoc();
@@ -76,12 +69,6 @@
         $album_name = $row4['album_name'];
         $pic_desc = $row4['pic_desc'];
         $pic_like = $row4['pic_like'];
-    }
-
-    $result2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id");
-    $following = array();
-    while($row = $result2->fetch_assoc()){
-        $following[] = $row['friend_id'];
     }
 
 
@@ -155,6 +142,7 @@
         $fol = '';
         $fid = '';
     }
+
 
     if(!is_dir("images/$id")){
         mkdir("images/$id", 0777);

@@ -45,7 +45,6 @@
 				`user_id` INT UNSIGNED NOT NULL,
 				`date_update` DATETIME,
 				`pic_path` VARCHAR(50) DEFAULT "",
-				`pic_like` INT DEFAULT 0,
 				`pic_desc` VARCHAR(255) DEFAULT "",
 				`album_name` VARCHAR(20) NOT NULL,
 				PRIMARY KEY(`id`),

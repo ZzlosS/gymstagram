@@ -114,6 +114,21 @@
 			$pic = $row['pic_path'];
 			$userstr = " (@$gname)";
 		}
+
+        $result2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id");
+        $following = array();
+        $num_following = $result2->num_rows;
+        while($row = $result2->fetch_assoc()){
+            $following[] = $row['friend_id'];
+        }
+
+        $result3 = qM("SELECT * FROM `gym_buddies` WHERE `friend_id`=$id");
+        $followers = array();
+        $num_followers = $result3->num_rows;
+        while($row = $result3->fetch_assoc()){
+            $followers[] = $row['user_id'];
+        }
+
 	}
 	else{
 	    $loggedIn2 = 2;
@@ -209,16 +224,16 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </li>
+
                                 <li>
                                     <div id="language">
                                         <div class="dropdown1">
                                             <button class="dropbtn1"><?php echo $lang['Log'];?></button>
                                             <div class="dropdown-content1"  id="log">
                                                 <a href="log.php"><img src="img/log.png"><?php echo $lang['Log'];?></a>
-                                                <a href="log_pdf.php"><img src="img/pdf.png">PDF</a>
-                                                <a href="log_html.php"><img src="img/html.png">HTML</a>
+                                                <a href="log_pdf.php" target="_blank"><img src="img/pdf.png">PDF</a>
+                                                <a href="log_html.php" target="_blank"><img src="img/html.png">HTML</a>
                                                 <a href="log_docx.php"><img src="img/doc.png">DOCX</a>
                                             </div>
                                         </div>
