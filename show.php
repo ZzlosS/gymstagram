@@ -1,7 +1,7 @@
 <?php
     require_once 'functions.php';
     if(isset($_POST['fol'])){
-        $res = '';
+        $res = '<br>';
         $follow = $_POST['fol'];
         foreach ($follow as $f){
             $result = qM("SELECT * FROM `members` WHERE `id`=$f");

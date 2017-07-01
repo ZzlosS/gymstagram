@@ -114,7 +114,7 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 
          div.gallery {
              margin: 5px;
-
+             /*word-break:break-all;*/
              float: left;
              width: 180px;
          }

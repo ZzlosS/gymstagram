@@ -455,9 +455,10 @@ form:after {
     }
 
     .card-wrap {
+
         width: 400px;
         margin: 80px auto;
-        background: #e3e3e3;
+        background: #dee2e6;
         position: relative;
         padding: 20px;
         border-radius: 5px;
@@ -507,3 +508,32 @@ form:after {
     .icon-wrap a:hover {
         color: #7d7d7d;
     }
+
+	/* dodao sam ovo da probam */
+	a {
+		font-size: 1.7em;
+		color: #6f8686;
+	}
+
+a::before {
+	color: #ff6c40;// #fff;
+	content: attr(data-hover);
+	position: absolute;
+	opacity: 0;
+// text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	-webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+	-moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+	transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	pointer-events: none;
+}
+
+ a:hover::before,
+ a:focus::before {
+	-webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+	-moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+	transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+	opacity: 1;
+}

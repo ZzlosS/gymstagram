@@ -14,6 +14,7 @@ require_once 'basic.php';
             margin: 5px 5px 20px 5px;
             width: 500px;
             height: 570px;
+            background: #dee2e6;
         }
 
         div.im:hover {
@@ -39,15 +40,15 @@ require_once 'basic.php';
                 $public = $row['public'];
                 if($loggedIn){
                     if($public == 1 || in_array($fid, $following) || $fid == $id){ //ako je public ili ga pratis ili si ti
-                        echo "<div class='im'><div class='descN'><a href='profile.php?gn=".$row['gym_name']."'>".$row['name']."</a></div>";
+                        echo "<div class='im' ><div class='descN'><a href='profile.php?gn=".$row['gym_name']."' data-hover='@".$row['gym_name']."' >@".$row['gym_name']."</a></div>";
                         echo "<a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' height='500' width='500'></a>";
-                        echo "<div class='desc'>".$row['pic_desc']."</div></div>";
+                        echo "<div class='desc'>".$row['pic_desc']."</div></div><br>";
                     }
                 }
                 else{
-                    echo "<div class='im'><div class='descN'><a href='profile.php?gn=".$row['gym_name']."'>".$row['name']."</a></div>";
+                    echo "<div class='im' ><div class='descN'><a href='profile.php?gn=".$row['gym_name']."' data-hover='@".$row['gym_name']."' >@".$row['gym_name']."</a></div>";
                     echo "<a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' height='500' width='500'></a>";
-                    echo "<div class='desc'>".$row['pic_desc']."</div></div>";
+                    echo "<div class='desc'>".$row['pic_desc']."</div></div><br>";
                 }
 
 
