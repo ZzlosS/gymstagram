@@ -166,7 +166,7 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 <?php sI($id); }
 else{
     echo "<br><br>";
-    echo "<h3 align='center'><a href='profile.php?gn=".$gname."'>$gname</a>$n</h3>";
+    echo "<h3 align='center'><a href='profile.php?gn=".$gname."'>@$gname</a>$n</h3>";
     sOI($id);
 }?>
 </body>
