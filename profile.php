@@ -75,7 +75,7 @@
             <a href="#" data-hover="<?php echo $lang['Followers']."(". $num_followers?>)" onclick="show(2)"><?php echo $lang['Followers']; ?> </a>
       <!--  </nav> -->
         <?php } ?>
-        <p><a href="javascript:window.location.reload();" onclick="follow()"><?php echo $fol ?></a></p>
+        <p><a href="javascript:window.location.reload();" onclick="follow()" data-hover="<?php echo $fol ?>"><?php echo $fol ?></a></p>
         <div id="show"></div>
     </div>
 </div>
