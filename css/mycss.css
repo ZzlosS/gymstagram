@@ -361,7 +361,8 @@ form:after {
 /* Style The Dropdown Button #DCDDDF*/
 .dropbtn1 {
 	background-color: transparent;
-	color: #A4A4A4;
+	/*color: #A4A4A4;*/
+	color: #000;
 	padding: 2px;
 	font-size: 16px;
 	border: none;

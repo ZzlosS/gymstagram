@@ -217,11 +217,10 @@
 
                         <ul class = "menu">
                             <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
-                            <li><div id="test"></div></li>
 
                             <!-- Ispis dodatnih stranica za admina -->
                             <?php if($role == 2){?>
-                                <li> <div id="language">
+                                <li><div id="language">
                                         <div class="dropdown1">
                                             <button class="dropbtn1"><?php echo $lang['Members'];?></button>
                                             <div class="dropdown-content1">

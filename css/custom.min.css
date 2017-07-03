@@ -10,13 +10,21 @@ a {
     font-family: "Open Sans", sans-serif
 }
 .container {
+	/*
     margin: auto;
     max-width: 1000px;
     padding: 0 20px;
 	max-height: 50px;
+	*/
+	/* novo */
+	margin: 0;
+	width: 100%;
+	padding: 0;
+	padding-right: 5%;
+	max-height: 50px;
 }
 .main-nav {
-    padding-top: 30px;
+    /*padding-top: 30px;
     padding-bottom: 0px;
     max-height: 85px;
     background-color: #dee2e6;
@@ -24,7 +32,13 @@ a {
     -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
     box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
     z-index: 10;
-    position: relative
+    position: relative*/
+		
+	/* novo */
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	width: 100%;
 }
 .group.top-nav {
     max-height: 50px;
@@ -59,7 +73,8 @@ a {
     font-family: Lato, sans-serif;
     font-size: 15px;
     font-weight: 500;
-    color: #A4A4A4
+    /*color: #A4A4A4*/
+	color: #000;
 }
 .intro {
     width: 100%;
