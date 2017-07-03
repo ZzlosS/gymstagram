@@ -612,8 +612,7 @@ table tfoot td {
 }
 .units-row {
     margin-bottom: 1.65em;
-	
-	padding-left: 28%;
+	padding-left: 40%;
 }
 .width-100,
 .unit-100 {
@@ -1356,7 +1355,14 @@ input.input-smaller {
     text-transform: uppercase;
     position: relative;
     color: #0f0f0f;
-    background-color: #dee2e6
+	width: 120px;
+    /*background-color: #dee2e6*/
+}
+.navigation-toggle:hover{
+	color: #ff6c40;
+}
+.logo:hover{
+	color: #ff6c40;
 }
 /* kada se smanji prozor crta 3 linije za meni*/
 .navigation-toggle:after {
@@ -1367,14 +1373,14 @@ input.input-smaller {
     left: 10px;
     content: "\2630";
     font-size: 24px;
-    line-height: 1
+    line-height: 1;
 }
 .navigation-toggle.navigation-toggle-black {
     background-color: #0f0f0f;
     color: #fff
 }
 .navigation-toggle.navigation-toggle-show {
-    margin-bottom: 1.65em;
+    margin-bottom: 0;
 }
 .navigation-toggle span {
     position: relative;
@@ -3442,7 +3448,10 @@ ul.dropdown li.divider {
     .navbar.navbar-right li {
         float: none;
         text-align: left;
-        width: auto
+        /*width: auto;*/
+		width: 100px;
+		/* novo */
+		background-color: #dee2e6
     }
     .navbar li,
     .navbar.navbar-right li {

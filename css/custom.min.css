@@ -41,7 +41,7 @@ a {
 	width: 100%;
 }
 .group.top-nav {
-    max-height: 50px;
+    max-height: 30px;
 }
 .group.top-nav nav a {
     text-decoration: none
@@ -494,7 +494,7 @@ footer .social li a:hover {
         display: none
     }
     .main-nav {
-        padding-top: 20px;
+        /*padding-top: 20px;*/
         padding-bottom: 20px
     }
     .top-nav .item-nav li {
