@@ -50,7 +50,11 @@
         });
     }
 </script>
-
+<style>
+	a:hover{
+		color: #ff6c40;
+	}
+</style>
 <div class="card-wrap">
     <div class="profile_pic-wrap">
         <img id="ppic" src="<?php echo $pic_path;?>" alt="" />
