@@ -256,9 +256,10 @@ body {
 a {
   color: #134da5;
 }
+/*Promenio sam boju da bude narandzasta  #ff6c40 */
 a:focus,
 a:hover {
-  color: #de2c3b;
+  color: #ff6c40;/*#de2c3b;*/
 }
 /* =Headings
 -----------------------------------------------------------------------------*/
@@ -1502,7 +1503,7 @@ input.input-smaller {
   text-decoration: none;
 }
 .nav a:hover {
-  color: #de2c3b;
+  color: #ff6c40;/*#de2c3b;*/
   text-decoration: underline;
 }
 .nav li.active a,

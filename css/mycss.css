@@ -511,7 +511,7 @@ form:after {
         color: #6f8686;
     }
 
-	/* dodao sam ovo da probam */
+	/* dodao sam ovo da probam OK*/
 	a {
 		font-size: 1.2em;
 		color: #6f8686;
@@ -538,4 +538,14 @@ a::before {
 	-moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
 	transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
 	opacity: 1;
+}
+
+ /* select */
+::selection {
+	color: white;
+	background: #221f1f; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+	color: white;
+	background: #221f1f; /* Gecko Browsers */
 }
