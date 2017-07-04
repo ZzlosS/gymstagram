@@ -2,7 +2,11 @@
     require_once 'functions.php';
     require_once 'checklanguage.php';
 ?>
-
+    <style>
+        a:hover{
+            color: #ff6c40;
+        }
+    </style>
 		<div class="main">
 		<?php
         if(!isset($_POST['id'])){

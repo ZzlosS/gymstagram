@@ -16,7 +16,7 @@ require_once 'basic.php';
             height: 570px;
             background: #dee2e6;
             border-radius: 2%;
-            // border: 1px solid #9e9ea3;
+            /*border: 1px solid #9e9ea3;*/
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
