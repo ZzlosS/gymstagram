@@ -12,6 +12,7 @@ require_once 'basic.php';
 
     #week-day{
         padding-left: 16%;
+        padding-right: 10%; /*mora na manjoj rezoluciji*/
     }
 
     div.gallery {
@@ -22,6 +23,9 @@ require_once 'basic.php';
         height: 180px;
         text-align: center;
         border: 1px solid transparent;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        border-radius: 2%;
     }
 
     #day{
@@ -62,8 +66,10 @@ require_once 'basic.php';
         //day week prikaz
         //treba 0 za dan, a 16% za nedelju zbog centriranog prikaza
         var pl = 0;
+        var pl2 = 0; /*mora na manjoj rezoluciji*/
         if($('.opt').val() == 1){
             var pl = 16
+            var pl2 = 10
         }
         $.ajax({
             method: 'post',
@@ -74,10 +80,21 @@ require_once 'basic.php';
                 'id': $('#id').val()
             },
             success: function (res) {
-                $('#week-day').html(res).css({'padding-left': pl+'%'});
+                $('#week-day').html(res).css({'padding-left': pl+'%', 'padding-right': pl2+'%'});
             }
         })
+    };
 
+    function enable() {
+        $('#inp').prop('disabled', false );
+        $('#s').html("<i class='icon-save'></i>");
+        //sve sto treba da se omoguci za izmenu
+    }
+
+    function save() {
+        $('#inp').prop('disabled', true );
+        $('#s').html('');
+        //da salje podatke stranici koja ce da upisuje u bazu podatke i da postavi formu na disabled
     }
 
     function day_show(id) {
@@ -91,7 +108,7 @@ require_once 'basic.php';
                 'today': $('#day').val()
             },
             success: function (res) {
-                $('#week-day').html(res).css('padding-left', 0);
+                $('#week-day').html(res).css({'padding-left': 0, 'padding-right': 0});
                 $('#opt').val(2);
             }
         })
