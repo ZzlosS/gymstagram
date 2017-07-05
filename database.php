@@ -55,6 +55,20 @@
 		        `date` DATETIME,
 		        `msg` VARCHAR(255),
 		        PRIMARY KEY(`id`)');
+
+		cT('`plan`','
+		        `id` INT UNSIGNED AUTO_INCREMENT,
+		        `user_id` INT UNSIGNED,
+		        `day` INT NOT NULL,
+		        `from` INT NOT NULL,
+		        `to` INT NOT NULL,
+		        `muscle_group` VARCHAR(56) NOT NULL,
+		        `ex1` VARCHAR(56) NOT NULL,
+		        `ex2` VARCHAR(56) NOT NULL,
+		        `ex3` VARCHAR(56) NOT NULL,
+		        `ex4` VARCHAR(56) NOT NULL,
+		        PRIMARY KEY(`id`),
+		        FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
 /*
 		aT('`members`', '`name`', 'VARCHAR(46) DEFAULT ""') ;
         aT('`members`', '`lname`', 'VARCHAR(46) DEFAULT ""') ;

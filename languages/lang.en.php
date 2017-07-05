@@ -127,5 +127,6 @@ $lang['Following'] = "Following";
 $lang['Following2'] = 'Following';
 $lang['Follow'] = "Follow";
 $lang['Unfollow'] = "Unfollow";
+$lang['Plan'] = "Plan";
 
 ?>

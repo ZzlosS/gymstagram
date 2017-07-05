@@ -221,6 +221,7 @@
 
                         <ul class = "menu">
                             <li> <a href="home.php"><?php echo $lang['Home'];?></a> </li>
+                            <li> <a href="plan.php"><?php echo $lang['Plan'];?></a> </li>
 
                             <!-- Ispis dodatnih stranica za admina -->
                             <?php if($role == 2){?>

@@ -13,7 +13,7 @@
 	$lang['UserAvailable'] = ' Korisničko ime je dostupno';
 	$lang['Email'] = 'Email adresa';
 	$lang['E'] = 'Email';
-	$lang['Pass'] = 'Čifra';
+	$lang['Pass'] = 'Šifra';
 	$lang['NPass'] = 'Nova šifra';
 	$lang['RNPass'] = 'Ponovo ukucaj novu šifru';
 	$lang['Question'] = 'Dižes li uopšte?';
@@ -125,5 +125,6 @@ $lang['Following2'] = "Prati";
 $lang['Follow'] = "Zaprati";
 $lang['Follow'] = "Follow";
 $lang['Unfollow'] = "Ne prati";
+$lang['Plan'] = "Plan";
 
 ?>
