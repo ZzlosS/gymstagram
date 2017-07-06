@@ -4,7 +4,13 @@
     $load = htmlentities(strip_tags($_POST['load']))*2;
     $loggedIn = $_POST['loged'];
     if($loggedIn == 1){
-        $following = $_POST['fol'];
+
+        if(isset($_POST['fol'])){
+            $following = $_POST['fol'];
+        } else {
+            $following = [-1];
+        }
+
         $id = $_POST['id'];
         $query = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` ORDER BY `date_update` DESC LIMIT ".$load.",2");
     }
