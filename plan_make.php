@@ -9,26 +9,26 @@ require_once 'functions.php';
         if($id_mc != 0){
             $result = qM("SELECT * FROM exercise WHERE mc_id=$id_mc");
             $n = $result->num_rows;
-            echo "<select id='ex1' name='ex1'>";
+            echo "<select id='ex1' name='ex1' class='soflow'>";
             echo "</select>";
 
-            echo "<select id='ex2' name='ex2'>";
+            echo "<select id='ex2' name='ex2'  class='soflow'>";
             echo "</select>";
 
-            echo "<select id='ex3' name='ex3'>";
+            echo "<select id='ex3' name='ex3'  class='soflow'>";
             echo "</select>";
 
-            echo "<select id='ex4' name='ex4'>";
-            echo "</select>";
+            echo "<select id='ex4' name='ex4'  class='soflow'>";
+            echo "</select><br>";
 
-            echo "<br><select id='from' onchange='to()'>";
+            echo "<select id='from' onchange='to()'  class='soflow'>";
             for($i=9; $i<21; $i++){
-                echo "<option value='".$i."'>".$i."</option>";
+                echo "<option value='".$i."'>".$i.":00</option>";
             }
-            echo "</select>";
-            echo "<br><select id='to'>";
+            echo "</select  class='soflow'>";
+            echo "<br><select id='to' class='soflow'>";
             for($i=10; $i<22; $i++){
-                echo "<option value='".$i."'>".$i."</option>";
+                echo "<option value='".$i."'>".$i.":00</option>";
             }
             echo "</select>";
 
@@ -77,7 +77,7 @@ require_once 'functions.php';
     if(isset($_POST['hour'])){ //odredjuje vreme za to(do)
         $hour = $_POST['hour'];
         for($i=$hour+1; $i<22; $i++){
-                echo "<option value='".$i."'>".$i."</option>";
+                echo "<option value='".$i."'>".$i.":00</option>";
         }
     }
 
@@ -251,7 +251,7 @@ require_once 'functions.php';
                 $ex3 = $row['ex3_id'];
                 $ex4 = $row['ex4_id'];
 
-                echo "<select id='mc' name='mc' onchange='exercise($day)'><option value='0'>Muscle Group</option>";
+                echo "<select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>Muscle Group</option>";
                 $muscle = qM("SELECT * FROM muscle_group");
                 while($row_m = $muscle->fetch_assoc()){
                     $id_m = $row_m['id_m'];
@@ -261,17 +261,17 @@ require_once 'functions.php';
                 echo "</select><br>";
                 echo "<div id='mc_div'>";
                 $result = qM("SELECT * FROM exercise WHERE mc_id=$muscle_group");
-                echo "<select id='ex1' name='ex1'>";
+                echo "<select id='ex1' name='ex1' class='soflow'>";
                 echo "</select>";
 
-                echo "<select id='ex2' name='ex2'>";
+                echo "<select id='ex2' name='ex2' class='soflow'>";
                 echo "</select>";
 
-                echo "<select id='ex3' name='ex3'>";
+                echo "<select id='ex3' name='ex3' class='soflow'>";
                 echo "</select>";
 
-                echo "<select id='ex4' name='ex4'>";
-                echo "</select>";
+                echo "<select id='ex4' name='ex4' class='soflow'>";
+                echo "</select><br>";
 
                 while ($row = $result->fetch_assoc()) {
                     $id_e = $row['id_e'];
@@ -288,14 +288,14 @@ require_once 'functions.php';
                     <?php
                 }
 
-                echo "<br><select id='from' onchange='to()'>";
+                echo "<select id='from' onchange='to()' class='soflow'>";
                 for($i=9; $i<21; $i++){
-                    echo "<option value='".$i."'>".$i."</option>";
+                    echo "<option value='".$i."'>".$i.":00</option>";
                 }
                 echo "</select>";
-                echo "<br><select id='to'>";
+                echo "<br><select id='to' class='soflow'>";
                 for($i=10; $i<22; $i++){
-                    echo "<option value='".$i."'>".$i."</option>";
+                    echo "<option value='".$i."'>".$i.":00</option>";
                 }
                 echo "</select><script>
                 $('#mc').val($muscle_group);
@@ -308,7 +308,7 @@ require_once 'functions.php';
                 </script><div>";
             }
             else{ //ako je prazan dan
-                echo "<select id='mc' name='mc' onchange='exercise($day)'><option value='0'>Muscle Group</option>";
+                echo "<select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>Muscle Group</option>";
                 $muscle = qM("SELECT * FROM muscle_group");
                 while($row_m = $muscle->fetch_assoc()){
                     $id_m = $row_m['id_m'];
@@ -326,7 +326,7 @@ require_once 'functions.php';
             echo "<div class='gallery' id='day'>
             <a href='#'>".$day_name."</a><a href='#' onclick='enable($day,2)' style='float:right'><i class='icon-edit'></i></a><br>
             <a href='#' id='s' onclick='save($day)' style='float:right'></a><br><br>
-            <div class='desc'><select id='mc' name='mc' onchange='exercise($day)'><option value='0'>Muscle Group</option>";
+            <div class='desc'><select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>Muscle Group</option>";
             $muscle = qM("SELECT * FROM muscle_group");
             while($row_m = $muscle->fetch_assoc()){
                 $id_m = $row_m['id_m'];
@@ -356,7 +356,7 @@ require_once 'functions.php';
             echo "<div class='gallery' id='day'>
             <a href='#'>".$day_name."</a><a href='#' onclick='enable($day,2)' style='float:right'><i class='icon-edit'></i></a><br>
             <a href='#' id='s' onclick='save($day)' style='float:right'></a><br><br>
-            <div class='desc'><select id='mc' name='mc' onchange='exercise($day)'><option value='0'>Muscle Group</option>";
+            <div class='desc'><select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>Muscle Group</option>";
             $muscle = qM("SELECT * FROM muscle_group");
             while($row_m = $muscle->fetch_assoc()){
                 $id_m = $row_m['id_m'];
@@ -366,17 +366,17 @@ require_once 'functions.php';
             echo "</select><br>";
             echo "<div id='mc_div'>";
             $result = qM("SELECT * FROM exercise WHERE mc_id=$muscle_group");
-            echo "<select id='ex1' name='ex1'>";
+            echo "<select id='ex1' name='ex1' class='soflow'>";
             echo "</select>";
 
-            echo "<select id='ex2' name='ex2'>";
+            echo "<select id='ex2' name='ex2' class='soflow'>";
             echo "</select>";
 
-            echo "<select id='ex3' name='ex3'>";
+            echo "<select id='ex3' name='ex3' class='soflow'>";
             echo "</select>";
 
-            echo "<select id='ex4' name='ex4'>";
-            echo "</select>";
+            echo "<select id='ex4' name='ex4' class='soflow'>";
+            echo "</select><br>";
 
             while ($row = $result->fetch_assoc()) {
                 $id_e = $row['id_e'];
@@ -393,14 +393,14 @@ require_once 'functions.php';
                 <?php
             }
 
-            echo "<br><select id='from' onchange='to()'>"; // onmousedown='if(this.options.length>6){this.size=6;}'  onchange='this.size=0;' onblur='this.size=0;' max opcija u prikazu padajuce liste
+            echo "<select id='from' onchange='to()' class='soflow'>"; // onmousedown='if(this.options.length>6){this.size=6;}'  onchange='this.size=0;' onblur='this.size=0;' max opcija u prikazu padajuce liste
             for($i=9; $i<21; $i++){
-                echo "<option value='".$i."'>".$i."</option>";
+                echo "<option value='".$i."'>".$i.":00</option>";
             }
             echo "</select>";
-            echo "<br><select id='to'>";
+            echo "<br><select id='to' class='soflow'>";
             for($i=10; $i<22; $i++){
-                echo "<option value='".$i."'>".$i."</option>";
+                echo "<option value='".$i."'>".$i.":00</option>";
             }
             echo "</select>";
             echo "<script>

@@ -123,7 +123,6 @@ $lang['Followers'] = "Pratioci";
 $lang['Following'] = "Pratiš";
 $lang['Following2'] = "Prati";
 $lang['Follow'] = "Zaprati";
-$lang['Follow'] = "Follow";
 $lang['Unfollow'] = "Ne prati";
 $lang['Plan'] = "Plan";
 

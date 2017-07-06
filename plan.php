@@ -5,6 +5,18 @@ require_once 'basic.php';
 ?>
 <style>
 
+    .soflow{
+        width: 255px;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #opt{
+        width: 100px;
+        margin: 5px;
+        padding: 5px;
+    }
+
     #drop {
         text-align: center;
         margin: 50px;
@@ -20,7 +32,7 @@ require_once 'basic.php';
         /*word-break:break-all;*/
         float: left;
         width: 190px;
-        height: 200px;
+        height: 250px;
         text-align: center;
         border: 1px solid transparent;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -30,8 +42,8 @@ require_once 'basic.php';
     }
 
     #day{
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
         float: none;
         align-content: center;
     }
@@ -199,7 +211,7 @@ require_once 'basic.php';
             <input hidden id="day" /> <!-- id dana -->
             <input hidden id="id" value="<?php echo $id ?>"/>  <!-- id korisnika -->
             <label for="opt">View</label>
-            <select id="opt" class="opt" onchange="dw()">
+            <select id="opt" class="opt soflow" onchange="dw()">
                 <option value="1">Weekly</option>
                 <option value="2">Daily</option>
             </select>
