@@ -57,25 +57,35 @@
 		        PRIMARY KEY(`id`)');
 
         cT('`muscle_group`','
-		        `id` INT UNSIGNED AUTO_INCREMENT,
-		        `date` DATETIME,
-		        `msg` VARCHAR(255),
-		        PRIMARY KEY(`id`)');
+		        `id_m` INT UNSIGNED AUTO_INCREMENT,
+		        `name_mc` VARCHAR(56),
+		        PRIMARY KEY(`id_m`)');
+
+        cT('`exercise`','
+		        `id_e` INT UNSIGNED AUTO_INCREMENT,
+		        `mc_id` INT UNSIGNED,
+		        `name_e` VARCHAR(56),
+		        PRIMARY KEY(`id_e`),
+		        FOREIGN KEY(`mc_id`) REFERENCES `muscle_group`(`id_m`) ON UPDATE CASCADE ON DELETE NO ACTION');
 
 		cT('`plan`','
-		        `id` INT UNSIGNED AUTO_INCREMENT,
+		        `id_p` INT UNSIGNED AUTO_INCREMENT,
 		        `user_id` INT UNSIGNED,
 		        `day` INT NOT NULL,
 		        `from` INT NOT NULL,
 		        `to` INT NOT NULL,
 		        `muscle_group_id` INT UNSIGNED,
-		        `ex1` VARCHAR(56) NOT NULL,
-		        `ex2` VARCHAR(56) NOT NULL,
-		        `ex3` VARCHAR(56) NOT NULL,
-		        `ex4` VARCHAR(56) NOT NULL,
-		        PRIMARY KEY(`id`),
+		        `ex1_id` INT UNSIGNED,
+		        `ex2_id` INT UNSIGNED,
+		        `ex3_id` INT UNSIGNED,
+		        `ex4_id` INT UNSIGNED,
+		        PRIMARY KEY(`id_p`),
 		        FOREIGN KEY(`user_id`) REFERENCES `members`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION,
-                FOREIGN KEY(`muscle_group_id`) REFERENCES `muscle_group_id`(`id`) ON UPDATE CASCADE ON DELETE NO ACTION');
+                FOREIGN KEY(`muscle_group_id`) REFERENCES `muscle_group`(`id_m`) ON UPDATE CASCADE ON DELETE NO ACTION,
+                FOREIGN KEY(`ex1_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION,
+                FOREIGN KEY(`ex2_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION,
+                FOREIGN KEY(`ex3_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION,
+                FOREIGN KEY(`ex4_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION');
 /*
 		aT('`members`', '`name`', 'VARCHAR(46) DEFAULT ""') ;
         aT('`members`', '`lname`', 'VARCHAR(46) DEFAULT ""') ;
