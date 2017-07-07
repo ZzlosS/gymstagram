@@ -210,10 +210,10 @@ require_once 'basic.php';
         <div id="drop">
             <input hidden id="day" /> <!-- id dana -->
             <input hidden id="id" value="<?php echo $id ?>"/>  <!-- id korisnika -->
-            <label for="opt">View</label>
+            <label for="opt"><?php echo $lang['view'] ?></label>
             <select id="opt" class="opt soflow" onchange="dw()">
-                <option value="1">Weekly</option>
-                <option value="2">Daily</option>
+                <option value="1"><?php echo $lang['Weekly'] ?></option>
+                <option value="2"><?php echo $lang['Daily'] ?></option>
             </select>
         </div>
         <div id="week-day" align="center">

@@ -129,4 +129,25 @@ $lang['Follow'] = "Follow";
 $lang['Unfollow'] = "Unfollow";
 $lang['Plan'] = "Plan";
 
+$lang['view'] = "View";
+$lang['Daily'] = "Daily";
+$lang['Weekly'] = "Weekly";
+$lang['Monday'] = "Monday";
+$lang['Tuesday'] = "Tuesday";
+$lang['Wednesday'] = "Wednesday";
+$lang['Thursday'] = "Thursday";
+$lang['Friday'] = "Friday";
+$lang['Saturday'] = "Saturday";
+$lang['Sunday'] = "Sunday";
+$lang['Next'] = "Next";
+$lang['Previous'] = "Previous";
+$lang['Today'] = "Today";
+$lang['From'] = "From";
+$lang['To'] = "To";
+$lang['Muscle Group'] = "Muscle Group";
+$lang['Exercise'] = "Exercise";
+
+
+
+
 ?>

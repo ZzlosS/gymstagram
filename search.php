@@ -38,7 +38,7 @@
                     }
                 });
             }
-            function search() {
+            function search(tag) {
                 $.ajax({
                     method: 'post',
                     url: 'members.php',

@@ -16,7 +16,7 @@ require_once 'checklanguage.php';
     }
     $id = $_POST['id'];
     $res = '';
-    if(($_POST['tags']) != ''){
+    if(isset($_POST['tags'])){
         $name = $_POST['tags'];
         $result = qM("SELECT * FROM `members` WHERE (`gym_name`='$name' OR `name`='$name' OR `lname`='$name' OR CONCAT(`name`,' ',`lname`)='$name')");
         $row = $result->fetch_assoc();

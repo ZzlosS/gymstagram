@@ -126,4 +126,22 @@ $lang['Follow'] = "Zaprati";
 $lang['Unfollow'] = "Ne prati";
 $lang['Plan'] = "Plan";
 
+$lang['view'] = "Pregled";
+$lang['Daily'] = "Dnevni";
+$lang['Weekly'] = "Nedeljni";
+$lang['Monday'] = "Ponedeljak";
+$lang['Tuesday'] = "Utorak";
+$lang['Wednesday'] = "Sreda";
+$lang['Thursday'] = "Četvrtak";
+$lang['Friday'] = "Petak";
+$lang['Saturday'] = "Subota";
+$lang['Sunday'] = "Nedelja";
+$lang['Next'] = "Sledeći";
+$lang['Previous'] = "Prethodni";
+$lang['Today'] = "Danas";
+$lang['From'] = "Od";
+$lang['To'] = "Do";
+$lang['Muscle Group'] = "Grupa mišića";
+$lang['Exercise'] = "Vežba";
+
 ?>

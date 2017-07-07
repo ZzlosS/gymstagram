@@ -1,5 +1,6 @@
 <?php
 require_once 'functions.php';
+require_once 'checklanguage.php';
 
     if(isset($_POST['id_mc'])) { //vrsi ispis padajucih lista u zavisnosti koja je grupa misica izabrana
         $id_mc = $_POST['id_mc'];
@@ -169,27 +170,26 @@ require_once 'functions.php';
 
 
         switch ($day) {
-            //tu da budu $lang['dan']
             case('1'):
-                $day_name = "pon";
+                $day_name = $lang['Monday'];
                 break;
             case('2'):
-                $day_name = "uto";
+                $day_name = $lang['Tuesday'];
                 break;
             case('3'):
-                $day_name = "sre";
+                $day_name = $lang['Wednesday'];
                 break;
             case('4'):
-                $day_name = "cet";
+                $day_name = $lang['Thursday'];
                 break;
             case('5'):
-                $day_name = "pet";
+                $day_name = $lang['Friday'];
                 break;
             case('6'):
-                $day_name = "sub";
+                $day_name = $lang['Saturday'];
                 break;
             case('7'):
-                $day_name = "ned";
+                $day_name = $lang['Sunday'];
                 break;
         }
         if($result->num_rows){ //ako postoji nesto tog dana
@@ -201,7 +201,7 @@ require_once 'functions.php';
             $ex3 = $row['ex3'];
             $ex4 = $row['ex4'];
 
-            echo "From: ".$from." To: ".$to."<br>Muslce Group: ".$muscle_group."<br>Exercise:<br>".$ex1."<br>Exercise:<br>".$ex2."<br>Exercise:<br>".$ex3."<br>Exercise:<br>".$ex4."</div>";
+            echo "<p style='font-size: 15px'><b>".$lang['From'].":</b> ".$from.":00 <b>".$lang['To'].":</b>".$to.":00<br><b>".$lang['Muscle Group'].":</b><br>".$muscle_group."<br><b>".$lang['Exercise'].":</b><br>".$ex1."<br><b>".$lang['Exercise'].":</b><br>".$ex2."<br><b>".$lang['Exercise'].":</b><br>".$ex3."<br><b>".$lang['Exercise'].":</b><br>".$ex4."</p></div>";
         }
     }
 
@@ -213,27 +213,26 @@ require_once 'functions.php';
         $today = $_POST['today'];
 
         switch ($day) {
-            //tu da budu $lang['dan']
             case('1'):
-                $day_name = "pon";
+                $day_name = $lang['Monday'];
                 break;
             case('2'):
-                $day_name = "uto";
+                $day_name = $lang['Tuesday'];
                 break;
             case('3'):
-                $day_name = "sre";
+                $day_name = $lang['Wednesday'];
                 break;
             case('4'):
-                $day_name = "cet";
+                $day_name = $lang['Thursday'];
                 break;
             case('5'):
-                $day_name = "pet";
+                $day_name = $lang['Friday'];
                 break;
             case('6'):
-                $day_name = "sub";
+                $day_name = $lang['Saturday'];
                 break;
             case('7'):
-                $day_name = "ned";
+                $day_name = $lang['Sunday'];
                 break;
         }
 
@@ -251,7 +250,7 @@ require_once 'functions.php';
                 $ex3 = $row['ex3_id'];
                 $ex4 = $row['ex4_id'];
 
-                echo "<select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>Muscle Group</option>";
+                echo "<select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>".$lang['Muscle Group']."</option>";
                 $muscle = qM("SELECT * FROM muscle_group");
                 while($row_m = $muscle->fetch_assoc()){
                     $id_m = $row_m['id_m'];
@@ -308,7 +307,7 @@ require_once 'functions.php';
                 </script><div>";
             }
             else{ //ako je prazan dan
-                echo "<select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>Muscle Group</option>";
+                echo "<select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>".$lang['Muscle Group']."</option>";
                 $muscle = qM("SELECT * FROM muscle_group");
                 while($row_m = $muscle->fetch_assoc()){
                     $id_m = $row_m['id_m'];
@@ -326,7 +325,7 @@ require_once 'functions.php';
             echo "<div class='gallery' id='day'>
             <a href='#'>".$day_name."</a><a href='#' onclick='enable($day,2)' style='float:right'><i class='icon-edit'></i></a><br>
             <a href='#' id='s' onclick='save($day)' style='float:right'></a><br><br>
-            <div class='desc'><select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>Muscle Group</option>";
+            <div class='desc'><select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>".$lang['Muscle Group']."</option>";
             $muscle = qM("SELECT * FROM muscle_group");
             while($row_m = $muscle->fetch_assoc()){
                 $id_m = $row_m['id_m'];
@@ -336,7 +335,7 @@ require_once 'functions.php';
             echo "</select><div id='mc_div'></div></div></div>";
 
             if($today != $day){
-                echo "<a href='#' onclick='day_show(".$today.")'>Today</a>";
+                echo "<a href='#' onclick='day_show(".$today.")'>".$lang['Today']."</a>";
             }
         }
 
@@ -356,7 +355,7 @@ require_once 'functions.php';
             echo "<div class='gallery' id='day'>
             <a href='#'>".$day_name."</a><a href='#' onclick='enable($day,2)' style='float:right'><i class='icon-edit'></i></a><br>
             <a href='#' id='s' onclick='save($day)' style='float:right'></a><br><br>
-            <div class='desc'><select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>Muscle Group</option>";
+            <div class='desc'><select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>".$lang['Muscle Group']."</option>";
             $muscle = qM("SELECT * FROM muscle_group");
             while($row_m = $muscle->fetch_assoc()){
                 $id_m = $row_m['id_m'];
