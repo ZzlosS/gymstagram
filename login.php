@@ -18,7 +18,8 @@
 				$value = $gname;
 				$role = $row2['role'];
 				if($role == 3){
-				    die("<script>alert('You are banned, contact admin for more info')</script>");
+				    $you_banned = $lang['yb'];
+				    die("<script>alert('$you_banned')</script>");
                 }
 				$hpass = hash('ripemd128', "$salt1$pass$salt2");
 				$result = qM("SELECT * FROM `members` WHERE `email`='$email'");

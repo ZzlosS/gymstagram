@@ -1,7 +1,7 @@
 <?php
 require_once 'basic.php';
     if($loggedIn){
-        $result = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` ORDER BY `date_update` DESC LIMIT 0,2");
+        $result = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` WHERE `public`=1 OR `m`.`id`=$id $or ORDER BY `date_update` DESC LIMIT 0,2");
     }
     else{
         $result = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` WHERE `public`=1 ORDER BY `date_update` DESC LIMIT 0,2");
@@ -42,11 +42,9 @@ require_once 'basic.php';
                 $fid = $row['id']; //id korisnika
                 $public = $row['public'];
                 if($loggedIn){
-                    if($public == 1 || in_array($fid, $following) || $fid == $id){ //ako je public ili ga pratis ili si ti
-                        echo "<div class='im' ><div class='descN'><a href='profile.php?gn=".$row['gym_name']."' data-hover='@".$row['gym_name']."' >@".$row['gym_name']."</a></div>";
-                        echo "<a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' height='500' width='500'></a>";
-                        echo "<div class='desc'>".$row['pic_desc']."</div></div><br>";
-                    }
+                    echo "<div class='im' ><div class='descN'><a href='profile.php?gn=".$row['gym_name']."' data-hover='@".$row['gym_name']."' >@".$row['gym_name']."</a></div>";
+                    echo "<a target=_blank href='".$row['pic_path']."'><img src='".$row['pic_path']."' height='500' width='500'></a>";
+                    echo "<div class='desc'>".$row['pic_desc']."</div></div><br>";
                 }
                 else{
                     echo "<div class='im' ><div class='descN'><a href='profile.php?gn=".$row['gym_name']."' data-hover='@".$row['gym_name']."' >@".$row['gym_name']."</a></div>";
@@ -67,9 +65,7 @@ require_once 'basic.php';
             <a onclick="topFunction()"><img src="img/up.png"></a>
         </div>
 
-    <!--<script src="js/jquery2.js"></script>-->
     <script>
-        //to da se ubaci u jquery2.js
         $(document).ready(function(){
             $('.loader').hide();
             $('.up').hide();
@@ -78,8 +74,13 @@ require_once 'basic.php';
             var following = [
                 <?php
                 $result2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id");
-                while($row = $result2->fetch_assoc()){
-                    echo  '"'.$row['friend_id'].'",';
+                if($num_following == 0) {
+                    echo $id.",".$id;
+                }
+                else{
+                    while($row = $result2->fetch_assoc()){
+                        echo  '"'.$row['friend_id'].'",';
+                    }
                 }
                 ?>
             ];

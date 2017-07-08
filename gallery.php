@@ -19,14 +19,10 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
         $row4 = $result5->fetch_assoc();
         $pic_id = $row4['id'];
         $user_id = $row4['user_id'];
-        $album_name = $row4['album_name'];
         $pic_desc = $row4['pic_desc'];
         $pic_like = $row4['pic_like'];
     }
 ?>
-
-<!-- Add mousewheel plugin (this is optional) -->
-<script type="text/javascript" src="fancybox-2.1.7/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
 <!-- Add fancyBox -->
 <link rel="stylesheet" href="fancybox-2.1.7/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
@@ -75,10 +71,8 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
     }
 
     if(isset($_FILES['image']['name'])) {
-        echo $_FILES['image']['size'];
-        if ($_FILES['image']['size'] > 2 * 1024 * 1024) {
-            echo "Greska";
-            //die("<script>alert('Slika je prevelika.')</script>");
+        if ($_FILES['image']['size'] == 0) {
+            echo "<script>alert('Slika je prevelika.')</script>";
         } else {
             $name = date("YmdHis");
             $saveto = "images/$id/album/" . $name . ".jpg";
@@ -92,7 +86,6 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
                     $src = imagecreatefromgif($saveto);
                     break;
                 case "image/jpeg":
-                case "image/pjpeg":
                     $src = imagecreatefromjpeg($saveto);
                     break;
                 case "image/png":

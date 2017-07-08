@@ -153,7 +153,8 @@ $lang['q5'] = "What is your favourite movie?";
 $lang['q6'] = "What is your favourite song?";
 $lang['sf'] = "Sign up Form";
 $lang['lf'] = "Login in Form";
-$lang['Size'] = "Max picture size is 2MB"
+$lang['Size'] = "Max picture size is 2MB";
+$lang['yb'] = "You are banned, contact admin for more info";
 
 
 

@@ -7,8 +7,9 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--<meta name="description" content="Saturn is free PSD &amp; HTML template by @flamekaizar">
-    <meta name="author" content="Afnizar Nur Ghifari">-->
+    <meta name="description" content="Social network and workout planner for people who are going to gym">
+    <meta name="author" content="Strahinja Stojadinovic">
+    <meta name="author" content="Jovan Radenkovic">
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -30,7 +31,6 @@
             }
         </script>
 
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -44,8 +44,7 @@
     <link rel="shortcut icon" href="img/favicon.png" />
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css" />
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/mycss.css" />
-    <link rel="stylesheet" type="text/css" href="css/profile-hover.css" />
+    <link rel="stylesheet" type="text/css" href="css/mycss.min.css" />
 
     <script src="js/kube.min.js"></script>
     <script src="js/myjs.js"></script>
@@ -130,6 +129,16 @@
         while($row = $result2->fetch_assoc()){
             $following[] = $row['friend_id'];
         }
+        $following2 = implode(',', $following);
+
+        // za home, ako pratis nekoga da se prosledi ovaj upit u home, a ako ne onda nema taj upit
+        if($num_following == 0){
+            $or = '';
+        }
+        else{
+            $or = "OR `m`.`id` IN ($following2)";
+        }
+
 
         $result3 = qM("SELECT * FROM `gym_buddies` WHERE `friend_id`=$id");
         $followers = array();
@@ -171,8 +180,6 @@
                                     <div class="dropdown1">
                                         <button class="dropbtn1"><?php echo $lang['Language'];?></button>
                                         <div class="dropdown-content1">
-                                            <!--<a href="profile.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
-                                            <a href="profile.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>-->
                                             <a href="javascript:window.location.reload();" onclick="langu(1)"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
                                             <a href="javascript:window.location.reload();" onclick="langu(2)"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
                                         </div>
@@ -287,6 +294,5 @@
                 </header>
             </div>
         </div>
-        <!--<script src="js/jquery.min.js"></script>-->
 
 <?php }?>

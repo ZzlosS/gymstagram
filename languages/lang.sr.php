@@ -149,6 +149,7 @@ $lang['q5'] = "Omiljeni film?";
 $lang['q6'] = "Omiljena pesma?";
 $lang['sf'] = "Registraciona <br> Forma";
 $lang['lf'] = "Uloguj se";
-$lang['Size'] = "Maksimalna veličina slike je 2MB"
+$lang['Size'] = "Maksimalna veličina slike je 2MB";
+$lang['yb'] = "Banovani ste, kontaktirajte admina za vise informacija";
 
 ?>

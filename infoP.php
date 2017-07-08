@@ -66,7 +66,6 @@
         $row4 = $result5->fetch_assoc();
         $album_id = $row4['id'];
         $user_id = $row4['user_id'];
-        $album_name = $row4['album_name'];
         $pic_desc = $row4['pic_desc'];
         $pic_like = $row4['pic_like'];
     }
@@ -165,7 +164,8 @@
             case "image/gif":
                 $src = imagecreatefromgif($saveto);
                 break;
-            case "image/jpeg": case "image/pjpeg":
+            case "image/jpeg":
+            case "image/pjpeg":
                 $src = imagecreatefromjpeg($saveto);
                 break;
             case "image/png":
@@ -202,19 +202,13 @@
             $x2 = $max/2 - $th/2;//-
             $tmp = imagecreatetruecolor($max, $max); //$tw, $th
 
-            //pravi providnu pozadinu
+
             imagesavealpha($tmp, true);
             $color = imagecolorallocatealpha($tmp, 0, 0, 0, 127);
             imagefill($tmp, 0, 0, $color);
 
-
-            //$white = imagecolorallocate($tmp, 255, 255, 255);//boji u belo
-            //imagefill($tmp, 0, 0, $white);//boji u belo
             imagecopyresampled($tmp, $src, $x1, $x2, 0, 0, $tw, $th, $w, $h);
-            /*imageconvolution($tmp, array(array(-1, -1, -1),
-                    array(-1, 16, 1),
-                    array(-1, -1, -1)), 8, 0);
-        */
+
             imagepng($tmp, $saveto);
             imagedestroy($tmp);
             imagedestroy($src);
