@@ -80,6 +80,7 @@
             display: none;
         }
 
+        /*pregled slike na profilu u changeP*/
         #blah2{
             border-radius: 50%;
             max-width: 100px;
@@ -104,6 +105,7 @@
 	require_once 'functions.php';
 	$userstr = ' (' .$lang['Guest'] .')';
 	$id = "";
+    date_default_timezone_set("CET");
     $date = date("Y-m-d H:i:s"); //date_default_timezone_set jer ovako ne pokazuje tacno vreme
 
 	if(isset($_SESSION['email'])){

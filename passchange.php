@@ -11,6 +11,8 @@
     }
 
     $error = $email = $npass = $rnpass = $done = $changed = $gname = $redirect = '';
+    $s1 = "cq1";
+    $s2 = "cq2";
     //$done valjda visak
     if(isset($_POST['email'])){
         $email = sS($_POST['email']);
@@ -57,7 +59,7 @@
                             $changed = "<h3>".$lang['PassChanged']."</h3>";//."<a href='login.php'>".$lang['here']."</a>.";
                             $redirect = "If you are not redirected automaticly in 5 seconds click this <a href='login.php'>link</a>";
                             $ok = true;
-                            header( "refresh:5;url=login.php" );
+                            echo "<script> location.replace('login.php'); </script>";
                         }
                     }
 
@@ -90,22 +92,22 @@
                 <br>
 
                 <label class="fieldname" for="q1">
-                    <select name="s1" id="s1" class="form-control">
-                        <option value="cq1"><?php echo $lang['choose_q']; ?></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <select name="s1" id="s1" class="soflow">
+                        <option value="<?php echo $s1?>"><?php echo $lang['choose_q']?>:</option>
+                        <option value="1"><?php echo $lang['q1']?></option>
+                        <option value="2"><?php echo $lang['q2']?></option>
+                        <option value="3"><?php echo $lang['q3']?></option>
                     </select>
                 </label>
                 <input type="text" name="q1" id="q1" value="" maxlength="30" />
                 <br>
 
                 <label class="fieldname" for="q2">
-                    <select name="s2" id="s2" class="form-control">
-                        <option value="cq2"><?php echo $lang['choose_q']; ?></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <select name="s2" id="s2" class="soflow">
+                        <option value="<?php echo $s2?>"><?php echo $lang['choose_q']?>:</option>
+                        <option value="1"><?php echo $lang['q4']?></option>
+                        <option value="2"><?php echo $lang['q5']?></option>
+                        <option value="3"><?php echo $lang['q6']?></option>
                     </select>
                 </label>
                 <input type="text" name="q2" id="q2" value="" maxlength="30" />

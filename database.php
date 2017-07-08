@@ -8,7 +8,6 @@
 <body>
 <h3>Setting up...</h3>
 	<?php
-    /* da se doda ako si admin da mozes da pokrenes*/
 		require_once 'functions.php'; 
 		
 		cT('`members`', 
@@ -87,25 +86,7 @@
                 FOREIGN KEY(`ex3_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION,
                 FOREIGN KEY(`ex4_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION');
 
-		cT('`security_questions`','
-		        `id` INT UNSIGNED AUTO_INCREMENT,
-		        `question` VARCHAR(150),
-		        PRIMARY KEY(`id`)');
-/*
-		aT('`members`', '`name`', 'VARCHAR(46) DEFAULT ""') ;
-        aT('`members`', '`lname`', 'VARCHAR(46) DEFAULT ""') ;
-        aT('`members`', '`gender`', 'INT DEFAULT 1') ;
-        aT('`members`', '`birth_date`', 'DATE');
 
-        aT('`members`', '`information`', 'VARCHAR(4096) DEFAULT ""');
-        aT('`members`', '`pic_date`', 'DATETIME');
-        aT('`members`', '`pic_path`', 'VARCHAR(50) DEFAULT ""');
-        aT('`members`', '`notifications`', 'INT UNSIGNED DEFAULT 0');
-
-        aT('`members`', '`role`', 'INT DEFAULT 1') ;
-
-        aT('`members`', '`public`', 'INT DEFAULT 0');
-*/
         if(!is_dir("images")){
 			mkdir("images", 0777);
 		}

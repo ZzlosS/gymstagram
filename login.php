@@ -78,7 +78,7 @@
 <div class="container2">
     <section id="content2">
         <form method="post" action="login.php">
-            <h1>Login Form</h1>
+            <h1><?php echo $lang['lf']?></h1>
             <div>
                 <input type="text" name="email" id="email" value="<?php echo $value ?>" maxlength="40" placeholder="<?php echo $lang['E']."/".$lang['GName']?>" autofocus/>
                 <br>
@@ -91,7 +91,7 @@
                 <?php echo $error1, $error2, $error3 ?>
             </div>
             <div>
-                <input type="submit" value="Log in" />
+                <input type="submit" value="<?php echo $lang['Login'] ?>" />
                 <a href="passchange.php"><?php echo $lang['FPass']?></a>
             </div>
         </form><!-- form -->

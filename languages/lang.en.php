@@ -27,9 +27,7 @@
 	$lang['NotInUse'] = 'There is no account with that email address';
 	$lang['GNotInUse'] = 'There is no account with that gym name';
 	$lang['PassInvalid'] = 'Password is not correct';
-	//$lang['LoggedIn'] = 'You are now logged in. Please <a href="profile.php?view=$id">click here</a> to continue.<br>';
-	//$lang['loggedOut'] = '<div class="main">You have been logged out. Please <a href="index.php">click here</a> to refresh the screen.';
-	//$lang['CantLogOut'] = '<div class="main">You cannont log out because you are not logged in.';
+
 	$lang['YP'] = 'Your Profile';
 	$lang['YPP'] = 'Your profile picture';
 	$lang['EditP'] = 'Enter or edit your details';
@@ -53,9 +51,7 @@
 	$lang['SQ'] = 'Answer this security questions';
 	$lang['Registration'] = 'Fill in registration data';
 	$lang['Confirm'] = 'Confirm';
-	//$lang['NYCC'] = 'Now you can change your password'; //+
-	//$lang['FTFA'] = 'Once you fill the form above you can change your password'; //+
-	$lang['PassChanged'] = 'Password changed successfully'; //'to go to login page click '; //+
+	$lang['PassChanged'] = 'Password changed successfully';
 	$lang['here'] = 'here';
 	$lang['PC1'] = 'Put the email and answer the security questions';
 	$lang['PC2'] = 'Reset your password';
@@ -149,6 +145,16 @@ $lang['Exercise'] = "Exercise";
 $lang['Clear'] = "Clear";
 $lang['Edit'] = "Edit";
 $lang['Save'] = "Save";
+$lang['q1'] = "What was your childhood nickname?";
+$lang['q2'] = "What is your favorite team?";
+$lang['q3'] = "What was your favorite sport in high school?";
+$lang['q4'] = "Who is your childhood sports hero?";
+$lang['q5'] = "What is your favourite movie?";
+$lang['q6'] = "What is your favourite song?";
+$lang['sf'] = "Sign up Form";
+$lang['lf'] = "Login in Form";
+$lang['Size'] = "Max picture size is 2MB"
+
 
 
 ?>

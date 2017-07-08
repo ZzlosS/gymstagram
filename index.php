@@ -12,7 +12,7 @@
             success: function (res) {
                 if(id == 1){
                     $('.info1').show().html(res);
-                }//.css('background-color', '#dee2e6')
+                }
                 else if(id == 3){
                     $('.info2').show().html(res);
                 }
@@ -66,9 +66,6 @@
         border-radius: 5px;
         box-shadow: inset 0 -3px 0 #ffcfbc;
         position: relative;
-        /*-webkit-animation: smooth-entry-btn .25s;
-        -moz-animation: smooth-entry-btn .25s;
-        animation: smooth-entry-btn .25s*/
     }
 
     p.p-info:after {
@@ -125,72 +122,11 @@
         right: -10px;
     }
 
-
-    /* +++++++++++++++++++++++++++++ */
-
-    /*
-        .footer-distributed .footer-left p{
-            color:  #8f9296;
-            font-size: 14px;
-            margin: 0;
-        }*/
-
-    /* Footer links - mozda nebitno*/
-
-    .footer-distributed p.footer-links{
-        font-size:18px;
-        font-weight: bold;
-        color:  #ffffff;
-        margin: 0 0 10px;
-        padding: 0;
-    }
-
-    .footer-distributed p.footer-links a{
-        display:inline-block;
-        line-height: 1.8;
-        text-decoration: none;
-        color:  inherit;
-    }
-
-    .footer-distributed a{
-        display: inline-block;
-        width: 35px;
-        height: 35px;
-        background-color:  #33383b;
-        border-radius: 2px;
-
-        font-size: 20px;
-        color: #ffffff;
-        text-align: center;
-        line-height: 35px;
-
-        margin-left: 3px;
-    }
-
-    /*---do ovde
-     If you don't want the footer to be responsive, remove these media queries */
-
-    @media (max-width: 600px) {
-
-        .footer-distributed .footer-left,
-        .footer-distributed .footer-right{
-            text-align: center;
-        }
-
-        .footer-distributed .footer-right{
-            float: none;
-            margin: 20px;
-        }
-/* div sa prikazom podataka da se stavi float left i right ili sta vec i da se sredi velicina da bude manja...*/
-        .footer-distributed .footer-left p.footer-links{
-            line-height: 1.8;
-        }
-    }
 </style>
 <footer class="footer-distributed">
 
     <div class="footer-right" onmouseover="show(1)" onmouseleave="show(2)">
-        <img src="img/avatar.png"/>
+        <img src="img/jr.jpg"/>
 
     </div>
     <div class="footer-right"  onmouseover="show(1)" onmouseleave="show(2)"> <!-- mora ovako da bi islo s leve strane -->
@@ -200,7 +136,7 @@
 
 
     <div class="footer-left"  onmouseover="show(3)" onmouseleave="show(4)">
-        <img src="img/avatar.png" />
+        <img src="img/ss.jpg" />
     </div>
     <div class="footer-left"  onmouseover="show(3)" onmouseleave="show(4)">
         <div class="info2"></div>

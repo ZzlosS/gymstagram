@@ -114,7 +114,7 @@
     <div class="container2">
         <section id="content2">
             <form method="post" action="signup.php">
-                <h1>Sign up Form</h1>
+                <h1><?php echo $lang['sf'] ?></h1>
                 <?php echo $redirect ?>
                 <h3><?php echo $lang['Registration'] ?>:</h3>
                 <input type="text" name="gname" id="gname" value="<?php echo $gname ?>" maxlength="20" onBlur="cU2(this)" placeholder="<?php echo $lang['GName'] ?>" autofocus />
@@ -122,9 +122,9 @@
                 <span id="info2"><?php echo $error ?></span>
                 <br>
 
-                <input type="text" name="name" id="name" value="<?php echo $name ?>" maxlength="20"  placeholder="Name" />
+                <input type="text" name="name" id="name" value="<?php echo $name ?>" maxlength="20"  placeholder="<?php echo $lang['FName'] ?>" />
                 <br>
-                <input type="text" name="lname" id="lname" value="<?php echo $lname ?>" maxlength="20"  placeholder="Last name" />
+                <input type="text" name="lname" id="lname" value="<?php echo $lname ?>" maxlength="20"  placeholder="<?php echo $lang['LName'] ?>" />
                 <br>
 
                 <input type="text" name="email" id="email" value="<?php echo $email ?>" maxlength="40" onBlur="cU(this)" placeholder="<?php echo $lang['Email'] ?>" />
@@ -135,32 +135,32 @@
                 <br>
 
                 <div class="radio">
-                    <b>Choose gender:</b>
+                    <b><?php echo $lang['Choose_gender']?>:</b>
 
                     <ul id="s_ul">
                         <li id="s_li">
                             <input type="radio" id="f-option" name="selector" <?php echo $checked ?> value="1"/>
-                            <label for="f-option">Male</label>
+                            <label for="f-option"><?php echo $lang['Male'] ?></label>
                             <div class="check"></div>
                         </li>
 
                         <li id="s_li">
                             <input type="radio" id="s-option" name="selector" <?php echo $checked2 ?> value="2"/>
-                            <label for="s-option">Female</label>
+                            <label for="s-option"><?php echo $lang['Female'] ?></label>
                             <div class="check"></div>
                         </li>
                     </ul>
                 </div>
-                <label>Birthday: <br><input class='d_in' name="datepicker" type="text" id="datepicker" maxlength="10" value="<?php echo $date ?>" /></label>
+                <label><?php echo $lang['Birthday']?>: <br><input class='d_in' name="datepicker" type="text" id="datepicker" maxlength="10" value="<?php echo $date ?>" /></label>
                 <br>
                 <h3><?php echo $lang['SQ'] ?>:</h3>
 
                 <label class="fieldname" for="q1">
                     <select name="s1" id="s1" class="soflow">
-                        <option value="<?php echo $s1?>">Choose question:</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <option value="<?php echo $s1?>"><?php echo $lang['choose_q']?>:</option>
+                        <option value="1"><?php echo $lang['q1']?></option>
+                        <option value="2"><?php echo $lang['q2']?></option>
+                        <option value="3"><?php echo $lang['q3']?></option>
                     </select>
                 </label>
                 <input type="text" name="q1" id="q1" value="<?php echo $q1?>" maxlength="30" />
@@ -168,10 +168,10 @@
 
                 <label class="fieldname" for="q2">
                     <select name="s2" id="s2" class="soflow">
-                        <option value="<?php echo $s2?>">Choose question:</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <option value="<?php echo $s2?>"><?php echo $lang['choose_q']?>:</option>
+                        <option value="1"><?php echo $lang['q4']?></option>
+                        <option value="2"><?php echo $lang['q5']?></option>
+                        <option value="3"><?php echo $lang['q6']?></option>
                     </select>
                 </label>
                 <input class="q2" type="text" name="q2" id="q2" value="<?php echo $q2?>" maxlength="30" />

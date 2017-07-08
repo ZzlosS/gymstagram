@@ -19,17 +19,14 @@
 	$lang['Question'] = 'Dižes li uopšte?';
 	$lang['Question2'] = 'Max bench:';
 	$lang['NotAll'] = 'Nisu popunjena sva polja';
-	$lang['NotAllC'] = 'Nisu tačna sva uneta polja';  //????
-	$lang['NotAllS'] = 'Nova i ponovo ukucana nova sifra moraju biti iste';  //????
+	$lang['NotAllC'] = 'Nisu tačno uneta sva polja';
+	$lang['NotAllS'] = 'Nova i ponovo ukucana nova sifra moraju biti iste';
 	$lang['OldNew'] = 'Stara i nova sifra ne mogu biti iste';
 	$lang['AccCreated'] = '<h4>Nalog je napravljen</h4>Molimo vas da se ulogujete';
 	$lang['Wrong'] = 'Uneta email adresa nije validna';
 	$lang['NotInUse'] = 'Ne postoji nalog sa tom email adresom';
 	$lang['GNotInUse'] = 'Ne postoji nalog sa tim gym imenom';
 	$lang['PassInvalid'] = 'Pogresna šifra';
-	//$lang['LoggedIn'] = 'You are now logged in. Please <a href="profile.php?view=$id">click here</a> to continue.<br>';
-	//$lang['loggedOut'] = '<div class="main">You have been logged out. Please <a href="index.php">click here</a> to refresh the screen.';
-	//$lang['CantLogOut'] = '<div class="main">You cannont log out because you are not logged in.';
 	$lang['YP'] = 'Tvoj profil';
 	$lang['YPP'] = 'Tvoja profilna slika';
 	$lang['EditP'] = 'Unesi ili izmeni svoje detalje';
@@ -53,15 +50,13 @@
 	$lang['SQ'] = 'Odgovori na sigurnosna pitanja';
 	$lang['Registration'] = 'Popuni podatke za registraciju';
 	$lang['Confirm'] = 'Potvrdi';
-	//$lang['NYCC'] = 'Now you can change your password'; //+
-	//$lang['FTFA'] = 'Once you fill the form above you can change your password'; //+
-	$lang['PassChanged'] = 'Sifra je uspesno promenjena'; //'da bi se prijavio klikni ';
+
+	$lang['PassChanged'] = 'Sifra je uspesno promenjena';
 	$lang['here'] = 'ovde';
 	$lang['PC1'] = 'Unesi email i odgovori na sigurnosna pitanja';
 	$lang['PC2'] = 'Promeni sifru';
 	$lang['BT'] = 'Vrati se nazad';
-	//+
-	// $lang['has'] = 'has';
+
 	$lang['fr'] = 'zahtev za prijateljstvo'; 
 	$lang['sent'] = 'sent ';
 	$lang['to'] = ' to';
@@ -81,8 +76,8 @@
     $lang['Welcome_to_Gymstagram'] = 'Dobro došli na Gymstagram!';
     $lang['Settings'] = 'Podešavanja';
     $lang['Chat_preview'] = 'Porfil izgled';
-    $lang['Birthday'] = 'Datum rođenja:';
-    $lang['Choose_gender'] = 'Izaberi pol:';
+    $lang['Birthday'] = 'Datum rođenja';
+    $lang['Choose_gender'] = 'Izaberi pol';
     $lang['Female'] = 'Ženski';
     $lang['Male'] = 'Muški';
     $lang['Profile_information'] = 'Informacije o profilu:';
@@ -143,8 +138,17 @@ $lang['From'] = "Od";
 $lang['To'] = "Do";
 $lang['Muscle Group'] = "Grupa mišića";
 $lang['Exercise'] = "Vežba";
-$lang['Clear'] = "Očisti";
+$lang['Clear'] = "Obriši";
 $lang['Edit'] = "Izmeni";
 $lang['Save'] = "Sačuvaj";
+$lang['q1'] = "Nadimak iz detinjstva?";
+$lang['q2'] = "Omiljeni tim?";
+$lang['q3'] = "Omiljeni sport u srednjoj školi?";
+$lang['q4'] = "Omiljeni sportista iz detinjstva?";
+$lang['q5'] = "Omiljeni film?";
+$lang['q6'] = "Omiljena pesma?";
+$lang['sf'] = "Registraciona <br> Forma";
+$lang['lf'] = "Uloguj se";
+$lang['Size'] = "Maksimalna veličina slike je 2MB"
 
 ?>

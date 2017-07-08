@@ -70,13 +70,6 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
         mkdir("images/$id/album", 0777);
     }
 
-    if(isset($_POST['sub_album_name'])){
-        $sub_album_name = sS($_POST['sub_album_name']);
-        if($sub_album_name == '' || $sub_album_name == 'default'){
-            $sub_album_name = 'Default';
-        }
-    }
-
     if(isset($_POST['desc'])){
         $desc = sS($_POST['desc']);
     }
@@ -85,8 +78,8 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
         $name = date("YmdHis");
         $saveto = "images/$id/album/".$name.".jpg";
         move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
-        qM("INSERT INTO `pictures`(`user_id`, `date_update`, `pic_path`, `album_name`, `pic_desc`) 
-                              VALUES('$id', '$date', '$saveto', '$sub_album_name', '$desc')");
+        qM("INSERT INTO `pictures`(`user_id`, `date_update`, `pic_path` `pic_desc`) 
+                              VALUES('$id', '$date', '$saveto', '$desc')");
         qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname($id) added picture $desc')");
         $typeok = TRUE;
         switch ($_FILES['image']['type']){
@@ -180,22 +173,7 @@ if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 
                 <label for="image"><h3><?php echo $lang['Add_image']; ?></h3></label><br><br>
                 <div align="center"> <input type="file" name="image" id="image"></div><br>
-
-                <label><?php echo $lang['Create_album'];?>
-                    <select name="owner">
-                        <?php
-                        $sql = qM("SELECT DISTINCT `album_name` FROM `pictures` WHERE `user_id`=$id");
-                        echo "<option value='default'>". $lang['Default']." </option>";
-                        while ($row = $sql->fetch_assoc()) {
-                            $an = $row['album_name'];
-                            if($an != 'Default'){
-                                echo "<option value=$an>" . $an . "</option>";
-                            }
-
-                        }
-                        ?>
-                    </select>,<br><?php echo $lang['contrary']; ?></label><br><br>
-                <label><?php echo $lang['Album_name']; ?> <input type="text" name="sub_album_name" id="sub_album_name"></label> <br><br>
+                <p><?php echo $lang['Size']?></p><br>
                 <label><?php echo $lang['Description']; ?> <input type="text" name="desc" id="desc"></label> <br><br>
                 <input type="submit" value="Save Profile">
             </form>

@@ -56,6 +56,7 @@
 
                 <?php
                 echo "<h1>".$lang['YP']."</h1><br>";
+                echo "<p>".$lang['Size']."</p><br>";
                 sP($email);
                 ?>
 
