@@ -82,6 +82,60 @@ require_once 'checklanguage.php';
         }
     }
 
+
+    //clear
+    if(isset($_POST['clear'])){ //$weed 1 za nedelju 2 za dan, za dugme delete/clear
+        $id = $_POST['id'];
+        $day = $_POST['day'];
+        $weed = $_POST['weed'];
+        qM("DELETE FROM `plan` WHERE `user_id`=$id AND `day`=$day");
+        if($weed == 1){
+            switch ($day) {
+                case('1'):
+                    $day_name = "<a href='#' onclick='day_show(1)'>".$lang['Monday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(1,3)'><i class='icon-edit'></i></a><br><br>
+            <div class='desc'></div>
+            <br><br>";
+                    break;
+                case('2'):
+                    $day_name = "<a href='#' onclick='day_show(2)'>".$lang['Tuesday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(2,3)'><i class='icon-edit'></i></a><br><br>
+            <div class='desc'></div>
+            <br><br>";
+                    break;
+                case('3'):
+                    $day_name = "<a href='#' onclick='day_show(3)'>".$lang['Wednesday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(3,3)'><i class='icon-edit'></i></a><br><br>
+            <div class='desc'></div>
+            <br><br>";
+                    break;
+                case('4'):
+                    $day_name = "<a href='#' onclick='day_show(4)'>".$lang['Thursday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(4,3)'><i class='icon-edit'></i></a><br><br>
+            <div class='desc'></div>
+            <br><br>";
+                    break;
+                case('5'):
+                    $day_name = "<a href='#' onclick='day_show(5)'>".$lang['Friday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(5,3)'><i class='icon-edit'></i></a><br><br>
+            <div class='desc'></div>
+            <br><br>";
+                    break;
+                case('6'):
+                    $day_name = "<a href='#' onclick='day_show(6)'>".$lang['Saturday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(6,3)'><i class='icon-edit'></i></a><br><br>
+            <div class='desc'></div>
+            <br><br>";
+                    break;
+                case('7'):
+                    $day_name = "<a href='#' onclick='day_show(7)'>".$lang['Sunday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(7,3)'><i class='icon-edit'></i></a><br><br>
+            <div class='desc'></div>
+            <br><br>";
+                    break;
+            }
+        }
+        else{
+            $day_name = "";
+        }
+
+        $returnArr = [$day, $day_name, $weed];
+        echo json_encode($returnArr);
+    }
+
     if(isset($_POST['from'])){
         $id = $_POST['id'];
         $day = $_POST['day'];
@@ -323,8 +377,8 @@ require_once 'checklanguage.php';
 
         elseif($type == 3){ //3 - klikom na enable preko nedelje za prazan dan
             echo "<div class='gallery' id='day'>
-            <a href='#'>".$day_name."</a><a href='#' onclick='enable($day,2)' style='float:right'><i class='icon-edit'></i></a><br>
-            <a href='#' id='s' onclick='save($day)' style='float:right'></a><br><br>
+            <a href='#'>".$day_name."</a><a href='#' title='".$lang['Edit']."' onclick='enable($day,2)' style='float:right'><i class='icon-edit'></i></a><br>
+            <a href='#' id='s' title='".$lang['Save']."' onclick='save($day)' style='float:right'></a><br><br>
             <div class='desc'><select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>".$lang['Muscle Group']."</option>";
             $muscle = qM("SELECT * FROM muscle_group");
             while($row_m = $muscle->fetch_assoc()){
@@ -352,9 +406,9 @@ require_once 'checklanguage.php';
             $ex3 = $row['ex3_id'];
             $ex4 = $row['ex4_id'];
 
-            echo "<div class='gallery' id='day'>
-            <a href='#'>".$day_name."</a><a href='#' onclick='enable($day,2)' style='float:right'><i class='icon-edit'></i></a><br>
-            <a href='#' id='s' onclick='save($day)' style='float:right'></a><br><br>
+            echo "<div class='gallery' id='day'><a href='#' title='".$lang['Clear']."' style='float: left' id='t' onclick='clear_day($day,2)'><i class='icon-trash'></i></a>
+            <a href='#'>".$day_name."</a><a href='#' title='".$lang['Edit']."' onclick='enable($day,2)' style='float:right'><i class='icon-edit'></i></a><br>
+            <a href='#' id='s' title='".$lang['Save']."' onclick='save($day)' style='float:right'></a><br><br>
             <div class='desc'><select id='mc' name='mc' onchange='exercise($day)' class='soflow'><option value='0'>".$lang['Muscle Group']."</option>";
             $muscle = qM("SELECT * FROM muscle_group");
             while($row_m = $muscle->fetch_assoc()){

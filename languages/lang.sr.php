@@ -143,5 +143,8 @@ $lang['From'] = "Od";
 $lang['To'] = "Do";
 $lang['Muscle Group'] = "Grupa mišića";
 $lang['Exercise'] = "Vežba";
+$lang['Clear'] = "Očisti";
+$lang['Edit'] = "Izmeni";
+$lang['Save'] = "Sačuvaj";
 
 ?>

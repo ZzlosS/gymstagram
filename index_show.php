@@ -1,8 +1,9 @@
 <?php
+require_once 'checklanguage.php';
 $id = $_POST['id'];
 if($id == 1){
-    echo "sdg".$id;
+    echo "<p class='p-info right'>".$lang['Welcome_to_Gymstagram']."fdlzdsflkndfksdfksdfkfdnk<br>fdxhdsfhsfgh<br>dfhsdfhdb</p>";
 }
 else{
-    echo "";
+    echo "<p class='p-info left'>".$lang['Welcome_to_Gymstagram']."</p>";
 }

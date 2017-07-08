@@ -40,6 +40,7 @@
 	require_once 'basic.php';
 	require_once 'checklanguage.php';
 	$ok = false;
+    $time = date("Y-m-d H:i:s");
 	$gname = $date = $checked2 = $name = $q1 = $q2 = $gender = $lname = $email = $pass = $error = $error2 = $alert = $redirect = '';
 	$checked = "checked";
 	$s1 = "cq1";
@@ -86,7 +87,7 @@
                 qM("INSERT INTO `members`(`gym_name`, `name`, `lname`, `gender`, `birth_date`, `email`, `pass`,
                                 `q1_id`, `question1`, `q2_id`, `question2`, `pic_path`)
                     VALUES ('$gname', '$name', '$lname', $gender, '$date2', '$email', '$hpass', '$s1', '$q1', '$s2', '$q2', 'img/default_avatar.png')");
-                qM("INSERT INTO `log`(`date`, `msg`) VALUES('$date', '$gname created account')");
+                qM("INSERT INTO `log`(`date`, `msg`) VALUES('$time', '$gname created account')");
                 $redirect = $lang['AccCreated']."<br>Click <a href='login.php'>here</a> to Log in";
                 $ok = true;
                 echo "<script> location.replace('login.php'); </script>";

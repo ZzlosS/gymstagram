@@ -135,6 +135,54 @@ require_once 'basic.php';
         })
     }
 
+    function clear_day(day, type) {
+        $.ajax({
+            method: 'post',
+            url: 'plan_make.php',
+            data: {
+                'id': $('#id').val(),
+                'clear': 1,
+                'day': day,
+                'weed': type
+            },
+            dataType: 'json',
+            success: function (res) {
+                if(res[2] == 2){
+                    $('.desc').html(res[1]);
+                    $('#s').html('');
+                    $('#t').html('');
+                }
+                else
+                {
+                    switch (res[0]) {
+                        case('1'):
+                            $('#mon').html(res[1]);
+                            break;
+                        case('2'):
+                            $('#tue').html(res[1]);
+                            break;
+                        case('3'):
+                            $('#wed').html(res[1]);
+                            break;
+                        case('4'):
+                            $('#thu').html(res[1]);
+                            break;
+                        case('5'):
+                            $('#fri').html(res[1]);
+                            break;
+                        case('6'):
+                            $('#sat').html(res[1]);
+                            break;
+                        case('7'):
+                            $('#sun').html(res[1]);
+                            break;
+                    }
+                }
+
+            }
+        })
+    }
+
     function save(day) {
         $.ajax({
             method: 'post',
@@ -217,9 +265,6 @@ require_once 'basic.php';
             </select>
         </div>
         <div id="week-day" align="center">
-
-
-
         </div>
     </body>
 </html>

@@ -146,8 +146,9 @@ $lang['From'] = "From";
 $lang['To'] = "To";
 $lang['Muscle Group'] = "Muscle Group";
 $lang['Exercise'] = "Exercise";
-
-
+$lang['Clear'] = "Clear";
+$lang['Edit'] = "Edit";
+$lang['Save'] = "Save";
 
 
 ?>

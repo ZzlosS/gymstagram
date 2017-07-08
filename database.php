@@ -86,6 +86,11 @@
                 FOREIGN KEY(`ex2_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION,
                 FOREIGN KEY(`ex3_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION,
                 FOREIGN KEY(`ex4_id`) REFERENCES `exercise`(`id_e`) ON UPDATE CASCADE ON DELETE NO ACTION');
+
+		cT('`security_questions`','
+		        `id` INT UNSIGNED AUTO_INCREMENT,
+		        `question` VARCHAR(150),
+		        PRIMARY KEY(`id`)');
 /*
 		aT('`members`', '`name`', 'VARCHAR(46) DEFAULT ""') ;
         aT('`members`', '`lname`', 'VARCHAR(46) DEFAULT ""') ;

@@ -11,10 +11,10 @@
             data: {'id':id},
             success: function (res) {
                 if(id == 1){
-                    $('.info1').show().html(res).css('background-color', '#dee2e6');
-                }
+                    $('.info1').show().html(res);
+                }//.css('background-color', '#dee2e6')
                 else if(id == 3){
-                    $('.info2').show().html(res).css('background-color', '#dee2e6');
+                    $('.info2').show().html(res);
                 }
                 else{
                     $('.info1').hide();
@@ -27,11 +27,6 @@
 </script>
 
 <style>
-
-    .info1, .info2{
-        width: 180px;
-        height: 180px;
-    }
 
     .footer-distributed{
         background-color: #292c2f;
@@ -47,23 +42,100 @@
         bottom: 0;
     }
 
-    .footer-distributed .footer-left p{
-        color:  #8f9296;
-        font-size: 14px;
-        margin: 0;
+    .info1, .info2{
+        width: 310px;
+        max-height: 180px;
+        float: inherit;
     }
+
+
+    p.p-info, p.p-info2 {
+        max-width: 300px;
+        vertical-align: middle;
+        color: #E85F37;
+        font-family: "Open Sans", sans-serif;
+        font-size: 10px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 10px 25px;
+        background-color: #FFF;
+        border: 1px solid #DC5227;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        box-shadow: inset 0 -3px 0 #ffcfbc;
+        position: relative;
+        /*-webkit-animation: smooth-entry-btn .25s;
+        -moz-animation: smooth-entry-btn .25s;
+        animation: smooth-entry-btn .25s*/
+    }
+
+    p.p-info:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-color: transparent #FFF;
+        display: block;
+        width: 0;
+        z-index: 1;
+        top: 12px
+    }
+    p.p-info:before {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-color: transparent #DC5227;
+        display: block;
+        width: 0;
+        z-index: 1;
+        top: 10px
+    }
+    /*left*/
+    .footer-left{
+        float: left;
+        margin-top: 6px;
+        padding-left: 10px;
+        max-width: 180px;
+    }
+
+    p.left:after{
+        border-width: 9px 9px 9px 0;
+        left: -9px;
+    }
+    p.left:before{
+        border-width: 11px 10px 11px 0;
+        left: -10px;
+    }
+    /*right */
 
     .footer-right{
         float: right;
         margin-top: 6px;
+        padding-right: 10px;
         max-width: 180px;
     }
-    .footer-left{
-        float: left;
-        margin-top: 6px;
-        max-width: 180px;
+
+    p.right:after{
+        border-width: 9px 0 9px 9px;
+        right: -9px;
     }
-    /* Footer links */
+    p.right:before{
+        border-width: 11px 0 11px 10px;
+        right: -10px;
+    }
+
+
+    /* +++++++++++++++++++++++++++++ */
+
+    /*
+        .footer-distributed .footer-left p{
+            color:  #8f9296;
+            font-size: 14px;
+            margin: 0;
+        }*/
+
+    /* Footer links - mozda nebitno*/
 
     .footer-distributed p.footer-links{
         font-size:18px;
@@ -95,7 +167,8 @@
         margin-left: 3px;
     }
 
-    /* If you don't want the footer to be responsive, remove these media queries */
+    /*---do ovde
+     If you don't want the footer to be responsive, remove these media queries */
 
     @media (max-width: 600px) {
 
@@ -118,9 +191,11 @@
 
     <div class="footer-right" onmouseover="show(1)" onmouseleave="show(2)">
         <img src="img/avatar.png"/>
+
     </div>
     <div class="footer-right"  onmouseover="show(1)" onmouseleave="show(2)"> <!-- mora ovako da bi islo s leve strane -->
         <div class="info1"></div>
+
     </div>
 
 
