@@ -129,6 +129,7 @@
             $info = $row['information'];
             $bday2 = $row['birth_date'];
             $public = $row['public'];
+            $pic_path = $row['pic_path'];
             if(in_array($fid, $following)){
                 $fol = $lang['Unfollow'];
             }
