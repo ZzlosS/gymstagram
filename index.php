@@ -1,5 +1,7 @@
 <?php
 	require_once 'basic.php';
+	if(!$loggedIn){
+		
 ?>
 
 <script>
@@ -146,3 +148,8 @@
 
 	</body>
 </html>
+<?php
+	}
+	else{
+		echo "<script>location.replace('home.php');</script>";
+	}

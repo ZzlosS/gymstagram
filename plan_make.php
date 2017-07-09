@@ -6,7 +6,9 @@ require_once 'checklanguage.php';
         $id_mc = $_POST['id_mc'];
         $id = $_POST['id'];
         $day = $_POST['day'];
-
+        if($day == 0){
+            $day = 7;
+        }
         if($id_mc != 0){
             $result = qM("SELECT * FROM exercise WHERE mc_id=$id_mc");
             $n = $result->num_rows;
@@ -121,7 +123,7 @@ require_once 'checklanguage.php';
             <div class='desc'></div>
             <br><br>";
                     break;
-                case('7'):
+                case('7'): case('0'):
                     $day_name = "<a href='#' onclick='day_show(7)'>".$lang['Sunday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(7,3)'><i class='icon-edit'></i></a><br><br>
             <div class='desc'></div>
             <br><br>";
@@ -242,7 +244,7 @@ require_once 'checklanguage.php';
             case('6'):
                 $day_name = $lang['Saturday'];
                 break;
-            case('7'):
+            case('7'): case('0'):
                 $day_name = $lang['Sunday'];
                 break;
         }
@@ -265,6 +267,9 @@ require_once 'checklanguage.php';
         $id = $_POST['id'];
         $type = $_POST['type'];
         $today = $_POST['today'];
+        if($today == 0){
+            $today = 7;
+        }
 
         switch ($day) {
             case('1'):
@@ -285,7 +290,7 @@ require_once 'checklanguage.php';
             case('6'):
                 $day_name = $lang['Saturday'];
                 break;
-            case('7'):
+            case('7'): case('0'):
                 $day_name = $lang['Sunday'];
                 break;
         }

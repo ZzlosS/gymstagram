@@ -2,11 +2,15 @@
 require_once 'functions.php';
 require_once 'checklanguage.php';
 
+if(!isset($_POST['id'])){ die("<script>location.replace('plan.php')</script>");}
 $daily = $_POST['daily']; //onload je 1 - weekly, a daily salje 2
 $id = $_POST['id'];
 
 if($daily == 2) {
     $day = $_POST['day'];
+    if($day == 0){
+        $day = 7;
+    }
     $previous = $day - 1;
     $next = $day + 1;
     if(isset($_POST['today'])){ //ako se otvori pregled preko linka nekog dana, onda se ne setuje today pa mora ovako
@@ -14,6 +18,9 @@ if($daily == 2) {
     }
     else{
         $today = $day;
+    }
+    if($today == 0){
+        $today = 7;
     }
     $result = qM("SELECT p.user_id,p.from,p.to,p.day,mg.name_mc,(SELECT name_e FROM exercise WHERE id_e=p.ex1_id) AS ex1,(SELECT name_e FROM exercise WHERE id_e=p.ex2_id) AS ex2,(SELECT name_e FROM exercise WHERE id_e=p.ex3_id) AS ex3,(SELECT name_e FROM exercise WHERE id_e=p.ex4_id) AS ex4 FROM `plan` AS p LEFT JOIN `muscle_group` AS mg ON p.muscle_group_id=mg.id_m WHERE p.`user_id`=$id AND p.`day`=$day");
     $row = $result->fetch_assoc();
@@ -37,7 +44,7 @@ if($daily == 2) {
         case('6'):
             $day_name = $lang['Saturday'];
             break;
-        case('7'):
+        case('7'):case('0'):
             $day_name = $lang['Sunday'];
             break;
     }
@@ -149,7 +156,7 @@ else{ //default ispis nedelje
                 $view = "<a href='#' title='".$lang['Clear']."' style='float: left' id='t' onclick='clear_day($day,1)'><i class='icon-trash'></i></a><a href='#' onclick='day_show(6)'>".$lang['Saturday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(6,1)'><i class='icon-edit'></i></a><br><br><div class='desc'><b>".$lang['From'].":</b> ".$from.":00 <b>".$lang['To'].":</b> ".$to.":00<br><b>".$lang['Muscle Group'].":</b><br>".$muscle_group."<br><b>".$lang['Exercise'].":</b><br>".$ex1. "<br><b>".$lang['Exercise'].":</b><br>".$ex2."<br><b>".$lang['Exercise'].":</b><br>".$ex3."<br><b>".$lang['Exercise'].":</b><br>".$ex4."</div>";
                 echo '<script>document.getElementById("sat").innerHTML = "'.$view.'"</script>';
                 break;
-            case('7'):
+            case('7'): case('0'):
                 $view = "<a href='#' title='".$lang['Clear']."' style='float: left' id='t' onclick='clear_day($day,1)'><i class='icon-trash'></i></a><a href='#' onclick='day_show(7)'>".$lang['Sunday']."</a><a href='#' style='float: right' title='".$lang['Edit']."' onclick='enable(7,1)'><i class='icon-edit'></i></a><br><br><div class='desc'><b>".$lang['From'].":</b> ".$from.":00 <b>".$lang['To'].":</b> ".$to.":00<br><b>".$lang['Muscle Group'].":</b><br>".$muscle_group."<br><b>".$lang['Exercise'].":</b><br>".$ex1. "<br><b>".$lang['Exercise'].":</b><br>".$ex2."<br><b>".$lang['Exercise'].":</b><br>".$ex3."<br><b>".$lang['Exercise'].":</b><br>".$ex4."</div>";
                 echo '<script>document.getElementById("sun").innerHTML = "'.$view.'"</script>';
                 break;

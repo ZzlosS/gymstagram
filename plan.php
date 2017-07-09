@@ -1,6 +1,6 @@
 <?php
 require_once 'basic.php';
-
+if(!$loggedIn) die("<script>location.replace('home.php')</script>");
 
 ?>
 <style>
@@ -173,7 +173,7 @@ require_once 'basic.php';
                         case('6'):
                             $('#sat').html(res[1]);
                             break;
-                        case('7'):
+                        case('7'): case('0'):
                             $('#sun').html(res[1]);
                             break;
                     }

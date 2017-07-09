@@ -32,12 +32,14 @@
                         $result = qM("SELECT * FROM `members`");
                         $toRet = "";
                         while ($r = $result->fetch_assoc()){
-                            $gn = $r['gym_name'];
-                            $n = $r['name'];
-                            $ln = $r['lname'];
-                            $id = $r['id'];
+                            if($r['gym_name'] != 'admin'){
+                                $gn = $r['gym_name'];
+                                $n = $r['name'];
+                                $ln = $r['lname'];
+                                $id = $r['id'];
 
-                            $toRet .= "<option value='$id'>". $n . " " . $ln . " @" . $gn . "</option>";
+                                $toRet .= "<option value='$id'>". $n . " " . $ln . " @" . $gn . "</option>";
+                            }
                         }
 
                         $toRet .= "</select>";
