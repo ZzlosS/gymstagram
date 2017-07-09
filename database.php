@@ -8,7 +8,7 @@
 <body>
 <h3>Setting up...</h3>
 	<?php
-		require_once 'functions.php'; 
+		require_once 'functions.php';
 		
 		cT('`members`', 
 				'`id` INT UNSIGNED AUTO_INCREMENT,

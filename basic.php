@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+<!--
+radi tek kad se 2 puta klikne na isto...
         <script>
             function langu(lan) {
                 if(lan === 1){
@@ -31,7 +32,7 @@
             }
         </script>
 
-
+-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -180,8 +181,10 @@
                                     <div class="dropdown1">
                                         <button class="dropbtn1"><?php echo $lang['Language'];?></button>
                                         <div class="dropdown-content1">
-                                            <a href="javascript:window.location.reload();" onclick="langu(1)"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
-                                            <a href="javascript:window.location.reload();" onclick="langu(2)"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
+                                            <!--<a href="javascript:window.location.reload();" onclick="langu(1)"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
+                                            <a href="javascript:window.location.reload();" onclick="langu(2)"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>-->
+                                            <a href="home.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
+                                            <a href="home.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
                                         </div>
                                     </div>
                                 </div>
@@ -282,8 +285,10 @@
                                     <div class="dropdown1">
                                         <button class="dropbtn1"> <?php echo $lang['Language']; ?></button>
                                         <div class="dropdown-content1" id="lang">
-                                            <a href="javascript:window.location.reload();" onclick="langu(1)"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
-                                            <a href="javascript:window.location.reload();" onclick="langu(2)"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
+                                           <!-- <a href="javascript:window.location.reload();" onclick="langu(1)"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
+                                            <a href="javascript:window.location.reload();" onclick="langu(2)"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>-->
+                                            <a href="home.php?lang=en"><img src="languages/en.png" /> <?php echo $lang['LanguageE'];?></a>
+                                            <a href="home.php?lang=sr"><img src="languages/sr.png" /> <?php echo $lang['LanguageS'];?></a>
                                         </div>
                                     </div>
                                 </div>
