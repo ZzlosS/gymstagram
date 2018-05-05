@@ -29,7 +29,7 @@
     $error = $checked2 = $checked = $yes = $no = "";
     $result = qM("SELECT * FROM `members` WHERE `email`='$email'");
     if($result->num_rows){
-        $row = $result->fetch_array(MYSQL_ASSOC);
+        $row = $result->fetch_array();
         $name = $row['name'];
         $lname = $row['lname'];
         $info = $row['information'];
@@ -63,7 +63,7 @@
 
     $result5 = qM("SELECT * FROM `pictures` WHERE `user_id`=$id");
     if($result5->num_rows){
-        $row4 = $result5->fetch_assoc();
+        $row4 = $result5->fetch_assoc(MYSQLI_ASSOC);
         $album_id = $row4['id'];
         $user_id = $row4['user_id'];
         $pic_desc = $row4['pic_desc'];
@@ -120,7 +120,7 @@
         $mgn = sS($_GET['gn']);
         $result = qM("SELECT * FROM `members` WHERE `gym_name`='$mgn'");
         if($result->num_rows){
-            $row = $result->fetch_array(MYSQL_ASSOC);
+            $row = $result->fetch_array();
             $fid = $row['id'];
             $gname = $row['gym_name'];
             $email = $row['email'];

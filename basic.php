@@ -1,6 +1,8 @@
 <?php
 	
-	session_start();
+    session_start();
+    var_dump(MYSQLI_ASSOC);
+    var_dump("TESTETSTETSTE");
 	?>
     <!DOCTYPE html>
 	<html><head>
@@ -107,14 +109,16 @@ radi tek kad se 2 puta klikne na isto...
 	$id = "";
     date_default_timezone_set("CET");
     $date = date("Y-m-d H:i:s"); //date_default_timezone_set jer ovako ne pokazuje tacno vreme
-
+  
 	if(isset($_SESSION['email'])){
 		$id = $_SESSION['id'];
 		$email = $_SESSION['email'];
 		$loggedIn = TRUE;
 		$loggedIn2 = 1;
-		$result = qM("SELECT * FROM `members` WHERE `email`='$email'");
-        $row = $result->fetch_array(MYSQL_ASSOC);
+        $result = qM("SELECT * FROM `members` WHERE `email` = '$email'");
+       
+        $row = $result->fetch_array();
+        
         $role = $row['role'];
         $public = $row['public'];
 
@@ -122,7 +126,8 @@ radi tek kad se 2 puta klikne na isto...
 			$gname = $row['gym_name'];
 			$pic = $row['pic_path'];
 			$userstr = " (@$gname)";
-		}
+        }
+        
 
         $result2 = qM("SELECT * FROM `gym_buddies` WHERE `user_id`=$id");
         $following = array();

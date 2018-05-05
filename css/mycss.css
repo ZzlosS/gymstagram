@@ -518,11 +518,11 @@ form:after {
 	}
 
 a::before {
-	color: #ff6c40;// #fff;
+	color: #ff6c40;
 	content: attr(data-hover);
 	position: absolute;
 	opacity: 0;
-// text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	 text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	-webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
 	-moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
 	transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);

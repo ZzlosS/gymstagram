@@ -72,7 +72,7 @@
 		$result = qM("SELECT * FROM `pictures` WHERE `user_id` = $user_id ORDER BY  `date_update` DESC");
 		if($n = $result->num_rows){
 			for($j = 0; $j < $n; $j++){
-				$row = $result->fetch_array(MYSQL_ASSOC);
+				$row = $result->fetch_array();
 				echo "<div class='gallery'>
                         <a rel='gall' class='fancybox' caption='". $row['pic_desc'] ."' href='".$row['pic_path']."'>
                          <img src='".$row['pic_path']."' alt = '' >
@@ -88,7 +88,7 @@
         $result = qM("SELECT * FROM `pictures` WHERE `user_id` = $user_id ORDER BY  `date_update` DESC");
         if($n = $result->num_rows){
             for($j = 0; $j < $n; $j++){
-                $row = $result->fetch_array(MYSQL_ASSOC);
+                $row = $result->fetch_array();
                 echo "<div class='gallery'>
                         <a rel='gall' class='fancybox' caption='". $row['pic_desc'] ."' href='".$row['pic_path']."'>
                          <img src='".$row['pic_path']."' alt = '' >

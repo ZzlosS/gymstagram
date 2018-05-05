@@ -1,7 +1,10 @@
 <?php
 require_once 'basic.php';
     if($loggedIn){
-        $result = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` WHERE `public`=1 OR `m`.`id`=$id $or ORDER BY `date_update` DESC LIMIT 0,2");
+        $result = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc 
+                FROM `pictures` AS `p` 
+                LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` 
+                WHERE `public`=1 OR `m`.`id`=$id $or ORDER BY `date_update` DESC LIMIT 0,2");
     }
     else{
         $result = qM("SELECT m.id,m.name,m.gym_name,m.public,p.user_id,p.date_update,p.pic_path,p.pic_desc FROM `pictures` AS `p` LEFT JOIN `members` as `m` ON `p`.`user_id`=`m`.`id` WHERE `public`=1 ORDER BY `date_update` DESC LIMIT 0,2");
@@ -39,6 +42,7 @@ require_once 'basic.php';
         <div class="images" align="center">
             <?php
             while($row = $result->fetch_assoc()){
+                
                 $fid = $row['id']; //id korisnika
                 $public = $row['public'];
                 if($loggedIn){
